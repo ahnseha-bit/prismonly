@@ -13,7 +13,6 @@ export default function LandingPage() {
         onClick={() => navigate("/main")}
         className="group relative flex flex-col items-center space-y-8"
       >
-        {/* 중앙 로고 이미지 (logo_900.png) */}
         <img
           src="/img/logo_900.png"
           alt="Enter to PRISM"

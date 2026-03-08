@@ -3,15 +3,14 @@ import DDayCounter from "../components/DDayCounter";
 
 export default function MainPage() {
   return (
-    {/* 상단 패딩 축소 및 화면 높이(100dvh) 고정 */ }
-    < div className = "fluid-container h-[100dvh] pt-[12vh] pb-[6vh] flex flex-col relative z-10" >
+    <div className="fluid-container h-[100dvh] pt-[12vh] pb-[6vh] flex flex-col relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center flex-1 min-h-0 space-y-[4vh] w-full"
       >
-        {/* D-Day Area (공간 고정: shrink-0) */}
+        {/* D-Day Area */}
         <div className="text-center shrink-0">
           <p className="text-[10px] tracking-[0.5em] uppercase mb-4 text-slate-400">Countdown to Prism</p>
           <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal italic">
@@ -19,14 +18,12 @@ export default function MainPage() {
           </div>
         </div>
 
-        {/* Schedule Section (남은 공간 모두 차지: flex-1) */}
+        {/* Schedule Section */}
         <div className="w-full max-w-2xl shadow-frame">
           <div className="outer-holo-line">
-            {/* 중간 bg-white 레이어에도 flex 속성 필수 적용 */}
             <div className="p-[2px] bg-white flex flex-col flex-1 min-h-0 w-full">
               <div className="inner-holo-line">
                 <div className="main-board">
-                  {/* 내부 스크롤 콘텐츠 시작 */}
                   <h1 className="title-accent text-xl mb-8">Schedule</h1>
 
                   <div className="space-y-6 text-slate-600 leading-[2.1] font-sans">
@@ -45,7 +42,6 @@ export default function MainPage() {
                     </div>
                   </div>
 
-                  {/* 스크롤 테스트를 위한 임시 여백 (나중에 지우셔도 됩니다) */}
                   <div className="h-[20vh]" />
                 </div>
               </div>
@@ -53,11 +49,11 @@ export default function MainPage() {
           </div>
         </div>
 
-        {/* Footer Text (공간 고정: shrink-0) */}
+        {/* Footer Text */}
         <div className="text-[10px] tracking-[0.3em] text-slate-300 uppercase shrink-0">
-          ⓒ KING of PRISM 온리전 ✧ 「몇번이라도 프리즘!」
+          Now Loading...
         </div>
       </motion.div>
-    </div >
+    </div>
   );
 }
