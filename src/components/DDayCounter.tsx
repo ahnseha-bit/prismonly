@@ -29,14 +29,15 @@ export default function DDayCounter({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex flex-col items-center space-y-2 md:space-y-4">
-      <div className="text-5xl md:text-9xl font-metal font-extralight tracking-tighter bg-linear-to-r from-hologram-1 via-hologram-3 via-hologram-5 to-hologram-7 text-transparent bg-clip-text pb-2">
+    <div className="flex flex-col items-center space-y-4">
+      {/* px-4, pb-2를 추가하여 숫자가 잘리지 않도록 여유 공간 확보 */}
+      <div className="text-5xl md:text-8xl font-metal font-extralight tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink px-4 pb-2">
         D-{timeLeft.days}
       </div>
-      <div className="flex space-x-4 md:space-x-8 text-[12px] md:text-[14px] tracking-[0.2em] text-slate-400 font-sans font-medium">
-        <span>{String(timeLeft.hours).padStart(2, '0')}시간</span>
-        <span>{String(timeLeft.minutes).padStart(2, '0')}분</span>
-        <span>{String(timeLeft.seconds).padStart(2, '0')}초</span>
+
+      {/* 너무 크지 않게, 깔끔한 문장형으로 변경 */}
+      <div className="text-sm md:text-base font-sans text-slate-500 font-medium">
+        개최까지 {timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초!
       </div>
     </div>
   );
