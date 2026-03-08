@@ -16,6 +16,7 @@ const StarBackground: React.FC = () => {
     let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
+    const BUBBLE_COLORS = ['#ffd2d2', '#ffe3c7', '#fff5c1', '#ebfbce', '#c0ffee', '#afe7ff', '#dbcbff', '#ffd6f1', '#BAE6FD', '#FEF08A'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -40,21 +41,39 @@ const StarBackground: React.FC = () => {
       color!: string;
       opacity!: number;
       blink!: number;
+      vx!: number;
+      vy!: number;
 
       constructor() { this.reset(true); }
 
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 50 + 50;
-        this.opacity = initial ? Math.random() * 0.15 : 0;
-        this.blink = 0.001 + Math.random() * 0.0015;
+
+        const sizeType = Math.floor(Math.random() * 3);
+        if (sizeType === 0) {
+          this.size = Math.random() * 15 + 15;
+        } else if (sizeType === 1) {
+          this.size = Math.random() * 20 + 35;
+        } else {
+          this.size = Math.random() * 25 + 60;
+        }
+
+        this.color = BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)];
+        this.opacity = initial ? Math.random() * 0.3 : 0;
+        this.blink = 0.006 + Math.random() * 0.006;
+
+        this.vx = (Math.random() - 0.5) * 0.3;
+        this.vy = (Math.random() - 0.5) * 0.3;
       }
 
       draw() {
+        this.x += this.vx;
+        this.y += this.vy;
+
         this.opacity += this.blink;
-        if (this.opacity > 0.15) {
-          this.opacity = 0.15;
+        if (this.opacity > 0.4) {
+          this.opacity = 0.4;
           this.blink *= -1;
         } else if (this.opacity < 0 && this.blink < 0) {
           this.reset();
@@ -63,11 +82,10 @@ const StarBackground: React.FC = () => {
         if (!ctx) return;
 
         const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        grad.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
-        grad.addColorStop(0.3, '#62F7D240'); // 민트
-        grad.addColorStop(0.5, '#FCBC5C40'); // 오렌지
-        grad.addColorStop(0.7, '#B377FF40'); // 보라
-        grad.addColorStop(1, '#5B7BFEA0'); // 블루
+        grad.addColorStop(0, `${this.color}00`);
+        grad.addColorStop(0.5, `${this.color}20`);
+        grad.addColorStop(0.8, `${this.color}80`);
+        grad.addColorStop(1, `${this.color}00`);
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.opacity);
@@ -174,7 +192,7 @@ const StarBackground: React.FC = () => {
       ctx.scale(dpr, dpr);
 
       stars = Array.from({ length: 50 }, () => new Star());
-      bubbles = Array.from({ length: 6 }, () => new Bubble());
+      bubbles = Array.from({ length: 12 }, () => new Bubble());
     };
 
     const spawn = () => {
