@@ -13,8 +13,10 @@ const StarBackground: React.FC = () => {
     let width: number, height: number;
     let stars: Star[] = [];
     let shootingStars: ShootingStar[] = [];
+    let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
+    const HOLO_COLORS = ['#ffd2d2', '#ffe3c7', '#fff5c1', '#ebfbce', '#c0ffee', '#afe7ff', '#dbcbff', '#ffd6f1'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -32,6 +34,50 @@ const StarBackground: React.FC = () => {
       ctx.restore();
     }
 
+    class Bubble {
+      x!: number;
+      y!: number;
+      size!: number;
+      color!: string;
+      opacity!: number;
+      blink!: number;
+
+      constructor() { this.reset(true); }
+
+      reset(initial = false) {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 100 + 150;
+        this.color = HOLO_COLORS[Math.floor(Math.random() * HOLO_COLORS.length)];
+        this.opacity = initial ? Math.random() * 0.15 : 0;
+        this.blink = 0.001 + Math.random() * 0.0015;
+      }
+
+      draw() {
+        this.opacity += this.blink;
+        if (this.opacity > 0.15) {
+          this.opacity = 0.15;
+          this.blink *= -1;
+        } else if (this.opacity < 0 && this.blink < 0) {
+          this.reset();
+        }
+
+        if (!ctx) return;
+
+        const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        grad.addColorStop(0, this.color);
+        grad.addColorStop(1, `${this.color}00`);
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.opacity);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
     class Star {
       x!: number;
       y!: number;
@@ -43,6 +89,7 @@ const StarBackground: React.FC = () => {
       rotSpeed!: number;
 
       constructor() { this.reset(); }
+
       reset() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
@@ -53,6 +100,7 @@ const StarBackground: React.FC = () => {
         this.rotation = Math.random() * Math.PI * 2;
         this.rotSpeed = (Math.random() - 0.5) * 0.02;
       }
+
       draw() {
         this.opacity += this.blink;
         if (this.opacity > 0.8 || this.opacity < 0.1) this.blink *= -1;
@@ -73,6 +121,7 @@ const StarBackground: React.FC = () => {
       color!: string;
 
       constructor() { this.reset(); }
+
       reset() {
         this.x = Math.random() * width + 200;
         this.y = Math.random() * height * 0.2 - 200;
@@ -81,6 +130,7 @@ const StarBackground: React.FC = () => {
         this.opacity = 1;
         this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
       }
+
       draw() {
         if (!ctx) return false;
         const grad = ctx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
@@ -123,6 +173,7 @@ const StarBackground: React.FC = () => {
       ctx.scale(dpr, dpr);
 
       stars = Array.from({ length: 50 }, () => new Star());
+      bubbles = Array.from({ length: 6 }, () => new Bubble());
     };
 
     const spawn = () => {
@@ -133,8 +184,11 @@ const StarBackground: React.FC = () => {
     const animate = () => {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
+
+      bubbles.forEach(b => b.draw());
       stars.forEach(s => s.draw());
       shootingStars = shootingStars.filter(ss => ss.draw());
+
       requestAnimationFrame(animate);
     };
 
