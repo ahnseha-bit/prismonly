@@ -12,7 +12,7 @@ export default function MainPage() {
       >
         {/* D-Day Area */}
         <div className="text-center shrink-0 mt-4 md:mt-0 flex flex-col items-center">
-          <span className="bg-accent-gold text-white px-4 py-1.5 text-[11px] md:text-sm rounded-full tracking-widest uppercase font-serif inline-block mb-4 md:mb-5">
+          <span className="bg-accent-gold text-white px-4 py-1.5 text-[11px] md:text-sm rounded-full tracking-widest uppercase font-serif inline-block mb-2 md:mb-3">
             Countdown to Prism
           </span>
           <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal">
