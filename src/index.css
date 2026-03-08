@@ -22,13 +22,8 @@
   --color-holo-7: #dbcbff;
   --color-holo-8: #ffd6f1;
 
-  --color-gold-1: #bf953f;
-  --color-gold-2: #fcf6ba;
-  --color-gold-3: #b38728;
-  --color-gold-4: #fbf5b7;
-
   --color-shadow-blue: #bae6fd;
-  --color-accent-purple: #7c3aed;
+  --color-accent-gold: #b39242;
 }
 
 @layer base {
@@ -56,13 +51,11 @@
   }
 
   .outer-gold-line {
-    background-image: linear-gradient(to top right, theme(colors.gold-1), theme(colors.gold-2), theme(colors.gold-3), theme(colors.gold-4));
-    @apply p-[3px] flex flex-col w-full;
+    @apply bg-accent-gold p-[3px] flex flex-col w-full;
   }
 
   .inner-gold-line {
-    background-image: linear-gradient(to bottom left, theme(colors.gold-1), theme(colors.gold-2), theme(colors.gold-3), theme(colors.gold-4));
-    @apply p-[1px] flex flex-col w-full;
+    @apply bg-accent-gold p-[1px] flex flex-col w-full;
   }
 
   .wireframe-box {
@@ -82,7 +75,7 @@
   }
 
   .title-accent {
-    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
+    @apply text-accent-gold italic font-bold tracking-[0.3em] uppercase;
   }
 }
 

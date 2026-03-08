@@ -32,7 +32,7 @@ export default function InfoPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-between">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-purple m-0 shrink-0">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold m-0 shrink-0">
                     Info
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 ml-4">
@@ -41,7 +41,7 @@ export default function InfoPage() {
                         key={item.id}
                         onClick={() => navigate(`/info/${item.id}`)}
                         className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${activeTab === item.id
-                            ? "bg-accent-purple text-white"
+                            ? "bg-accent-gold text-white"
                             : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
@@ -98,7 +98,7 @@ export default function InfoPage() {
                               동인 문화 및 CP 개념에 익숙하지 않은 분들의 참관은 권장하지 않습니다.
                             </p>
                             <p className="text-[11px] md:text-sm">
-                              문의: <a href="mailto:prismonlyevent@gmail.com" className="text-accent-purple underline">prismonlyevent@gmail.com</a>
+                              문의: <a href="mailto:prismonlyevent@gmail.com" className="text-accent-gold underline">prismonlyevent@gmail.com</a>
                             </p>
                           </div>
                         </div>
