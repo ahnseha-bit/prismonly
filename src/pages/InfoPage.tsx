@@ -46,7 +46,7 @@ export default function InfoPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-between">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold m-0 shrink-0">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-metal italic text-accent-gold m-0 shrink-0">
                     Info
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 ml-4">
@@ -92,24 +92,24 @@ export default function InfoPage() {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 bg-slate-50 p-6 md:p-8 rounded-lg">
                         <section className="space-y-2">
-                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 일시</p>
+                          <p className="text-[10px] md:text-xs tracking-widest text-accent-gold font-bold">개최 일시</p>
                           <p className="font-medium">2026년 7월 4일 (토요일)</p>
                         </section>
                         <section className="space-y-2">
-                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 장소</p>
+                          <p className="text-[10px] md:text-xs tracking-widest text-accent-gold font-bold">개최 장소</p>
                           <p className="font-medium">서울 <br /><span className="text-xs text-slate-400 font-normal">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
                         </section>
                         <section className="space-y-2">
-                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">참관 대상</p>
+                          <p className="text-[10px] md:text-xs tracking-widest text-accent-gold font-bold">참관 대상</p>
                           <p className="font-medium">2026년 기준 14세 (중학생) 이상 여성 참관객</p>
                           <p className="text-[11px] md:text-xs text-slate-500 italic mt-1 leading-relaxed">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
                         </section>
                         <section className="space-y-2">
-                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 판매일</p>
+                          <p className="text-[10px] md:text-xs tracking-widest text-accent-gold font-bold">입장권 판매일</p>
                           <p className="font-medium">추후 공개</p>
                         </section>
                         <section className="space-y-2 md:col-span-2 border-t border-slate-200/60 pt-5 mt-2">
-                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 구성</p>
+                          <p className="text-[10px] md:text-xs tracking-widest text-accent-gold font-bold">입장권 구성</p>
                           <p className="font-medium">행사 안내 및 이벤트 참가용 공식 팜플렛 + 전프레 <span className="text-xs text-slate-400 font-normal">(행사 전원 증정 기념품)</span></p>
                         </section>
                       </div>

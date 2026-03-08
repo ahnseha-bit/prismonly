@@ -24,7 +24,7 @@ export default function EventPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-center md:justify-start">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold inline-block m-0">Event</h2>
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-metal italic text-accent-gold inline-block m-0">Event</h2>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function EventPage() {
                           "응원 상영"
                         ].map((event, i) => (
                           <div key={i} className="p-5 md:p-6 border border-slate-100 rounded-lg hover:border-accent-gold/30 transition-colors group">
-                            <p className="text-[10px] md:text-xs text-slate-300 mb-2 uppercase tracking-widest">Event {i + 1}</p>
+                            <p className="text-[10px] md:text-xs text-slate-300 mb-2 tracking-widest">Event {i + 1}</p>
                             <p className="font-bold text-sm md:text-base text-slate-700 group-hover:text-accent-gold transition-colors">{event}</p>
                           </div>
                         ))}

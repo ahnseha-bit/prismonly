@@ -12,7 +12,7 @@ export default function MainPage() {
       >
         {/* D-Day Area */}
         <div className="text-center shrink-0 mt-4 md:mt-0 flex flex-col items-center">
-          <span className="bg-transparent text-accent-gold px-3 py-1 text-[11px] md:text-sm rounded-sm tracking-wide uppercase font-serif font-light inline-block mb-4 md:mb-5 leading-tight border border-accent-gold">
+          <span className="bg-transparent text-accent-gold px-3 py-1 text-[11px] md:text-sm rounded-sm tracking-wide font-serif font-light inline-block mb-4 md:mb-5 leading-tight border border-accent-gold">
             Countdown to Prism
           </span>
           <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal">
@@ -50,7 +50,7 @@ export default function MainPage() {
               <div className="inner-holo-line flex flex-col">
                 <div className="main-board p-5 md:p-8">
                   <div className="w-full aspect-video wireframe-box bg-slate-50/50 min-h-[180px]">
-                    <span className="text-[10px] tracking-[0.5em] text-slate-300">SCHEDULE TABLE AREA</span>
+                    <span className="text-[10px] tracking-[0.5em] text-slate-300">Schedule Table Area</span>
                   </div>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export default function MainPage() {
         </div>
 
         {/* Footer Text */}
-        <div className="text-[10px] tracking-[0.3em] text-slate-300 uppercase shrink-0 pt-4 md:pt-0">
+        <div className="text-[10px] tracking-[0.3em] text-slate-300 shrink-0 pt-4 md:pt-0">
           Now Loading...
         </div>
       </motion.div>

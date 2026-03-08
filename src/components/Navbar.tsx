@@ -38,7 +38,7 @@ export default function Navbar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[10px] uppercase font-metal tracking-[0.3em] transition-all duration-400 hover:text-accent-gold ${location.pathname.startsWith(item.path) ? "text-accent-gold font-bold" : "text-slate-400"
+                className={`text-[10px] font-metal tracking-[0.3em] transition-all duration-400 hover:text-accent-gold ${location.pathname.startsWith(item.path) ? "text-accent-gold font-bold" : "text-slate-400"
                   }`}
               >
                 {item.name}
@@ -83,7 +83,7 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-2xl font-metal italic font-light tracking-[0.2em] uppercase transition-colors ${location.pathname === item.path ? "text-accent-gold font-bold" : "text-slate-300 hover:text-slate-500"
+                    className={`text-2xl font-metal italic font-light tracking-[0.2em] transition-colors ${location.pathname === item.path ? "text-accent-gold font-bold" : "text-slate-300 hover:text-slate-500"
                       }`}
                   >
                     {item.name}

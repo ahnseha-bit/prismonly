@@ -33,7 +33,7 @@ export default function BoothPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex flex-col md:flex-row md:items-center justify-between">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-metal italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
                     Booth
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 md:ml-4 w-full md:w-auto pb-2 md:pb-0">
@@ -77,7 +77,7 @@ export default function BoothPage() {
                           <div className="space-y-6 md:space-y-8">
                             <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄱ. 부스 리스트</h3>
                             <div className="bg-slate-50 p-4 md:p-8 rounded-lg border border-slate-100">
-                              <p className="text-[10px] md:text-xs text-slate-400 mb-6 uppercase tracking-widest">현재 공개 정보</p>
+                              <p className="text-[10px] md:text-xs text-slate-400 mb-6 tracking-widest">현재 공개 정보</p>
                               <div className="grid grid-cols-2 gap-4 border-b border-slate-200 pb-2 mb-4 text-[11px] md:text-xs font-bold text-slate-400">
                                 <span>부스명</span>
                                 <span>참가자 닉네임</span>
