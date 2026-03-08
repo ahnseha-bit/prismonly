@@ -148,28 +148,79 @@ export default function InfoPage() {
                       )}
 
                       {activeTab === "02" && (
-                        <div className="space-y-6 md:space-y-8">
-                          <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄴ. 참관객 안내사항</h3>
-                          <ul className="list-disc list-inside space-y-2 text-sm">
-                            <li>행사장 내 노출 행위 및 옷 벗기 금지</li>
-                            <li>배틀, 프리즘 러쉬 및 프리즘쇼 금지</li>
-                            <li>장내 코스프레는 기준에 따라 제한됩니다</li>
-                            <li>행사장 위치 외부 공개 금지</li>
-                            <li>성인본 대리 구매 금지</li>
-                            <li>행사장 내 고성방가 금지</li>
-                            <li>행사 시작 전 조기 대기 및 줄서기 금지</li>
-                          </ul>
+                        <div className="space-y-8 md:space-y-10">
 
-                          <div className="bg-slate-50 p-5 md:p-6 rounded-lg space-y-3">
-                            <h4 className="font-bold text-slate-700">코스프레 규정</h4>
-                            <p className="text-[13px] md:text-sm">
-                              일반 참관객 및 부스 참관객의 코스프레 의상 착용이 가능합니다. <br />
-                              다만, 노출이 있는 선정적인 의상이나, 통행에 방해가 될 수 있는 부피가 큰 의상, 공식에 없는 코스튬은 불가능합니다.
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                              <span className="text-accent-gold">✧</span> 참관객 안내
+                            </h3>
+                          </div>
+
+                          <div className="bg-gradient-to-r from-slate-50 to-transparent p-5 md:p-6 rounded-lg border-l-4 border-accent-gold space-y-2">
+                            <p className="font-bold text-slate-700 text-sm md:text-base flex items-center gap-2">
+                              <span className="text-accent-gold">💡</span> 현금 결제 수단 준비 권장
                             </p>
-                            <p className="text-[11px] md:text-xs text-slate-400 italic">
-                              ※ 화장실에서 의상을 착용하거나 장시간 메이크업을 하는 행위를 금지합니다.
+                            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                              행사장 내 통행 정체현상(줄, 대기) 완화를 위해 참관객과 부스 참관객 모두
+                              <strong className="text-accent-gold"> 현금 결제 수단(천원권, 오천원권)</strong>을 준비해 주시기를 권장드립니다.
                             </p>
                           </div>
+
+                          <div className="space-y-4 md:space-y-5">
+                            <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-slate-700">
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>
+                                  <strong className="font-bold text-slate-800">행사 당일 신분증을 확인합니다.</strong> 티켓 구매자명과 신분증의 이름이 다를 경우 입장이 불가능합니다. 꼭 인정되는 신분증을 확인하여 지참해주시기 바랍니다.
+                                </span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>행사장 위치는 오직 티켓을 구입한 참가자에게만 공개됩니다. <strong className="text-slate-800">외부에 행사장 위치를 발설하지 말아주세요.</strong></span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>통행을 방해할 수 있는 <strong className="text-slate-800">배틀, 프리즘 러쉬 및 프리즘 쇼</strong>는 금지입니다.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>행사장 내 코스프레는 하단에 쓰여진 규칙을 따라주세요.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>미성년자의 <strong className="text-slate-800">성인본 대리 구매</strong>를 엄격히 금지합니다.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>행사장 내에서 <strong className="text-slate-800">성인본을 개봉할 수 없습니다.</strong></span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>행사장 내에서 고성방가 및 불쾌감을 조성하는 행위를 금지합니다.</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
+                                <span>행사 시작 전 <strong className="text-slate-800">조기 대기 및 줄서기</strong>를 금지합니다.</span>
+                              </li>
+                            </ul>
+                            <p className="text-[11px] md:text-xs text-slate-400 italic pt-2 pl-6">
+                              ※ 안내사항은 추후 업데이트 될 수 있습니다.
+                            </p>
+                          </div>
+
+                          <div className="bg-slate-50 p-6 md:p-8 rounded-lg space-y-4">
+                            <h4 className="font-bold text-slate-800 text-base md:text-lg flex items-center gap-2 pb-3 border-b border-slate-200">
+                              <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 코스프레 규정
+                            </h4>
+                            <p className="text-sm md:text-base text-slate-700 leading-relaxed">
+                              일반 참관객 및 부스 참관객의 코스프레 의상 착용이 가능합니다. <br className="hidden md:block" />
+                              다만, <strong className="text-rose-400 font-medium">노출이 있는 선정적인 의상</strong>이나, <strong className="text-rose-400 font-medium">통행에 방해가 될 수 있는 부피가 큰 의상</strong>, <strong className="text-rose-400 font-medium">공식에 없는 코스튬</strong>은 불가능합니다.
+                            </p>
+                            <div className="mt-4 p-4 bg-white border border-rose-100 rounded text-[12px] md:text-sm text-slate-600 shadow-sm">
+                              <span className="text-rose-500 font-bold mr-1">※ 주의:</span> 화장실에서 의상을 착용하거나 장시간 메이크업을 하는 행위를 엄격히 금지합니다.
+                            </div>
+                          </div>
+
                         </div>
                       )}
 
