@@ -175,121 +175,124 @@ export default function BoothPage() {
 
                         <section className="space-y-4">
                           <p className="content-label">성인지 기준 등급표</p>
-                          <p className="body-md mb-2">
+                          <p className="body-sm md:body-md mb-2">
                             직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면이 나온다면 등급표 기준에 따라 성인물로 분류됩니다.
                           </p>
 
-                          <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-sm">
-                            <table className="w-full text-center border-collapse min-w-[700px]">
+                          {/* 1. 각 항목별 등급 안내 표 */}
+                          <div className="w-full border border-slate-200 rounded-lg shadow-sm overflow-hidden">
+                            <table className="w-full text-center border-collapse break-keep">
                               <thead>
-                                <tr className="bg-slate-100 body-md font-bold text-slate-700 border-b border-slate-200">
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">등급</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">노출</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">성행위</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">폭력</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">언어</th>
-                                  <th className="p-3 whitespace-nowrap">기타</th>
+                                <tr className="bg-slate-100 body-sm font-bold text-slate-700 border-b border-slate-200">
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">등급</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">노출</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">성행위</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">폭력</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">언어</th>
+                                  <th className="px-1 py-1.5 md:p-2">기타</th>
                                 </tr>
                               </thead>
-                              <tbody className="body-sm text-slate-600">
+                              <tbody className="body-sm text-slate-600 leading-tight">
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">4등급</td>
-                                  <td className="p-3 border-r border-slate-200">성기노출</td>
-                                  <td className="p-3 border-r border-slate-200">성범죄 또는<br />노골적인 성행위</td>
-                                  <td className="p-3 border-r border-slate-200">잔인한 살해</td>
-                                  <td className="p-3 border-r border-slate-200">노골적이고<br />외설적인 비속어</td>
-                                  <td className="p-4 text-left align-top leading-relaxed" rowSpan={5}>
-                                    <p className="font-bold text-slate-700 mb-1">1.</p>
-                                    <ul className="list-disc list-inside mb-4 space-y-1">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">4등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">성기노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">성범죄 또는<br />노골적 성행위</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">잔인한 살해</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">노골적이고<br />외설적 비속어</td>
+                                  <td className="px-1.5 py-2 md:p-3 text-left align-top" rowSpan={5}>
+                                    <p className="font-bold text-slate-700 mb-0.5">1.</p>
+                                    <ul className="list-disc list-inside mb-2 space-y-0.5">
                                       <li>마약사용조장</li>
                                       <li>무기사용조장</li>
                                       <li>도박</li>
                                     </ul>
-                                    <p className="font-bold text-slate-700 mb-1">2.</p>
-                                    <ul className="list-disc list-inside space-y-1">
+                                    <p className="font-bold text-slate-700 mb-0.5">2.</p>
+                                    <ul className="list-disc list-inside space-y-0.5">
                                       <li>음주조장</li>
                                       <li>흡연조장</li>
                                     </ul>
                                   </td>
                                 </tr>
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">3등급</td>
-                                  <td className="p-3 border-r border-slate-200">전신노출</td>
-                                  <td className="p-3 border-r border-slate-200">노골적이지<br />않은 성행위</td>
-                                  <td className="p-3 border-r border-slate-200">살해</td>
-                                  <td className="p-3 border-r border-slate-200">심한 비속어</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">전신노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">노골적이지<br />않은 성행위</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">살해</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">심한 비속어</td>
                                 </tr>
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">2등급</td>
-                                  <td className="p-3 border-r border-slate-200">부분노출</td>
-                                  <td className="p-3 border-r border-slate-200">착의상태의<br />성적접촉</td>
-                                  <td className="p-3 border-r border-slate-200">상해</td>
-                                  <td className="p-3 border-r border-slate-200">거친 비속어</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">부분노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">착의상태<br />성적접촉</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">상해</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">거친 비속어</td>
                                 </tr>
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">1등급</td>
-                                  <td className="p-3 border-r border-slate-200">노출복장</td>
-                                  <td className="p-3 border-r border-slate-200">격렬한 키스</td>
-                                  <td className="p-3 border-r border-slate-200">격투</td>
-                                  <td className="p-3 border-r border-slate-200">일상 비속어</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">1등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">노출복장</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">격렬한 키스</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">격투</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">일상 비속어</td>
                                 </tr>
                                 <tr>
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">0등급</td>
-                                  <td className="p-3 border-r border-slate-200">노출없음</td>
-                                  <td className="p-3 border-r border-slate-200">성행위없음</td>
-                                  <td className="p-3 border-r border-slate-200">폭력없음</td>
-                                  <td className="p-3 border-r border-slate-200">비속어없음</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">0등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">노출없음</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">성행위없음</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">폭력없음</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">비속어없음</td>
                                 </tr>
                               </tbody>
                             </table>
                           </div>
 
-                          <p className="content-label mt-6 pt-4">연령별 권장 사항</p>
-                          <div className="overflow-x-auto border border-slate-200 rounded-lg shadow-sm">
-                            <table className="w-full text-center border-collapse min-w-[500px]">
+                          <p className="content-label mt-8 pt-4">연령별 권장 사항</p>
+
+                          {/* 2. 연령별 권장 사항 표 */}
+                          <div className="w-full border border-slate-200 rounded-lg shadow-sm overflow-hidden">
+                            <table className="w-full text-center border-collapse break-keep">
                               <thead>
-                                <tr className="bg-slate-100 body-md font-bold text-slate-700 border-b border-slate-200">
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">구분</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">노출</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">성행위</th>
-                                  <th className="p-3 border-r border-slate-200 whitespace-nowrap">폭력</th>
-                                  <th className="p-3 whitespace-nowrap">언어</th>
+                                <tr className="bg-slate-100 body-sm font-bold text-slate-700 border-b border-slate-200">
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">구분</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">노출</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">성행위</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-slate-200">폭력</th>
+                                  <th className="px-1 py-1.5 md:p-2">언어</th>
                                 </tr>
                               </thead>
-                              <tbody className="body-sm text-slate-600">
+                              <tbody className="body-sm text-slate-600 leading-tight">
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200">전체가</td>
-                                  <td className="p-3 border-r border-slate-200">1등급</td>
-                                  <td className="p-3 border-r border-slate-200">0등급</td>
-                                  <td className="p-3 border-r border-slate-200">1등급</td>
-                                  <td className="p-3">0등급</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">전체가</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">1등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">0등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">1등급</td>
+                                  <td className="px-1 py-2 md:p-2">0등급</td>
                                 </tr>
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200 leading-snug">
-                                    12금<br /><span className="text-[11px] font-normal text-slate-400 mt-1 inline-block">(13세부터 허용)</span>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">
+                                    12금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(13세↑)</span>
                                   </td>
-                                  <td className="p-3 border-r border-slate-200">2등급</td>
-                                  <td className="p-3 border-r border-slate-200">2등급</td>
-                                  <td className="p-3 border-r border-slate-200">2등급</td>
-                                  <td className="p-3">1등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2">1등급</td>
                                 </tr>
                                 <tr className="border-b border-slate-100">
-                                  <td className="p-3 font-bold bg-slate-50 border-r border-slate-200 leading-snug">
-                                    15금<br /><span className="text-[11px] font-normal text-slate-400 mt-1 inline-block">(16세부터 허용)</span>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-slate-50 border-r border-slate-200">
+                                    15금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(16세↑)</span>
                                   </td>
-                                  <td className="p-3 border-r border-slate-200">2등급</td>
-                                  <td className="p-3 border-r border-slate-200">2등급</td>
-                                  <td className="p-3 border-r border-slate-200">3등급</td>
-                                  <td className="p-3">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200">3등급</td>
+                                  <td className="px-1 py-2 md:p-2">2등급</td>
                                 </tr>
                                 <tr>
-                                  <td className="p-3 font-bold bg-rose-50 border-r border-slate-200 leading-snug text-rose-500">
-                                    19금<br /><span className="text-[11px] font-bold mt-1 inline-block">(20세부터 허용)</span>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-rose-50 border-r border-slate-200 text-rose-500">
+                                    19금<br /><span className="text-[9px] md:text-[11px] font-bold mt-0.5 inline-block">(20세↑)</span>
                                   </td>
-                                  <td className="p-3 border-r border-slate-200 font-bold text-rose-500">3등급</td>
-                                  <td className="p-3 border-r border-slate-200 font-bold text-rose-500">3등급</td>
-                                  <td className="p-3 border-r border-slate-200 font-bold text-rose-500">4등급</td>
-                                  <td className="p-3 font-bold text-rose-500">4등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200 font-bold text-rose-500">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200 font-bold text-rose-500">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-slate-200 font-bold text-rose-500">4등급</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold text-rose-500">4등급</td>
                                 </tr>
                               </tbody>
                             </table>
