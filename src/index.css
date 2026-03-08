@@ -13,7 +13,6 @@
   --font-metal: "Metal", serif;
   --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
 
-  /* 🌟 요청하신 8가지 파스텔 홀로그램 컬러 정식 등록 */
   --color-holo-1: #ffd2d2;
   --color-holo-2: #ffe3c7;
   --color-holo-3: #fff5c1;
@@ -23,8 +22,13 @@
   --color-holo-7: #dbcbff;
   --color-holo-8: #ffd6f1;
 
+  --color-gold-1: #bf953f;
+  --color-gold-2: #fcf6ba;
+  --color-gold-3: #b38728;
+  --color-gold-4: #fbf5b7;
+
   --color-shadow-blue: #bae6fd;
-  --color-accent-gold: #b39242;
+  --color-accent-purple: #7c3aed;
 }
 
 @layer base {
@@ -34,8 +38,6 @@
 }
 
 @layer components {
-
-  /* 🌟 디데이 숫자에 쓰일 텍스트 전용 홀로그램 클래스 */
   .text-hologram {
     background-image: linear-gradient(to right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
     -webkit-background-clip: text;
@@ -43,15 +45,24 @@
     color: transparent;
   }
 
-  /* 🌟 스케줄표 테두리용 홀로그램 수정 */
   .outer-holo-line {
     background-image: linear-gradient(to top right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
-    @apply p-[1px] flex flex-col min-h-0 w-full;
+    @apply p-[1px] flex flex-col w-full;
   }
 
   .inner-holo-line {
     background-image: linear-gradient(to bottom left, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
-    @apply p-[1px] flex flex-col min-h-0 w-full;
+    @apply p-[1px] flex flex-col w-full;
+  }
+
+  .outer-gold-line {
+    background-image: linear-gradient(to top right, theme(colors.gold-1), theme(colors.gold-2), theme(colors.gold-3), theme(colors.gold-4));
+    @apply p-[3px] flex flex-col w-full;
+  }
+
+  .inner-gold-line {
+    background-image: linear-gradient(to bottom left, theme(colors.gold-1), theme(colors.gold-2), theme(colors.gold-3), theme(colors.gold-4));
+    @apply p-[1px] flex flex-col w-full;
   }
 
   .wireframe-box {
@@ -63,15 +74,15 @@
   }
 
   .shadow-frame {
-    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col min-h-0 w-full;
+    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col w-full;
   }
 
   .main-board {
-    @apply bg-white p-4 md:p-8 text-center overflow-y-auto block w-full;
+    @apply bg-white p-5 md:p-8 text-center block w-full h-auto;
   }
 
   .title-accent {
-    @apply text-accent-gold italic font-bold tracking-[0.3em] uppercase;
+    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
   }
 }
 
