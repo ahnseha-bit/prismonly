@@ -16,7 +16,6 @@ const StarBackground: React.FC = () => {
     let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
-    const HOLO_COLORS = ['#ffd2d2', '#ffe3c7', '#fff5c1', '#ebfbce', '#c0ffee', '#afe7ff', '#dbcbff', '#ffd6f1'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -48,7 +47,6 @@ const StarBackground: React.FC = () => {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
         this.size = Math.random() * 100 + 150;
-        this.color = HOLO_COLORS[Math.floor(Math.random() * HOLO_COLORS.length)];
         this.opacity = initial ? Math.random() * 0.15 : 0;
         this.blink = 0.001 + Math.random() * 0.0015;
       }
@@ -65,8 +63,10 @@ const StarBackground: React.FC = () => {
         if (!ctx) return;
 
         const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        grad.addColorStop(0, this.color);
-        grad.addColorStop(1, `${this.color}00`);
+        grad.addColorStop(0, '#FFFFFF00');
+        grad.addColorStop(0.3, '#FFFFFF00');
+        grad.addColorStop(0.7, '#FFB3E940');
+        grad.addColorStop(1, '#F884A1A0');
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.opacity);
