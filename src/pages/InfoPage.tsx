@@ -81,39 +81,43 @@ export default function InfoPage() {
             >
 
               {activeTab === "01" && (
-                <HoloBox>
-                  <div className="space-y-8 md:space-y-10">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2">
-                        <span className="text-accent-gold">✧</span> 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」
-                      </h3>
-                    </div>
+                <>
+                  <HoloBox>
+                    <div className="space-y-6 md:space-y-8">
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                          <span className="text-accent-gold">✧</span> 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」
+                        </h3>
+                      </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 bg-slate-50 p-6 md:p-8 rounded-lg">
-                      <section className="space-y-2">
-                        <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 일시</p>
-                        <p className="font-medium">2026년 7월 4일 (토요일)</p>
-                      </section>
-                      <section className="space-y-2">
-                        <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 장소</p>
-                        <p className="font-medium">서울 <br /><span className="text-xs text-slate-400 font-normal">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
-                      </section>
-                      <section className="space-y-2">
-                        <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">참관 대상</p>
-                        <p className="font-medium">2026년 기준 14세 (중학생) 이상 여성 참관객</p>
-                        <p className="text-[11px] md:text-xs text-slate-500 italic mt-1 leading-relaxed">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
-                      </section>
-                      <section className="space-y-2">
-                        <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 판매일</p>
-                        <p className="font-medium">추후 공개</p>
-                      </section>
-                      <section className="space-y-2 md:col-span-2 border-t border-slate-200/60 pt-5 mt-2">
-                        <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 구성</p>
-                        <p className="font-medium">행사 안내 및 이벤트 참가용 공식 팜플렛 + 전프레 <span className="text-xs text-slate-400 font-normal">(행사 전원 증정 기념품)</span></p>
-                      </section>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 bg-slate-50 p-6 md:p-8 rounded-lg">
+                        <section className="space-y-2">
+                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 일시</p>
+                          <p className="font-medium">2026년 7월 4일 (토요일)</p>
+                        </section>
+                        <section className="space-y-2">
+                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 장소</p>
+                          <p className="font-medium">서울 <br /><span className="text-xs text-slate-400 font-normal">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
+                        </section>
+                        <section className="space-y-2">
+                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">참관 대상</p>
+                          <p className="font-medium">2026년 기준 14세 (중학생) 이상 여성 참관객</p>
+                          <p className="text-[11px] md:text-xs text-slate-500 italic mt-1 leading-relaxed">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
+                        </section>
+                        <section className="space-y-2">
+                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 판매일</p>
+                          <p className="font-medium">추후 공개</p>
+                        </section>
+                        <section className="space-y-2 md:col-span-2 border-t border-slate-200/60 pt-5 mt-2">
+                          <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 구성</p>
+                          <p className="font-medium">행사 안내 및 이벤트 참가용 공식 팜플렛 + 전프레 <span className="text-xs text-slate-400 font-normal">(행사 전원 증정 기념품)</span></p>
+                        </section>
+                      </div>
                     </div>
+                  </HoloBox>
 
-                    <div className="space-y-8 pl-1 md:pl-2">
+                  <HoloBox>
+                    <div className="space-y-6 md:space-y-8">
                       <section className="space-y-3">
                         <h4 className="font-bold text-slate-700 text-base md:text-lg flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 온리전이란?
@@ -144,8 +148,10 @@ export default function InfoPage() {
                         </div>
                       </section>
                     </div>
+                  </HoloBox>
 
-                    <div className="bg-gradient-to-r from-slate-50 to-transparent p-5 md:p-6 rounded-lg space-y-3 text-sm md:text-base border border-slate-100">
+                  <HoloBox>
+                    <div className="bg-gradient-to-r from-slate-50 to-transparent p-4 md:p-6 rounded-lg space-y-3 text-sm md:text-base">
                       <p className="text-slate-600">
                         행사 관련 최신 정보는 <a href="#" className="text-accent-gold font-bold hover:underline">X(구 Twitter) 공식 계정</a>을 통해 가장 빠르게 확인하실 수 있습니다.
                       </p>
@@ -154,8 +160,8 @@ export default function InfoPage() {
                         <a href="mailto:prismonlyevent@gmail.com" className="text-accent-gold font-bold hover:underline text-base md:text-lg mt-1 inline-block tracking-wider">prismonlyevent@gmail.com</a>
                       </p>
                     </div>
-                  </div>
-                </HoloBox>
+                  </HoloBox>
+                </>
               )}
 
               {activeTab === "02" && (
