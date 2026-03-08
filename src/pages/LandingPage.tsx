@@ -19,7 +19,6 @@ export default function LandingPage() {
           alt="Enter to PRISM"
           className="w-64 md:w-96 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
         />
-
       </motion.button>
     </div>
   );
