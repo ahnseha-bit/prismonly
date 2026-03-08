@@ -13,7 +13,7 @@ export default function MainPage() {
         {/* D-Day Area */}
         <div className="text-center shrink-0 mt-4 md:mt-0">
           <p className="text-[10px] tracking-[0.5em] uppercase mb-2 md:mb-4 text-slate-400">Countdown to Prism</p>
-          <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal italic">
+          <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal">
             <DDayCounter targetDate="2026-07-04T00:00:00" />
           </div>
         </div>
