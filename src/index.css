@@ -88,24 +88,27 @@
     @apply text-accent-gold font-happy tracking-[-0.03em] font-bold;
   }
 
+  /* 본문 표준 규격 (대/중/소) */
   .body-lg {
-    @apply text-base font-medium tracking-tight leading-relaxed text-slate-700;
+    @apply text-base font-bold tracking-tight leading-relaxed text-slate-700;
   }
 
   .body-md {
-    @apply text-sm tracking-tight leading-relaxed text-slate-600;
+    @apply text-sm font-normal tracking-tight leading-relaxed text-slate-600;
   }
 
   .body-sm {
-    @apply text-xs tracking-tight leading-normal text-slate-400 font-normal;
+    @apply text-xs font-normal tracking-tight leading-normal text-slate-400;
   }
 
+  /* 섹션 및 라벨 규격 */
   .content-section {
     @apply py-2 space-y-6;
   }
 
   .content-label {
-    @apply body-sm text-accent-gold font-bold mb-1;
+    /* 에러 방지를 위해 body-sm 대신 유틸리티 직접 나열 */
+    @apply text-xs font-bold tracking-tight leading-normal text-accent-gold mb-1;
   }
 }
 
