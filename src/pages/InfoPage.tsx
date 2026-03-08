@@ -91,11 +91,11 @@ export default function InfoPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-x-8 py-2">
                         <section className="space-y-1">
                           <p className="content-label">개최 일시</p>
-                          <p className="body-md">2026년 7월 4일 (토요일)</p>
+                          <p className="body-md font-bold text-slate-700">2026년 7월 4일 (토요일)</p>
                         </section>
                         <section className="space-y-1">
                           <p className="content-label">개최 장소</p>
-                          <p className="body-md">서울 <span className="body-sm ml-1">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
+                          <p className="body-md font-bold text-slate-700">서울 <span className="body-sm ml-1">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
                         </section>
                         <section className="space-y-1">
                           <p className="content-label">참관 대상</p>
@@ -122,7 +122,7 @@ export default function InfoPage() {
                         </h4>
                         <div className="pl-4 border-l-2 border-accent-gold/20 space-y-4">
                           <p className="body-md">
-                            온리전은 한 가지 작품의 팬들이 모여 해당 작품의 만화, 소설, 일러스트, 굿즈 등을 나누며 즐기는 팬 행사입니다. 참가자는 팬의 마음으로 창작물을 제작, 판매하는 <strong className="text-slate-700 font-semibold">'부스 참가자'</strong>, 그리고 그 창작물을 구매하고 응원하는 <strong className="text-slate-700 font-semibold">'일반 참가자'</strong>로 나뉩니다.
+                            온리전은 한 가지 작품의 팬들이 모여 해당 작품의 만화, 소설, 일러스트, 굿즈 등을 나누며 즐기는 팬 행사입니다. 참가자는 팬의 마음으로 창작물을 제작, 판매하는 <strong className="text-slate-700 font-semibold">'부스 참가자'</strong>, 그리고 그 창작물을 구매하고 응원하는 <strong className="text-slate-700 font-semibold">'일반 참관객'</strong>로 나뉩니다.
                           </p>
                           <p className="text-accent-gold body-sm">
                             ※ 본 온리전은 「킹 오브 프리즘」 비공식 팬 이벤트입니다. '동인'이나 'CP' 등의 개념을 잘 모르신다면 참여를 권장하지 않습니다.

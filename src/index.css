@@ -89,15 +89,15 @@
   }
 
   .body-lg {
-    @apply text-base font-bold leading-relaxed text-slate-700 tracking-normal;
+    @apply text-[17px] font-bold leading-relaxed text-slate-700 tracking-tight;
   }
 
   .body-md {
-    @apply text-[15px] font-normal leading-relaxed text-slate-600 tracking-normal;
+    @apply text-[15px] font-normal leading-relaxed text-slate-600 tracking-normal
   }
 
   .body-sm {
-    @apply text-[13px] font-normal leading-relaxed text-slate-500 tracking-normal;
+    @apply text-[13px] font-normal leading-relaxed text-slate-400 tracking-normal;
   }
 
   .content-section {
