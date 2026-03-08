@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -37,7 +37,15 @@ export default function EventPage() {
                 <div className="main-board p-5 md:p-8">
                   
                   <div className="w-full text-left">
-                    <div className="space-y-6 md:space-y-8 font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key="event-content"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="space-y-6 md:space-y-8 font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base"
+                      >
                       <h3 className="text-lg md:text-xl font-bold text-slate-800">Event Guidance</h3>
                       <p>행사 당일 진행될 이벤트 안내 페이지입니다.</p>
                       
@@ -58,7 +66,8 @@ export default function EventPage() {
                       <div className="pt-6 md:pt-8 border-t border-slate-50 text-center">
                         <p className="text-[11px] md:text-sm text-slate-400 italic">※ 자세한 내용은 추후 공개됩니다.</p>
                       </div>
-                    </div>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
 
                 </div>

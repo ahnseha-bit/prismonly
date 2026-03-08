@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -37,7 +37,15 @@ export default function LinkWorldPage() {
                 <div className="main-board p-5 md:p-8">
                   
                   <div className="w-full text-left">
-                    <div className="space-y-8 md:space-y-12 font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key="linkworld-content"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="space-y-8 md:space-y-12 font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base"
+                      >
                       <section className="space-y-4 md:space-y-6">
                         <h3 className="text-lg md:text-xl font-bold text-slate-800">External Links</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
@@ -73,7 +81,8 @@ export default function LinkWorldPage() {
                           <span className="text-[10px] md:text-xs italic text-slate-300">Banner Image Area</span>
                         </div>
                       </section>
-                    </div>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
 
                 </div>
