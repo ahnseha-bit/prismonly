@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import LoadingPage from "../components/LoadingPage";
 
 const BOOTH_MENU = [
-  { id: "01", label: "부스 리스트" },
-  { id: "02", label: "부스 상세정보" },
+  { id: "01", label: "참가자 안내" },
+  { id: "02", label: "부스 리스트" },
   { id: "03", label: "부스 배치도" },
 ];
 
@@ -57,8 +58,8 @@ export default function BoothPage() {
                         key={item.id}
                         onClick={() => navigate(`/booth/${item.id}`)}
                         className={`flex-shrink-0 px-2 py-0.5 md:px-3 md:py-1 rounded-[2px] text-[10px] md:text-[11px] tracking-tight transition-colors font-sans font-bold ${activeTab === item.id
-                            ? "bg-accent-gold text-white"
-                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                          ? "bg-accent-gold text-white"
+                          : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
                         {item.label}
@@ -86,17 +87,107 @@ export default function BoothPage() {
                 <HoloBox>
                   <div className="content-section">
                     <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
-                      Booth List
+                      <span className="text-accent-gold mr-2">✧</span> Booth Participant Info
                     </h3>
-                    <div className="py-2">
-                      <p className="content-label mb-4">현재 공개 정보</p>
-                      <div className="grid grid-cols-2 gap-4 border-b border-slate-200 pb-2 mb-4 text-xs font-bold text-slate-400">
-                        <span>부스명</span>
-                        <span>참가자 닉네임</span>
+
+                    <div className="space-y-8 mt-4">
+                      <div className="bg-slate-50 p-5 md:p-8 rounded-lg space-y-8">
+                        <section className="space-y-4">
+                          <p className="content-label">부스 신청 자격</p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                              <p className="body-md font-bold text-slate-700">일반 부스</p>
+                              <p className="body-md">2026년 기준 17세 이상 (10년 이전 출생자)</p>
+                            </div>
+                            <div className="space-y-1">
+                              <p className="body-md font-bold text-slate-700">성인 부스</p>
+                              <p className="body-md">2026년 기준 20세 이상 (07년 이전 출생자)</p>
+                            </div>
+                          </div>
+                          <p className="body-sm text-rose-400 font-bold mt-2">※ 현재 부스 신청이 모두 종료되었습니다.</p>
+                        </section>
+
+                        <section className="space-y-4">
+                          <p className="content-label">부스 기본 구성</p>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                            <div className="bg-white p-5 rounded-lg shadow-sm space-y-3">
+                              <p className="body-lg text-accent-gold">반 부스 <span className="body-sm text-slate-400 font-normal ml-1">40,000원</span></p>
+                              <ul className="body-sm space-y-1.5 text-slate-600">
+                                <li>• 무료 입장 1인 / 유료 입장 1인</li>
+                                <li>• 테이블 1개 (두 개의 반 부스가 쉐어)</li>
+                                <li>• 의자 1개 (합의 후 현장 대여 1개 가능)</li>
+                              </ul>
+                            </div>
+                            <div className="bg-white p-5 rounded-lg shadow-sm space-y-3">
+                              <p className="body-lg text-accent-gold">한 부스 <span className="body-sm text-slate-400 font-normal ml-1">70,000원</span></p>
+                              <ul className="body-sm space-y-1.5 text-slate-600">
+                                <li>• 무료 입장 2인 / 유료 입장 2인</li>
+                                <li>• 테이블 1개</li>
+                                <li>• 의자 1개 (사전 신청 시 1개 추가 가능 / 3,000원)</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </section>
                       </div>
-                      <div className="flex items-center justify-center h-32 body-sm italic">
-                        Now Loading...
+
+                      <section className="space-y-3 pl-2 md:pl-4">
+                        <p className="content-label">신청 및 양도 규정</p>
+                        <ul className="body-md list-disc list-inside space-y-2">
+                          <li>부스 모집은 선착순을 기본으로 진행됩니다. (24시간 내 메일 발송, 미입금 시 자동 취소)</li>
+                          <li>단순 변심으로 인한 취소가 불가하며, 지정된 기간 내 양도가 가능합니다.</li>
+                          <li>연락 가능한 트위터 계정 및 메일 주소를 반드시 입력해 주셔야 합니다. (오류 시 누락 가능)</li>
+                          <li>한 성인 부스를 여러 명이 이용할 경우, 부스 참가자 전원이 2026년 기준 20세 이상이어야 합니다.</li>
+                        </ul>
+                      </section>
+
+                      <section className="space-y-3 pl-2 md:pl-4">
+                        <p className="content-label">운영 주의사항</p>
+                        <ul className="body-md list-disc list-inside space-y-2">
+                          <li><strong className="text-slate-700">4p 이상 회지를 필참</strong>하셔야 합니다. (구간 가능)</li>
+                          <li>반 부스는 반 부스끼리만 인접 신청이 가능합니다.</li>
+                          <li>책상 위 45cm 초과 디스플레이 및 책상 영역을 벗어난 바닥 판넬 설치를 금지합니다.</li>
+                          <li>허가받지 않은 타인의 창작물 및 공식 굿즈 판매는 불가합니다.</li>
+                          <li>행사장 내 호객 행위, 지나친 소음, 성적인 묘사가 있는 디스플레이를 금지합니다.</li>
+                        </ul>
+                        <p className="body-sm pt-1">※ 공지사항을 미숙지하여 발생하는 문제는 행사 측에서 책임지지 않습니다.</p>
+                      </section>
+
+                      <div className="bg-slate-50 p-5 md:p-8 rounded-lg space-y-8">
+                        <section className="space-y-3">
+                          <p className="content-label">성인본 판매 규정</p>
+                          <ul className="body-md list-disc list-inside space-y-2">
+                            <li>표지에 반드시 <strong className="text-rose-500">'19세 미만 구독 불가'</strong>를 표기해야 합니다.</li>
+                            <li>성인본은 밀봉된 상태로 판매되어야 하며, 장내 개봉이 불가합니다.</li>
+                            <li>판매 시 신분증과 팔찌를 통해 반드시 구매자의 연령을 확인해 주세요.</li>
+                          </ul>
+                          <p className="body-sm pt-2">
+                            ※ 직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면 포함 시 성인물로 분류됩니다.
+                          </p>
+                        </section>
+
+                        <section className="space-y-4">
+                          <p className="content-label text-rose-500">판매 및 배포 불가 항목</p>
+                          <ol className="body-md list-decimal list-inside space-y-2 text-slate-700">
+                            <li>식음료</li>
+                            <li>공식 로고/일러스트 사용 및 혼동될 수 있는 창작물</li>
+                            <li>생성형 AI 일러스트, 타인 저작권 침해 창작물</li>
+                            <li>킹 오브 프리즘, 프리티 리듬 레인보우 라이브 캐릭터 중심이 아닌 창작물</li>
+                            <li>미성년자 캐릭터 등장 성인본 (성인 IF 제외 우회 묘사 불가)</li>
+                            <li>교복을 입는 묘사가 나오는 타카다노바바 죠지 성인본</li>
+                          </ol>
+                          <p className="body-sm text-rose-500 font-bold pt-2">
+                            ※ 적발 시 판매 중지 및 강제 퇴장 조치되며, 참가비는 환불되지 않습니다.
+                          </p>
+                        </section>
                       </div>
+
+                      <section className="space-y-3 pl-2 md:pl-4">
+                        <p className="content-label">드림 커플링 창작물 지참 관련</p>
+                        <p className="body-md">
+                          프리즘 점프에 등장하는 형태의 묘사가 적은 드림주나, '근처에 사는 아저씨', '학생', '알바생' 등 구체적인 설정이 없는 엑스트라 수준의 인물은 지참이 가능합니다.<br />
+                          단, <strong className="text-slate-700">상세한 설정이 부여된 오리지널 캐릭터 중심의 드림 회지 발간은 불가</strong>합니다. (타 시리즈 캐릭터 메인 제한과의 형평성 고려)
+                        </p>
+                      </section>
                     </div>
                   </div>
                 </HoloBox>
@@ -124,14 +215,7 @@ export default function BoothPage() {
 
               {activeTab === "03" && (
                 <HoloBox>
-                  <div className="content-section">
-                    <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
-                      Booth Layout
-                    </h3>
-                    <div className="w-full aspect-video wireframe-box bg-slate-50/50 mt-4">
-                      <span className="body-sm italic">행사장 부스 배치도는 행사 일정에 맞추어 추후 공개됩니다.</span>
-                    </div>
-                  </div>
+                  <LoadingPage />
                 </HoloBox>
               )}
             </motion.div>

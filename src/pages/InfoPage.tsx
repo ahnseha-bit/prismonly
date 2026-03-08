@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useParams, useNavigate } from "react-router-dom";
+import LoadingPage from "../components/LoadingPage";
 
 const INFO_MENU = [
   { id: "01", label: "행사개요" },
@@ -238,33 +239,7 @@ export default function InfoPage() {
 
               {activeTab === "03" && (
                 <HoloBox>
-                  <div className="content-section">
-                    <h3 className="body-lg">공지사항</h3>
-                    <section className="space-y-4">
-                      <p className="content-label">공지사항</p>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-1">
-                          <p className="body-md font-bold">한 부스</p>
-                          <p className="body-sm">책상 1개, 의자 2개, 입장권 4매(무료2, 유료2)</p>
-                        </div>
-                        <div className="p-1">
-                          <p className="body-md font-bold">반 부스</p>
-                          <p className="body-sm">책상 절반, 의자 1개, 입장권 2매(무료1, 유료1)</p>
-                        </div>
-                      </div>
-                    </section>
-                    <section className="space-y-3 pt-6 border-t border-slate-100">
-                      <p className="content-label">부스 운영 규정</p>
-                      <ul className="body-md list-disc list-inside space-y-2">
-                        <li>부스 선입장 시간에는 판매 및 구매가 불가능합니다</li>
-                        <li>책상 위 45cm를 넘는 큰 구조물 설치 금지</li>
-                        <li>책상 범위를 벗어나는 별도의 판넬 / 장식 설치 금지</li>
-                        <li>선정적인 홍보물 게시 금지</li>
-                        <li>성인본 판매 시 신분증 확인 의무는 전적으로 부스 참가자에게 있습니다</li>
-                      </ul>
-                    </section>
-                  </div>
+                  <LoadingPage />
                 </HoloBox>
               )}
             </motion.div>
