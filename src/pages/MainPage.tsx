@@ -3,8 +3,7 @@ import DDayCounter from "../components/DDayCounter";
 
 export default function MainPage() {
   return (
-    {/* 모든 화면에서 h-[100dvh] 제거! 화면 전체는 자연스럽게 밑으로 늘어남 */ }
-    < div className = "fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] md:pb-[10vh] flex flex-col relative z-10 overflow-x-hidden" >
+    < div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] md:pb-[10vh] flex flex-col relative z-10 overflow-x-hidden" >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
