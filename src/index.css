@@ -89,15 +89,15 @@
   }
 
   .body-lg {
-    @apply text-[17px] font-bold leading-relaxed text-slate-700 tracking-tight;
+    @apply text-[15px] md:text-[18px] font-bold leading-relaxed text-slate-700 tracking-normal;
   }
 
   .body-md {
-    @apply text-[15px] font-normal leading-relaxed text-slate-600 tracking-normal
+    @apply text-[13px] md:text-[15px] font-normal leading-relaxed text-slate-600 tracking-normal;
   }
 
   .body-sm {
-    @apply text-[13px] font-normal leading-relaxed text-slate-400 tracking-normal;
+    @apply text-[11px] md:text-[13px] font-normal leading-relaxed text-slate-500 tracking-normal;
   }
 
   .content-section {
@@ -105,7 +105,7 @@
   }
 
   .content-label {
-    @apply text-[13px] font-bold leading-normal text-accent-gold mb-1 tracking-normal;
+    @apply text-[11px] md:text-[13px] font-bold leading-normal text-accent-gold mb-1 tracking-normal;
   }
 }
 
