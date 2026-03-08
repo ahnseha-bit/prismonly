@@ -16,6 +16,7 @@ const StarBackground: React.FC = () => {
     let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
+    const BUBBLE_COLORS = ['#ffd2d2', '#ffe3c7', '#fff5c1', '#ebfbce', '#c0ffee', '#afe7ff', '#dbcbff', '#ffd6f1', '#BAE6FD', '#FEF08A'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -37,6 +38,7 @@ const StarBackground: React.FC = () => {
       x!: number;
       y!: number;
       size!: number;
+      color!: string;
       opacity!: number;
       blink!: number;
       vx!: number;
@@ -50,8 +52,16 @@ const StarBackground: React.FC = () => {
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 100 + 150;
-        this.blink = 0.001 + Math.random() * 0.0015;
+
+        const sizeType = Math.floor(Math.random() * 2);
+        if (sizeType === 0) {
+          this.size = Math.random() * 20 + 35;
+        } else {
+          this.size = Math.random() * 25 + 60;
+        }
+
+        this.color = BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)];
+        this.blink = 0.006 + Math.random() * 0.006;
         this.vx = (Math.random() - 0.5) * 0.2;
         this.vy = (Math.random() - 0.5) * 0.2;
         this.holdTimer = 0;
@@ -61,19 +71,20 @@ const StarBackground: React.FC = () => {
           const startChance = Math.random();
           if (startChance < 0.3) {
             this.state = 'appearing';
-            this.opacity = Math.random() * 0.15;
+            this.opacity = Math.random() * 0.4;
           } else if (startChance < 0.6) {
             this.state = 'holding';
-            this.opacity = 0.15;
+            this.opacity = 0.4;
             this.holdTimer = Math.random() * this.maxHold;
           } else {
             this.state = 'disappearing';
-            this.opacity = Math.random() * 0.15;
-            this.blink *= -1;
+            this.opacity = Math.random() * 0.4;
+            this.blink = -Math.abs(this.blink);
           }
         } else {
           this.state = 'appearing';
           this.opacity = 0;
+          this.blink = Math.abs(this.blink);
         }
       }
 
@@ -83,15 +94,15 @@ const StarBackground: React.FC = () => {
 
         if (this.state === 'appearing') {
           this.opacity += this.blink;
-          if (this.opacity >= 0.15) {
-            this.opacity = 0.15;
+          if (this.opacity >= 0.4) {
+            this.opacity = 0.4;
             this.state = 'holding';
           }
         } else if (this.state === 'holding') {
           this.holdTimer++;
           if (this.holdTimer >= this.maxHold) {
             this.state = 'disappearing';
-            this.blink = Math.abs(this.blink) * -1;
+            this.blink = -Math.abs(this.blink);
           }
         } else if (this.state === 'disappearing') {
           this.opacity += this.blink;
@@ -104,10 +115,10 @@ const StarBackground: React.FC = () => {
         if (!ctx) return;
 
         const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        grad.addColorStop(0, '#FFFFFF00');
-        grad.addColorStop(0.3, '#FFFFFF00');
-        grad.addColorStop(0.7, '#FFB3E940');
-        grad.addColorStop(1, '#F884A1A0');
+        grad.addColorStop(0, `${this.color}00`);
+        grad.addColorStop(0.5, `${this.color}20`);
+        grad.addColorStop(0.8, `${this.color}80`);
+        grad.addColorStop(1, `${this.color}00`);
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.opacity);
