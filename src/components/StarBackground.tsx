@@ -16,7 +16,7 @@ const StarBackground: React.FC = () => {
     let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
-    const BUBBLE_COLORS = ['#ffd2d2', '#ffe3c7', '#fff5c1', '#ebfbce', '#c0ffee', '#afe7ff', '#dbcbff', '#ffd6f1', '#BAE6FD', '#FEF08A'];
+    const BUBBLE_COLORS = ['#ffd6f1', '#BAE6FD', '#FEF08A'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
