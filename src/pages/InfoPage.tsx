@@ -22,25 +22,22 @@ export default function InfoPage() {
   }, [tabId, navigate]);
 
   return (
-    <div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] flex flex-col relative z-10 overflow-hidden">
+    <div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] min-h-screen flex flex-col relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center w-full"
       >
-        {/* 전체 길이를 줄여서 애매한 스크롤 방지 (h-[65vh] md:h-[70vh]) */}
-        <div className="w-full max-w-3xl shadow-frame h-[65vh] md:h-[70vh] flex flex-col mt-4 md:mt-8">
-          <div className="outer-holo-line flex flex-col h-full">
-            <div className="p-[2px] bg-white flex flex-col w-full h-full">
-              <div className="inner-holo-line flex flex-col h-full">
-
-                {/* 내부 스크롤 적용 */}
-                <div className="main-board h-full flex flex-col p-5 md:p-8">
-
-                  {/* 🌟 제목과 하위 메뉴를 홀로그램 박스 안으로 이동! (구분선 삭제) */}
-                  <div className="w-full flex flex-col md:flex-row md:items-center justify-between mb-6 md:mb-8 shrink-0">
-                    <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-purple mb-4 md:mb-0">
+        {/* Header Box (Title & Tabs) */}
+        <div className="w-full max-w-3xl shadow-frame flex flex-col mt-4 md:mt-8 shrink-0">
+          <div className="outer-holo-line flex flex-col">
+            <div className="p-[2px] bg-white flex flex-col w-full">
+              <div className="inner-holo-line flex flex-col">
+                <div className="main-board flex flex-col p-4 md:p-6">
+                  
+                  <div className="w-full flex flex-col md:flex-row md:items-center justify-between shrink-0">
+                    <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold mb-4 md:mb-0">
                       Info
                     </h2>
 
@@ -50,7 +47,7 @@ export default function InfoPage() {
                           key={item.id}
                           onClick={() => navigate(`/info/${item.id}`)}
                           className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${activeTab === item.id
-                              ? "bg-accent-purple text-white"
+                              ? "bg-accent-gold text-white"
                               : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                             }`}
                         >
@@ -60,8 +57,20 @@ export default function InfoPage() {
                     </div>
                   </div>
 
-                  {/* 🌟 콘텐츠 영역 (여기에만 내부 스크롤이 생김) */}
-                  <div className="w-full text-left flex-1 overflow-y-auto pr-2">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Box */}
+        <div className="w-full max-w-3xl shadow-frame flex flex-col mt-6 md:mt-8">
+          <div className="outer-holo-line flex flex-col">
+            <div className="p-[2px] bg-white flex flex-col w-full">
+              <div className="inner-holo-line flex flex-col">
+                <div className="main-board p-5 md:p-8">
+                  
+                  <div className="w-full text-left">
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeTab}
@@ -94,14 +103,13 @@ export default function InfoPage() {
                               </section>
                             </div>
 
-                            {/* 구분선(border) 삭제 */}
                             <div className="pt-2 space-y-4">
                               <p className="text-[11px] md:text-sm text-slate-400 italic">
                                 본 행사는 「킹 오브 프리즘」 공식과 무관한 팬 주최 동인 온리 이벤트입니다.<br />
                                 동인 문화 및 CP 개념에 익숙하지 않은 분들의 참관은 권장하지 않습니다.
                               </p>
                               <p className="text-[11px] md:text-sm">
-                                문의: <a href="mailto:prismonlyevent@gmail.com" className="text-accent-purple underline">prismonlyevent@gmail.com</a>
+                                문의: <a href="mailto:prismonlyevent@gmail.com" className="text-accent-gold underline">prismonlyevent@gmail.com</a>
                               </p>
                             </div>
                           </div>
@@ -140,7 +148,6 @@ export default function InfoPage() {
                               <section className="space-y-3">
                                 <h4 className="font-bold text-slate-700">부스 기본 구성</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                                  {/* 테두리 대신 배경색 사용 */}
                                   <div className="bg-slate-50 p-4 rounded">
                                     <p className="font-bold text-sm md:text-base">한 부스</p>
                                     <p className="text-xs md:text-sm text-slate-500 mt-1">책상 1개, 의자 2개, 입장권 4매(무료2, 유료2)</p>
@@ -167,8 +174,7 @@ export default function InfoPage() {
                       </motion.div>
                     </AnimatePresence>
                   </div>
-                  {/* 콘텐츠 영역 끝 */}
-
+                  
                 </div>
               </div>
             </div>

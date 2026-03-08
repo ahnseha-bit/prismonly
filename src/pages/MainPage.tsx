@@ -3,7 +3,7 @@ import DDayCounter from "../components/DDayCounter";
 
 export default function MainPage() {
   return (
-    < div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] md:pb-[10vh] flex flex-col relative z-10 overflow-x-hidden" >
+    <div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] md:pb-[10vh] min-h-screen flex flex-col relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -18,34 +18,38 @@ export default function MainPage() {
           </div>
         </div>
 
-        {/* Schedule Section 
-            🌟 핵심: 프레임 자체에 고정된 세로 높이 지정 (모바일 h-[60vh], PC md:h-[65vh]) 
-               그리고 더 깔끔해 보이도록 max-w-lg로 너비 살짝 축소
-        */}
-        <div className="w-full max-w-lg shadow-frame h-[60vh] md:h-[65vh] flex flex-col">
-          <div className="outer-holo-line flex flex-col h-full">
-            <div className="p-[2px] bg-white flex flex-col w-full h-full">
-              <div className="inner-holo-line flex flex-col h-full">
-                <div className="main-board h-full">
+        {/* Schedule Info Box */}
+        <div className="w-full max-w-lg shadow-frame flex flex-col">
+          <div className="outer-holo-line flex flex-col">
+            <div className="p-[2px] bg-white flex flex-col w-full">
+              <div className="inner-holo-line flex flex-col">
+                <div className="main-board p-5 md:p-8">
                   <h1 className="title-accent text-lg md:text-xl mb-4 md:mb-8">Schedule</h1>
 
-                  <div className="space-y-4 md:space-y-6 text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base font-sans">
+                  <div className="space-y-4 md:space-y-6 text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base font-sans mt-2">
                     <p className="font-bold text-base md:text-lg">스케쥴 안내</p>
                     <p>
                       행사 준비 및 진행 일정은 아래 스케줄표를 통해 확인하실 수 있습니다.
                     </p>
-                    <p className="text-xs md:text-sm text-slate-400 italic mb-10">
+                    <p className="text-xs md:text-sm text-slate-400 italic">
                       입장권 판매, 부스 배치도 공개 등 주요 일정이 순차적으로 업데이트됩니다.
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                  <div className="mt-8 pt-6 border-t border-slate-100 mb-8">
-                    <div className="w-full aspect-video wireframe-box bg-slate-50/50 min-h-[180px]">
-                      <span className="text-[10px] tracking-[0.5em] text-slate-300">SCHEDULE TABLE AREA</span>
-                    </div>
+        {/* Schedule Table Box */}
+        <div className="w-full max-w-lg shadow-frame flex flex-col mt-6 md:mt-8">
+          <div className="outer-holo-line flex flex-col">
+            <div className="p-[2px] bg-white flex flex-col w-full">
+              <div className="inner-holo-line flex flex-col">
+                <div className="main-board p-5 md:p-8">
+                  <div className="w-full aspect-video wireframe-box bg-slate-50/50 min-h-[180px]">
+                    <span className="text-[10px] tracking-[0.5em] text-slate-300">SCHEDULE TABLE AREA</span>
                   </div>
-
-                  {/* 스크롤 여유 공간 삭제 (h-full 설정으로 불필요) */}
                 </div>
               </div>
             </div>

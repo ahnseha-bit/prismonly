@@ -24,7 +24,7 @@
   --color-holo-8: #ffd6f1;
 
   --color-shadow-blue: #bae6fd;
-  --color-accent-purple: #7c3aed;
+  --color-accent-gold: #b39242;
 }
 
 @layer base {
@@ -71,7 +71,7 @@
   }
 
   .title-accent {
-    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
+    @apply text-accent-gold italic font-bold tracking-[0.3em] uppercase;
   }
 }
 

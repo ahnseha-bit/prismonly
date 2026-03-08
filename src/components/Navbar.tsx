@@ -38,7 +38,7 @@ export default function Navbar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[10px] uppercase font-metal tracking-[0.3em] transition-all duration-400 hover:text-accent-purple ${location.pathname.startsWith(item.path) ? "text-accent-purple font-bold" : "text-slate-400"
+                className={`text-[10px] uppercase font-metal tracking-[0.3em] transition-all duration-400 hover:text-accent-gold ${location.pathname.startsWith(item.path) ? "text-accent-gold font-bold" : "text-slate-400"
                   }`}
               >
                 {item.name}
@@ -48,7 +48,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-slate-400 hover:text-accent-purple transition-colors"
+            className="md:hidden text-slate-400 hover:text-accent-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(true)}
           >
             <Menu size={18} strokeWidth={1.5} />
@@ -66,7 +66,7 @@ export default function Navbar() {
             className="fixed inset-0 z-50 bg-white/98 backdrop-blur-md flex flex-col items-center justify-center"
           >
             <button
-              className="absolute top-[4vh] right-[6%] text-slate-400 hover:text-accent-purple p-2"
+              className="absolute top-[4vh] right-[6%] text-slate-400 hover:text-accent-gold p-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X size={24} strokeWidth={1} />
@@ -83,7 +83,7 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-2xl font-metal italic font-light tracking-[0.2em] uppercase transition-colors ${location.pathname === item.path ? "text-accent-purple font-bold" : "text-slate-300 hover:text-slate-500"
+                    className={`text-2xl font-metal italic font-light tracking-[0.2em] uppercase transition-colors ${location.pathname === item.path ? "text-accent-gold font-bold" : "text-slate-300 hover:text-slate-500"
                       }`}
                   >
                     {item.name}
