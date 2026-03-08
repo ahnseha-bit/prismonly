@@ -46,7 +46,7 @@ const StarBackground: React.FC = () => {
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 100 + 150;
+        this.size = Math.random() * 50 + 50;
         this.opacity = initial ? Math.random() * 0.15 : 0;
         this.blink = 0.001 + Math.random() * 0.0015;
       }
@@ -63,10 +63,11 @@ const StarBackground: React.FC = () => {
         if (!ctx) return;
 
         const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        grad.addColorStop(0, '#FFFFFF00');
-        grad.addColorStop(0.3, '#FFFFFF00');
-        grad.addColorStop(0.7, '#FFB3E940');
-        grad.addColorStop(1, '#F884A1A0');
+        grad.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+        grad.addColorStop(0.3, '#62F7D240'); // 민트
+        grad.addColorStop(0.5, '#FCBC5C40'); // 오렌지
+        grad.addColorStop(0.7, '#B377FF40'); // 보라
+        grad.addColorStop(1, '#5B7BFEA0'); // 블루
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.opacity);
