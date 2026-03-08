@@ -23,7 +23,7 @@ export default function LinkWorldPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-center md:justify-start">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-happy italic text-accent-gold inline-block m-0">Link World</h2>
+                  <h2 className="text-xl md:text-2xl font-happy font-bold tracking-[-0.03em] text-accent-gold inline-block m-0">Link World</h2>
                 </div>
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <div className="hidden md:flex space-x-6 lg:space-x-8 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+          <div className="hidden md:flex space-x-6 lg:space-x-8 ml-auto mr-12">
             {NAV_ITEMS.slice(1).map((item) => (
               <Link
                 key={item.path}

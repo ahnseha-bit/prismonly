@@ -32,7 +32,7 @@ export default function BoothPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex flex-col md:flex-row md:items-center justify-between">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-happy italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
+                  <h2 className="text-xl md:text-2xl font-happy font-bold tracking-[-0.03em] text-accent-gold m-0 shrink-0">
                     Booth
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 md:ml-4 w-full md:w-auto pb-2 md:pb-0">
