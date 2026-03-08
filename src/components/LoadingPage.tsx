@@ -27,7 +27,7 @@ export default function LoadingPage() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="text-xl md:text-2xl font-metal font-extralight tracking-widest text-black"
+            className="text-xl md:text-2xl font-happy font-extralight tracking-widest text-black"
           >
             {char === " " ? "\u00A0" : char}
           </motion.span>

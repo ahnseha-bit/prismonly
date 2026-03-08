@@ -30,7 +30,6 @@ export default function DDayCounter({ targetDate }: { targetDate: string }) {
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      {/* 방금 만든 text-hologram 클래스를 적용해서 색상과 투명도를 한 번에 해결! */}
       <div className="text-5xl md:text-8xl font-metal font-extralight tracking-tighter text-hologram px-4 pb-2">
         D - {timeLeft.days}
       </div>

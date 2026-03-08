@@ -27,13 +27,12 @@ export default function BoothPage() {
         animate={{ opacity: 1 }}
         className="flex flex-col items-center flex-1 min-h-0 w-full space-y-[4vh]"
       >
-        {/* Header Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-4 md:mt-8 shrink-0">
           <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex flex-col md:flex-row md:items-center justify-between">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-metal italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-happy italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
                     Booth
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 md:ml-4 w-full md:w-auto pb-2 md:pb-0">
@@ -57,7 +56,6 @@ export default function BoothPage() {
           </div>
         </div>
 
-        {/* Content Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-6 md:mt-8">
           <div className="outer-holo-line flex flex-col">
             <div className="p-[2px] bg-white flex flex-col w-full">

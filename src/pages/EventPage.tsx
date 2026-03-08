@@ -18,20 +18,18 @@ export default function EventPage() {
         animate={{ opacity: 1 }}
         className="flex flex-col items-center flex-1 min-h-0 w-full space-y-[4vh]"
       >
-        {/* Header Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-4 md:mt-8 shrink-0">
           <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-center md:justify-start">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-metal italic text-accent-gold inline-block m-0">Event</h2>
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] font-happy italic text-accent-gold inline-block m-0">Event</h2>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Content Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-6 md:mt-8">
           <div className="outer-holo-line flex flex-col">
             <div className="p-[2px] bg-white flex flex-col w-full">

@@ -23,7 +23,6 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/60 backdrop-blur-sm border-b border-slate-100">
         <div className="w-full max-w-[1440px] mx-auto px-[6%] h-[8vh] flex items-center justify-between">
 
-          {/* 메뉴 로고 이미지 (logo_menu.png) - 누르면 랜딩페이지(/)로 이동 */}
           <Link to="/" className="flex items-center group">
             <img
               src="/img/logo_menu.png"
@@ -32,13 +31,12 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-[4vw]">
+          <div className="hidden md:flex space-x-6 lg:space-x-8 lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
             {NAV_ITEMS.slice(1).map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[10px] font-metal tracking-[0.3em] transition-all duration-400 hover:text-accent-gold ${location.pathname.startsWith(item.path) ? "text-accent-gold font-bold" : "text-slate-400"
+                className={`text-[10px] font-happy tracking-[0.3em] transition-all duration-400 hover:text-accent-gold ${location.pathname.startsWith(item.path) ? "text-accent-gold font-bold" : "text-slate-400"
                   }`}
               >
                 {item.name}
@@ -46,7 +44,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-slate-400 hover:text-accent-gold transition-colors"
             onClick={() => setIsMobileMenuOpen(true)}
@@ -56,7 +53,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Fullscreen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -83,7 +79,7 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-2xl font-metal italic font-light tracking-[0.2em] transition-colors ${location.pathname === item.path ? "text-accent-gold font-bold" : "text-slate-300 hover:text-slate-500"
+                    className={`text-2xl font-happy italic font-light tracking-[0.2em] transition-colors ${location.pathname === item.path ? "text-accent-gold font-bold" : "text-slate-300 hover:text-slate-500"
                       }`}
                   >
                     {item.name}

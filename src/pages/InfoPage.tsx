@@ -46,7 +46,7 @@ export default function InfoPage() {
             <div className="p-[2px] bg-white flex flex-col w-full">
               <div className="inner-gold-line">
                 <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-between">
-                  <h2 className="text-xl md:text-2xl font-metal font-bold text-accent-gold m-0 shrink-0 tracking-tight">
+                  <h2 className="text-xl md:text-2xl font-happy font-bold text-accent-gold m-0 shrink-0 tracking-tight">
                     Info
                   </h2>
                   <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 ml-4">
