@@ -12,14 +12,17 @@
 @theme {
   --font-metal: "Metal", serif;
   --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
-  --color-hologram-1: #ffd2d2;
-  --color-hologram-2: #ffe3c7;
-  --color-hologram-3: #fff5c1;
-  --color-hologram-4: #ebfbce;
-  --color-hologram-5: #c0ffee;
-  --color-hologram-6: #afe7ff;
-  --color-hologram-7: #dbcbff;
-  --color-hologram-8: #ffd6f1;
+
+  /* 🌟 요청하신 8가지 파스텔 홀로그램 컬러 정식 등록 */
+  --color-holo-1: #ffd2d2;
+  --color-holo-2: #ffe3c7;
+  --color-holo-3: #fff5c1;
+  --color-holo-4: #ebfbce;
+  --color-holo-5: #c0ffee;
+  --color-holo-6: #afe7ff;
+  --color-holo-7: #dbcbff;
+  --color-holo-8: #ffd6f1;
+
   --color-shadow-blue: #bae6fd;
   --color-accent-purple: #7c3aed;
 }
@@ -32,26 +35,46 @@
 
 @layer components {
 
-  /* 기존 클래스들을 아래 내용으로 덮어씌우세요 (flex 레이아웃 속성 추가) */
+  /* 🌟 디데이 숫자에 쓰일 텍스트 전용 홀로그램 클래스 */
+  .text-hologram {
+    background-image: linear-gradient(to right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* 🌟 스케줄표 테두리용 홀로그램 수정 */
+  .outer-holo-line {
+    background-image: linear-gradient(to top right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    @apply p-[1px] flex flex-col flex-1 min-h-0 w-full;
+  }
+
+  .inner-holo-line {
+    background-image: linear-gradient(to bottom left, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    @apply p-[1px] flex flex-col flex-1 min-h-0 w-full;
+  }
+
+  .wireframe-box {
+    @apply border border-black/5 rounded-[4px] bg-white/40 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center text-black/20 text-[10px] uppercase tracking-[0.2em];
+  }
+
+  .fluid-container {
+    @apply w-full max-w-[1440px] mx-auto px-6 md:px-[10%];
+  }
+
   .shadow-frame {
     @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col flex-1 min-h-0 w-full;
   }
 
-  .outer-holo-line {
-    @apply p-[1px] bg-linear-to-tr from-hologram-1 via-hologram-2 via-hologram-3 via-hologram-4 via-hologram-5 via-hologram-6 via-hologram-7 to-hologram-8 flex flex-col flex-1 min-h-0;
-  }
-
-  .inner-holo-line {
-    @apply p-[1px] bg-linear-to-bl from-hologram-1 via-hologram-2 via-hologram-3 via-hologram-4 via-hologram-5 via-hologram-6 via-hologram-7 to-hologram-8 flex flex-col flex-1 min-h-0;
-  }
-
   .main-board {
-    /* overflow-y-auto가 핵심입니다 */
     @apply bg-white p-4 md:p-8 text-center flex-1 overflow-y-auto block w-full;
+  }
+
+  .title-accent {
+    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
   }
 }
 
-/* 파일 맨 아래에 추가: 본문 프레임용 커스텀 스크롤바 */
 .main-board::-webkit-scrollbar {
   width: 6px;
 }
