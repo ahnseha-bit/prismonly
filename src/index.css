@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+@font-face {
+  font-family: 'Happy Time';
+  src: url('HappyTime.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'NexonLv2Gothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  font-weight: normal;
   font-display: swap;
 }
 
@@ -11,7 +17,7 @@
 
 @theme {
   --font-metal: "Metal", serif;
-  --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "NexonLv2Gothic", ui-sans-serif, system-ui, sans-serif;
 
   --color-holo-1: #ffd2d2;
   --color-holo-2: #ffe3c7;
@@ -80,6 +86,7 @@
   }
 }
 
+/* 스크롤바 커스텀 */
 .main-board::-webkit-scrollbar {
   width: 6px;
 }
