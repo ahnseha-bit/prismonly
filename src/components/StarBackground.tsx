@@ -14,7 +14,7 @@ const StarBackground: React.FC = () => {
     let stars: Star[] = [];
     let shootingStars: ShootingStar[] = [];
 
-    const COLORS = ['#FF85A1', '#4CC9FE', '#48E19F', '#B377FF'];
+    const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -90,28 +90,38 @@ const StarBackground: React.FC = () => {
         ctx.save();
         ctx.globalAlpha = this.opacity;
         ctx.fillStyle = grad;
-        
+
         ctx.beginPath();
         ctx.moveTo(this.x + 2, this.y + 2);
         ctx.lineTo(this.x - 2, this.y - 2);
         ctx.lineTo(this.x + this.len, this.y - this.len);
         ctx.closePath();
         ctx.fill();
-        
+
         draw4PointedStar(this.x, this.y, 6, this.x * 0.02, this.color);
         ctx.restore();
 
         this.x -= this.speed;
         this.y += this.speed;
         this.opacity -= 0.004;
-        
+
         return this.opacity > 0;
       }
     }
 
     const init = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      ctx.scale(dpr, dpr);
+
       stars = Array.from({ length: 50 }, () => new Star());
     };
 
@@ -141,7 +151,7 @@ const StarBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none z-0"
     />
   );
 };
