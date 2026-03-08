@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+
 @font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
 }
+
 @import "tailwindcss";
 
 @theme {
@@ -25,37 +27,40 @@
 }
 
 @layer components {
-  .wireframe-box {
-    @apply border border-black/5 rounded-[4px] bg-white/40 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center text-black/20 text-[10px] uppercase tracking-[0.2em];
-  }
 
-  .fluid-container {
-    @apply w-full max-w-[1440px] mx-auto px-6 md:px-[10%];
-  }
-
+  /* 기존 클래스들을 아래 내용으로 덮어씌우세요 (flex 레이아웃 속성 추가) */
   .shadow-frame {
-    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)];
+    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col flex-1 min-h-0 w-full;
   }
 
   .outer-holo-line {
-    @apply p-[1px] bg-linear-to-tr from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink;
+    @apply p-[1px] bg-linear-to-tr from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink flex flex-col flex-1 min-h-0;
   }
 
   .inner-holo-line {
-    @apply p-[1px] bg-linear-to-bl from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink;
+    @apply p-[1px] bg-linear-to-bl from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink flex flex-col flex-1 min-h-0;
   }
 
   .main-board {
-    @apply bg-white p-4 md:p-16 text-center;
+    /* overflow-y-auto가 핵심입니다 */
+    @apply bg-white p-4 md:p-8 text-center flex-1 overflow-y-auto block w-full;
   }
+}
 
-  .title-accent {
-    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
-  }
+/* 파일 맨 아래에 추가: 본문 프레임용 커스텀 스크롤바 */
+.main-board::-webkit-scrollbar {
+  width: 6px;
+}
 
-  .metal-regular {
-    font-family: "Metal", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+.main-board::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-board::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.main-board::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
 }

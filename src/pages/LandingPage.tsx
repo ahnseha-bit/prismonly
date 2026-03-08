@@ -16,19 +16,10 @@ export default function LandingPage() {
         {/* 중앙 로고 이미지 (logo_900.png) */}
         <img
           src="/img/logo_900.png"
-          alt="Starry Night Logo"
+          alt="Enter to PRISM"
           className="w-64 md:w-96 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
         />
 
-        {/* Text Logo */}
-        <div className="text-center space-y-2">
-          <h1 className="font-metal italic font-bold text-xl md:text-2xl tracking-[0.4em] text-slate-800 uppercase">
-            Starry 2026
-          </h1>
-          <p className="text-[10px] tracking-[0.6em] uppercase text-slate-300 font-sans group-hover:text-accent-purple transition-colors duration-500">
-            Click to Enter
-          </p>
-        </div>
       </motion.button>
     </div>
   );
