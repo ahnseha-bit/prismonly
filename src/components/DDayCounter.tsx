@@ -30,13 +30,13 @@ export default function DDayCounter({ targetDate }: { targetDate: string }) {
 
   return (
     <div className="flex flex-col items-center space-y-4">
-      {/* px-4, pb-2를 추가하여 숫자가 잘리지 않도록 여유 공간 확보 */}
+      {/* 1. 크고 화려한 D-Day (글씨 잘림 방지를 위해 px-4, pb-2 여백 추가) */}
       <div className="text-5xl md:text-8xl font-metal font-extralight tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink px-4 pb-2">
         D-{timeLeft.days}
       </div>
 
-      {/* 너무 크지 않게, 깔끔한 문장형으로 변경 */}
-      <div className="text-sm md:text-base font-sans text-slate-500 font-medium">
+      {/* 2. 아래에 작고 깔끔하게 들어가는 문장형 카운터 */}
+      <div className="text-sm md:text-base font-sans text-slate-500 font-medium tracking-wide">
         개최까지 {timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초!
       </div>
     </div>

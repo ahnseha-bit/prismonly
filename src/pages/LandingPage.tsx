@@ -16,7 +16,7 @@ export default function LandingPage() {
         <img
           src="/img/logo_900.png"
           alt="Enter to PRISM"
-          className="w-4 md:w-96 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
+          className="w-40 md:w-70 transition-transform duration-700 group-hover:scale-110 drop-shadow-xl"
         />
       </motion.button>
     </div>
