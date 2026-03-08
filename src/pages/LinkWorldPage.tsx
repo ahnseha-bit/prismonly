@@ -20,11 +20,11 @@ export default function LinkWorldPage() {
       >
         {/* Header Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-4 md:mt-8 shrink-0">
-          <div className="outer-holo-line flex flex-col">
+          <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
-              <div className="inner-holo-line flex flex-col">
-                <div className="main-board flex flex-col p-4 md:p-6 text-center md:text-left">
-                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold inline-block">Link World</h2>
+              <div className="inner-gold-line">
+                <div className="bg-white p-4 md:px-8 md:py-5 w-full flex items-center justify-center md:justify-start">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold inline-block m-0">Link World</h2>
                 </div>
               </div>
             </div>

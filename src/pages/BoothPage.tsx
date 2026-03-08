@@ -29,28 +29,27 @@ export default function BoothPage() {
       >
         {/* Header Box */}
         <div className="w-full max-w-3xl shadow-frame flex flex-col mt-4 md:mt-8 shrink-0">
-          <div className="outer-holo-line flex flex-col">
+          <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
-              <div className="inner-holo-line flex flex-col">
-                <div className="main-board flex flex-col p-4 md:p-6">
-                  <div className="w-full flex flex-col md:flex-row md:items-center justify-between shrink-0">
-                    <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold mb-4 md:mb-0">Booth</h2>
-                    
-                    <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 w-full md:w-auto pb-2 md:pb-0">
-                      {BOOTH_MENU.map((item) => (
-                        <button
-                          key={item.id}
-                          onClick={() => navigate(`/booth/${item.id}`)}
-                          className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${
-                            activeTab === item.id
-                              ? "bg-accent-gold text-white"
-                              : "bg-slate-50 text-slate-400 hover:bg-slate-100"
-                          }`}
-                        >
-                          {item.label}
-                        </button>
-                      ))}
-                    </div>
+              <div className="inner-gold-line">
+                <div className="bg-white p-4 md:px-8 md:py-5 w-full flex flex-col md:flex-row md:items-center justify-between">
+                  <h2 className="text-xl md:text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-gold mb-4 md:mb-0 m-0 shrink-0">
+                    Booth
+                  </h2>
+                  <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 md:ml-4 w-full md:w-auto pb-2 md:pb-0">
+                    {BOOTH_MENU.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => navigate(`/booth/${item.id}`)}
+                        className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${
+                          activeTab === item.id
+                            ? "bg-accent-gold text-white"
+                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
