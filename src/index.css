@@ -34,7 +34,7 @@
 
 @layer base {
   body {
-    @apply font-sans font-normal text-slate-600 bg-white overflow-x-hidden antialiased;
+    @apply font-sans font-normal tracking-normal text-slate-600 bg-white overflow-x-hidden antialiased;
   }
 }
 
@@ -65,7 +65,7 @@
   }
 
   .wireframe-box {
-    @apply border border-black/5 rounded-[4px] bg-white/40 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center text-black/20 text-[10px] tracking-[0.2em];
+    @apply border border-black/5 rounded-[4px] bg-white/40 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center text-black/20 text-[10px] uppercase tracking-[0.2em];
   }
 
   .fluid-container {
@@ -78,11 +78,11 @@
   }
 
   .main-board {
-    @apply bg-white p-5 md:p-8 text-center block w-full h-auto;
+    @apply bg-white p-5 md:p-8 text-center block w-full h-auto font-normal tracking-normal;
   }
 
   .title-accent {
-    @apply text-accent-gold font-metal tracking-[0.2em];
+    @apply text-accent-gold font-metal tracking-[-0.03em] font-bold;
   }
 }
 
