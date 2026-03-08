@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import MainPage from "./pages/MainPage";
@@ -19,10 +19,18 @@ export default function App() {
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/main" element={<MainPage />} />
-              <Route path="/info" element={<InfoPage />} />
-              <Route path="/booth" element={<BoothPage />} />
-              <Route path="/event" element={<EventPage />} />
-              <Route path="/links" element={<LinkWorldPage />} />
+              
+              <Route path="/info" element={<Navigate to="/info/01" replace />} />
+              <Route path="/info/:tabId" element={<InfoPage />} />
+              
+              <Route path="/booth" element={<Navigate to="/booth/01" replace />} />
+              <Route path="/booth/:tabId" element={<BoothPage />} />
+              
+              <Route path="/event" element={<Navigate to="/event/01" replace />} />
+              <Route path="/event/:tabId" element={<EventPage />} />
+              
+              <Route path="/links" element={<Navigate to="/links/01" replace />} />
+              <Route path="/links/:tabId" element={<LinkWorldPage />} />
             </Routes>
           </main>
         </div>

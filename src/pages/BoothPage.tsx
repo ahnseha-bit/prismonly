@@ -1,14 +1,24 @@
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { useEffect } from "react";
 
 const BOOTH_MENU = [
-  { id: "list", label: "부스 리스트" },
-  { id: "detail", label: "부스 상세정보" },
-  { id: "map", label: "부스 배치도" },
+  { id: "01", label: "부스 리스트" },
+  { id: "02", label: "부스 상세정보" },
+  { id: "03", label: "부스 배치도" },
 ];
 
 export default function BoothPage() {
-  const [activeTab, setActiveTab] = useState("list");
+  const { tabId } = useParams();
+  const navigate = useNavigate();
+
+  const activeTab = tabId || "01";
+
+  useEffect(() => {
+    if (!BOOTH_MENU.find((item) => item.id === tabId)) {
+      navigate("/booth/01", { replace: true });
+    }
+  }, [tabId, navigate]);
 
   return (
     <div className="fluid-container h-[100dvh] pt-[12vh] pb-[6vh] flex flex-col relative z-10">
@@ -25,7 +35,7 @@ export default function BoothPage() {
             {BOOTH_MENU.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => navigate(`/booth/${item.id}`)}
                 className={`flex-shrink-0 px-1.5 md:px-6 py-1 md:py-2 rounded-[4px] text-[9px] md:text-[11px] tracking-wider md:tracking-widest transition-all duration-400 font-sans ${
                   activeTab === item.id
                     ? "bg-accent-purple text-white"
@@ -53,7 +63,7 @@ export default function BoothPage() {
                       transition={{ duration: 0.4 }}
                       className="font-sans text-slate-600 leading-[2.1]"
                     >
-                      {activeTab === "list" && (
+                      {activeTab === "01" && (
                         <div className="space-y-8">
                           <h3 className="text-xl font-bold text-slate-800">ㄱ. 부스 리스트</h3>
                           <div className="bg-slate-50 p-4 md:p-8 rounded-lg border border-slate-100">
@@ -69,7 +79,7 @@ export default function BoothPage() {
                         </div>
                       )}
 
-                      {activeTab === "detail" && (
+                      {activeTab === "02" && (
                         <div className="space-y-8">
                           <h3 className="text-xl font-bold text-slate-800">ㄴ. 부스 상세 정보 (추후 공개)</h3>
                           <div className="space-y-4">
@@ -85,7 +95,7 @@ export default function BoothPage() {
                         </div>
                       )}
 
-                      {activeTab === "map" && (
+                      {activeTab === "03" && (
                         <div className="space-y-8">
                           <h3 className="text-xl font-bold text-slate-800">ㄷ. 부스 배치도</h3>
                           <div className="w-full aspect-video wireframe-box bg-slate-50/50">

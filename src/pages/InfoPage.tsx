@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { useEffect } from "react";
 
 const INFO_MENU = [
-  { id: "overview", label: "행사개요" },
-  { id: "visitor", label: "참관객 안내" },
-  { id: "booth", label: "부스 참가자 안내" },
+  { id: "01", label: "행사개요" },
+  { id: "02", label: "참관객 안내" },
+  { id: "03", label: "부스 참가자 안내" },
 ];
 
 export default function InfoPage() {
-  const [activeTab, setActiveTab] = useState("overview");
+  const { tabId } = useParams();
+  const navigate = useNavigate();
+
+  const activeTab = tabId || "01";
+
+  // Check if tabId is valid, if not redirect to 01
+  useEffect(() => {
+    if (!INFO_MENU.find((item) => item.id === tabId)) {
+      navigate("/info/01", { replace: true });
+    }
+  }, [tabId, navigate]);
 
   return (
     <div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] flex flex-col relative z-10 overflow-hidden">
@@ -37,7 +48,7 @@ export default function InfoPage() {
                       {INFO_MENU.map((item) => (
                         <button
                           key={item.id}
-                          onClick={() => setActiveTab(item.id)}
+                          onClick={() => navigate(`/info/${item.id}`)}
                           className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${activeTab === item.id
                               ? "bg-accent-purple text-white"
                               : "bg-slate-50 text-slate-400 hover:bg-slate-100"
@@ -60,7 +71,7 @@ export default function InfoPage() {
                         transition={{ duration: 0.4 }}
                         className="font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base"
                       >
-                        {activeTab === "overview" && (
+                        {activeTab === "01" && (
                           <div className="space-y-6 md:space-y-8">
                             <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄱ. 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -96,7 +107,7 @@ export default function InfoPage() {
                           </div>
                         )}
 
-                        {activeTab === "visitor" && (
+                        {activeTab === "02" && (
                           <div className="space-y-6 md:space-y-8">
                             <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄴ. 참관객 안내사항</h3>
                             <ul className="list-disc list-inside space-y-2 text-sm">
@@ -122,7 +133,7 @@ export default function InfoPage() {
                           </div>
                         )}
 
-                        {activeTab === "booth" && (
+                        {activeTab === "03" && (
                           <div className="space-y-6 md:space-y-8">
                             <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄷ. 부스 참가자 안내 사항</h3>
                             <div className="space-y-6">
