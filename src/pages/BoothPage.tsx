@@ -83,7 +83,7 @@ export default function BoothPage() {
               transition={{ duration: 0.4 }}
               className="flex flex-col space-y-6 md:space-y-8 w-full"
             >
-              {activeTab === "03" && (
+              {activeTab === "01" && (
                 <>
                   <HoloBox>
                     <div className="content-section">
