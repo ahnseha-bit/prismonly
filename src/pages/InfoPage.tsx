@@ -145,82 +145,103 @@ export default function InfoPage() {
               )}
 
               {activeTab === "02" && (
-                <>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
                   <HoloBox>
-                    <div className="space-y-6 md:space-y-8">
+                    <div className="space-y-6">
                       <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2">
-                        <span className="text-accent-gold">✧</span> 참관객 안내
+                        <span className="text-accent-gold">✧</span> Visitor Info
                       </h3>
-                      <div className="space-y-4 md:space-y-5">
-                        <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-slate-700">
-                          <li className="flex items-start gap-2">
-                            <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
-                            <span><strong className="font-bold text-slate-800">행사 당일 신분증을 확인합니다.</strong> 티켓 구매자명과 신분증의 이름이 다를 경우 입장이 불가능합니다.</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
-                            <span>행사장 위치는 오직 티켓 참가자에게만 공개됩니다. <strong className="text-slate-800">외부 발설을 금지합니다.</strong></span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
-                            <span>통행을 방해할 수 있는 <strong className="text-slate-800">배틀, 프리즘 러쉬 및 프리즘 쇼</strong>는 금지입니다.</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="text-accent-gold shrink-0 mt-0.5">✧</span>
-                            <span>미성년자의 <strong className="text-slate-800">성인본 대리 구매</strong>를 엄격히 금지합니다.</span>
-                          </li>
-                        </ul>
-                      </div>
+                      <ul className="space-y-4 text-sm md:text-base text-slate-700">
+                        <li className="flex items-start gap-2">
+                          <span className="text-accent-gold shrink-0 mt-1">✧</span>
+                          <span><strong className="font-bold text-slate-800">실물 신분증 확인 필수:</strong> 티켓 구매자명과 신분증 이름이 다를 경우 입장이 불가능합니다. (캡처본, 사진 불가)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-accent-gold shrink-0 mt-1">✧</span>
+                          <span><strong className="text-slate-800">행사장 위치 기밀 유지:</strong> 위치 정보는 참가자에게만 공개되며, SNS 등 외부에 발설 시 불이익이 있을 수 있습니다.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-accent-gold shrink-0 mt-1">✧</span>
+                          <span>장내 <strong className="text-slate-800">배틀, 프리즘 러쉬, 프리즘 쇼</strong> 등 통행에 방해되는 모든 행위는 엄격히 금지됩니다.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-accent-gold shrink-0 mt-1">✧</span>
+                          <span><strong className="text-slate-800">성인본 대리 구매 금지:</strong> 미성년자를 위한 성인본 구매 대행 적발 시 즉시 퇴장 조치됩니다.</span>
+                        </li>
+                      </ul>
                     </div>
                   </HoloBox>
-                  <HoloBox>
-                    <div className="space-y-3">
-                      <h4 className="font-bold text-slate-800 text-base md:text-lg flex items-center gap-2">
-                        <span className="text-accent-gold">💡</span> 현금 결제 수단 준비 권장
-                      </h4>
-                      <p className="text-sm md:text-base text-slate-700">원활한 순환을 위해 현금 결제 수단 지참을 권장드립니다.</p>
-                    </div>
-                  </HoloBox>
+
                   <HoloBox>
                     <div className="space-y-4">
                       <h4 className="font-bold text-slate-800 text-base md:text-lg flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 코스프레 규정
+                        <span className="text-accent-gold">✧</span> Prohibited Actions
                       </h4>
-                      <p className="text-sm md:text-base text-slate-700">노출이 심하거나 통행에 방해가 되는 의상은 금지됩니다. 화장실에서의 환복을 엄격히 금지합니다.</p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px] md:text-sm text-slate-600 bg-slate-50 p-4 rounded-md">
+                        <p>• 행사장 내 노출 및 탈의 행위</p>
+                        <p>• 고성방가 및 타 참관객 위협 행위</p>
+                        <p>• 행사 전날 혹은 당일 새벽 조기 대기</p>
+                        <p>• 성인본의 장내 개봉 및 열람</p>
+                        <p>• 행사장 내 모든 종류의 음식물 취식</p>
+                        <p>• 허가되지 않은 상업적 촬영</p>
+                      </div>
                     </div>
                   </HoloBox>
-                </>
+
+                  <HoloBox>
+                    <div className="space-y-4 text-sm md:text-base text-slate-700">
+                      <h4 className="font-bold text-slate-800 flex items-center gap-2">
+                        <span className="text-accent-gold">💡</span> Cash & Payment
+                      </h4>
+                      <p>원활한 현장 결제를 위해 <strong className="text-accent-gold font-bold">현금(천원권, 오천원권) 지참</strong>을 강력히 권장합니다. 현장 네트워크 불안정으로 계좌이체가 원활하지 않을 수 있습니다.</p>
+                    </div>
+                  </HoloBox>
+
+                  <HoloBox>
+                    <div className="space-y-4">
+                      <h4 className="font-bold text-slate-800 text-base md:text-lg flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> Cosplay Rules
+                      </h4>
+                      <ul className="space-y-2 text-sm md:text-base text-slate-700 leading-relaxed">
+                        <li>• 과도한 노출, 혐오감을 주는 의상, 부피가 큰 소품 금지</li>
+                        <li>• 공식 설정에 기반하지 않은 무분별한 어레인지 의상 불가</li>
+                        <li>• <strong className="text-slate-800 text-sm">화장실 내 환복 및 장시간 메이크업 절대 금지 (적발 시 즉시 퇴장)</strong></li>
+                      </ul>
+                    </div>
+                  </HoloBox>
+                </motion.div>
               )}
 
-              {activeTab === "03" && (
-                <HoloBox>
-                  <div className="space-y-6 md:space-y-8">
-                    <h3 className="text-lg md:text-xl font-bold text-slate-800">부스 참가자 안내 사항</h3>
+              {active_tab === "03" && (
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+                  <HoloBox>
                     <div className="space-y-6">
-                      <section className="space-y-3">
-                        <h4 className="font-bold text-slate-700">부스 기본 구성</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                          <div className="bg-slate-50 p-4 rounded">
-                            <p className="font-bold text-sm md:text-base">한 부스</p>
-                            <p className="text-xs md:text-sm text-slate-500 mt-1">책상 1개, 의자 2개, 입장권 4매</p>
+                      <h3 className="text-xl md:text-2xl font-bold text-slate-800">Booth Participant Info</h3>
+                      <section className="space-y-4">
+                        <h4 className="font-bold text-accent-gold border-b border-accent-gold/20 pb-1">부스 기본 사양</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="p-4 border border-slate-100 rounded">
+                            <p className="font-bold">한 부스 (Full)</p>
+                            <p className="text-sm text-slate-500">가로 180cm 책상 1개, 의자 2개, 입장권 4매</p>
                           </div>
-                          <div className="bg-slate-50 p-4 rounded">
-                            <p className="font-bold text-sm md:text-base">반 부스</p>
-                            <p className="text-xs md:text-sm text-slate-500 mt-1">책상 절반, 의자 1개, 입장권 2매</p>
+                          <div className="p-4 border border-slate-100 rounded">
+                            <p className="font-bold">반 부스 (Half)</p>
+                            <p className="text-sm text-slate-500">가로 90cm 책상 공간, 의자 1개, 입장권 2매</p>
                           </div>
                         </div>
                       </section>
-                      <section className="space-y-2 text-[13px] md:text-sm">
-                        <p className="font-bold text-slate-700">부스 운영 규정</p>
-                        <ul className="list-disc list-inside space-y-1 text-slate-600">
-                          <li>부스 선입장 시간에는 판매 및 구매 불가</li>
-                          <li>책상 위 45cm 초과 구조물 설치 금지</li>
-                          <li>범위를 벗어나는 장식 설치 금지</li>
+                      <section className="space-y-3">
+                        <h4 className="font-bold text-accent-gold border-b border-accent-gold/20 pb-1">운영 및 디스플레이 규정</h4>
+                        <ul className="space-y-2 text-sm md:text-base text-slate-700 list-disc list-inside marker:text-accent-gold">
+                          <li>부스 선입장 시간에는 본인 부스 이외의 판매/구매 활동이 금지됩니다.</li>
+                          <li>디스플레이 구조물 높이는 책상 면으로부터 <strong className="text-slate-900">최대 45cm</strong>를 초과할 수 없습니다.</li>
+                          <li>배정된 부스 범위를 벗어난 벽면 부착 및 바닥 적재는 불가능합니다.</li>
+                          <li>성인본 판매 시 신분증 확인 의무는 전적으로 부스 참가자에게 있습니다.</li>
                         </ul>
                       </section>
                     </div>
-                  </div>
-                </HoloBox>
+                  </HoloBox>
+                </motion.div>
               )}
             </motion.div>
           </AnimatePresence>
