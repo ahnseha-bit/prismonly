@@ -20,9 +20,8 @@ export default function Navbar() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md">
         <div className="max-w-[1440px] mx-auto px-10 h-20 flex items-center justify-between">
-          <Link to="/main" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 wireframe-box">Logo</div>
-            <span className="font-serif font-light text-xs tracking-[0.3em] text-black/60 uppercase">Starry 2026</span>
+          <Link to="/" className="flex items-center justify-center group">
+            <img src="/img/logo_menu.png" alt="Prismonly Navbar Logo" className="h-[4vh] w-auto object-contain" />
           </Link>
 
           {/* Desktop Menu - Small and Clean */}

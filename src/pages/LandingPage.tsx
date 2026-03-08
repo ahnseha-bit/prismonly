@@ -16,10 +16,11 @@ export default function LandingPage() {
           onClick={() => navigate("/main")}
           className="group relative flex flex-col items-center space-y-12"
         >
-          {/* Large Logo Wireframe Box */}
-          <div className="w-64 h-64 wireframe-box group-hover:bg-gray-300 transition-colors duration-500">
-            Logo Box
-          </div>
+          <img
+            src="/img/logo_900.png"
+            alt="Prismonly Logo"
+            className="w-full max-w-[400px] transition-transform duration-500 group-hover:scale-110 object-contain"
+          />
 
           <div className="overflow-hidden">
             <motion.p
