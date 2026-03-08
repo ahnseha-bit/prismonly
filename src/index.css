@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+
 @font-face {
   font-family: 'Happy Time';
   src: url('HappyTime.woff2') format('woff2');
@@ -16,7 +18,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-metal: "Happy Time", serif;
+  --font-happy: "Happy Time", serif;
+  --font-metal: "Metal", serif;
   --font-sans: "NexonLv2Gothic", ui-sans-serif, system-ui, sans-serif;
 
   --color-holo-1: #ffd2d2;
@@ -82,7 +85,7 @@
   }
 
   .title-accent {
-    @apply text-accent-gold font-metal tracking-[-0.03em] font-bold;
+    @apply text-accent-gold font-happy tracking-[-0.03em] font-bold;
   }
 }
 
