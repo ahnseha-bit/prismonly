@@ -50,10 +50,8 @@ const StarBackground: React.FC = () => {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
 
-        const sizeType = Math.floor(Math.random() * 3);
+        const sizeType = Math.floor(Math.random() * 2);
         if (sizeType === 0) {
-          this.size = Math.random() * 15 + 15;
-        } else if (sizeType === 1) {
           this.size = Math.random() * 20 + 35;
         } else {
           this.size = Math.random() * 25 + 60;
