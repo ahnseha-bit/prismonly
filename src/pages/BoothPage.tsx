@@ -18,10 +18,10 @@ export default function BoothPage() {
         className="flex flex-col items-center flex-1 min-h-0 w-full space-y-[4vh]"
       >
         {/* Header */}
-        <div className="w-full flex flex-col md:flex-row md:items-end justify-between border-b border-slate-100 pb-4 shrink-0">
+        <div className="w-full px-4 md:px-0 max-w-2xl flex flex-col items-center space-y-4 shrink-0">
           <h2 className="text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-purple">Booth</h2>
           
-          <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 pb-2 md:pb-0 mt-6 md:mt-0 w-full md:w-auto">
+          <div className="flex overflow-x-auto no-scrollbar space-x-1 md:space-x-2 w-full md:w-auto justify-center">
             {BOOTH_MENU.map((item) => (
               <button
                 key={item.id}
@@ -39,7 +39,7 @@ export default function BoothPage() {
         </div>
 
         {/* Content Area */}
-        <div className="w-full shadow-frame">
+        <div className="w-full px-4 md:px-0 max-w-2xl shadow-frame">
           <div className="outer-holo-line flex flex-col flex-1 min-h-0 w-full">
             <div className="p-[2px] bg-white flex flex-col flex-1 min-h-0 w-full">
               <div className="inner-holo-line">

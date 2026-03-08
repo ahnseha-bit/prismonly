@@ -12,10 +12,14 @@
 @theme {
   --font-metal: "Metal", serif;
   --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
-  --color-hologram-pink: #FF85A1;
-  --color-hologram-blue: #4CC9FE;
-  --color-hologram-green: #48E19F;
-  --color-hologram-purple: #B377FF;
+  --color-hologram-1: #ffd2d2;
+  --color-hologram-2: #ffe3c7;
+  --color-hologram-3: #fff5c1;
+  --color-hologram-4: #ebfbce;
+  --color-hologram-5: #c0ffee;
+  --color-hologram-6: #afe7ff;
+  --color-hologram-7: #dbcbff;
+  --color-hologram-8: #ffd6f1;
   --color-shadow-blue: #bae6fd;
   --color-accent-purple: #7c3aed;
 }
@@ -34,11 +38,11 @@
   }
 
   .outer-holo-line {
-    @apply p-[1px] bg-linear-to-tr from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink flex flex-col flex-1 min-h-0;
+    @apply p-[1px] bg-linear-to-tr from-hologram-1 via-hologram-2 via-hologram-3 via-hologram-4 via-hologram-5 via-hologram-6 via-hologram-7 to-hologram-8 flex flex-col flex-1 min-h-0;
   }
 
   .inner-holo-line {
-    @apply p-[1px] bg-linear-to-bl from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink flex flex-col flex-1 min-h-0;
+    @apply p-[1px] bg-linear-to-bl from-hologram-1 via-hologram-2 via-hologram-3 via-hologram-4 via-hologram-5 via-hologram-6 via-hologram-7 to-hologram-8 flex flex-col flex-1 min-h-0;
   }
 
   .main-board {

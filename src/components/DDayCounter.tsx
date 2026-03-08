@@ -30,13 +30,13 @@ export default function DDayCounter({ targetDate }: { targetDate: string }) {
 
   return (
     <div className="flex flex-col items-center space-y-2 md:space-y-4">
-      <div className="text-5xl md:text-9xl font-metal font-extralight tracking-tighter text-black/90">
+      <div className="text-5xl md:text-9xl font-metal font-extralight tracking-tighter bg-linear-to-r from-hologram-1 via-hologram-3 via-hologram-5 to-hologram-7 text-transparent bg-clip-text pb-2">
         D-{timeLeft.days}
       </div>
-      <div className="flex space-x-4 md:space-x-8 text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] text-black/20 font-light uppercase">
-        <span>{timeLeft.hours}H</span>
-        <span>{timeLeft.minutes}M</span>
-        <span>{timeLeft.seconds}S</span>
+      <div className="flex space-x-4 md:space-x-8 text-[12px] md:text-[14px] tracking-[0.2em] text-slate-400 font-sans font-medium">
+        <span>{String(timeLeft.hours).padStart(2, '0')}시간</span>
+        <span>{String(timeLeft.minutes).padStart(2, '0')}분</span>
+        <span>{String(timeLeft.seconds).padStart(2, '0')}초</span>
       </div>
     </div>
   );

@@ -9,12 +9,12 @@ export default function LinkWorldPage() {
         className="flex flex-col items-center flex-1 min-h-0 w-full space-y-[4vh]"
       >
         {/* Header */}
-        <div className="w-full flex flex-col md:flex-row md:items-end justify-between border-b border-slate-100 pb-4 shrink-0">
+        <div className="w-full px-4 md:px-0 max-w-2xl flex flex-col items-center space-y-4 shrink-0">
           <h2 className="text-2xl tracking-[0.3em] uppercase font-metal italic text-accent-purple">Link World</h2>
         </div>
 
         {/* Content Area */}
-        <div className="w-full shadow-frame">
+        <div className="w-full px-4 md:px-0 max-w-2xl shadow-frame">
           <div className="outer-holo-line flex flex-col flex-1 min-h-0 w-full">
             <div className="p-[2px] bg-white flex flex-col flex-1 min-h-0 w-full">
               <div className="inner-holo-line">
