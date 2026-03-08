@@ -11,8 +11,10 @@ export default function MainPage() {
         className="flex flex-col items-center w-full space-y-8 md:space-y-[6vh]"
       >
         {/* D-Day Area */}
-        <div className="text-center shrink-0 mt-4 md:mt-0">
-          <p className="text-[10px] tracking-[0.5em] uppercase mb-2 md:mb-4 text-slate-400">Countdown to Prism</p>
+        <div className="text-center shrink-0 mt-4 md:mt-0 flex flex-col items-center">
+          <span className="bg-accent-gold text-white px-2.5 py-0.5 text-[10px] md:text-xs rounded-[3px] tracking-widest uppercase font-bold inline-block mb-3 md:mb-4">
+            Countdown to Prism
+          </span>
           <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal">
             <DDayCounter targetDate="2026-07-04T00:00:00" />
           </div>
