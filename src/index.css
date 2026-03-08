@@ -88,17 +88,17 @@
     @apply text-accent-gold font-happy tracking-[-0.03em] font-bold;
   }
 
-  /* 본문 표준 규격 (대/중/소) */
+  /* 본문 표준 규격 (대/중/소) - 자간(tracking) 정상화 */
   .body-lg {
-    @apply text-base font-bold tracking-tight leading-relaxed text-slate-700;
+    @apply text-base font-bold leading-relaxed text-slate-700 tracking-normal;
   }
 
   .body-md {
-    @apply text-sm font-normal tracking-tight leading-relaxed text-slate-600;
+    @apply text-[15px] font-normal leading-relaxed text-slate-600 tracking-normal;
   }
 
   .body-sm {
-    @apply text-xs font-normal tracking-tight leading-normal text-slate-400;
+    @apply text-[13px] font-normal leading-relaxed text-slate-500 tracking-normal;
   }
 
   /* 섹션 및 라벨 규격 */
@@ -107,24 +107,22 @@
   }
 
   .content-label {
-    /* 에러 방지를 위해 body-sm 대신 유틸리티 직접 나열 */
-    @apply text-xs font-bold tracking-tight leading-normal text-accent-gold mb-1;
+    @apply text-[13px] font-bold leading-normal text-accent-gold mb-1 tracking-normal;
   }
-}
 
-.main-board::-webkit-scrollbar {
-  width: 6px;
-}
+  .main-board::-webkit-scrollbar {
+    width: 6px;
+  }
 
-.main-board::-webkit-scrollbar-track {
-  background: transparent;
-}
+  .main-board::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-.main-board::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 9999px;
-}
+  .main-board::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 9999px;
+  }
 
-.main-board::-webkit-scrollbar-thumb:hover {
-  background-color: #94a3b8;
-}
+  .main-board::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8;
+  }
