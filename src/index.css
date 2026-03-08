@@ -46,12 +46,12 @@
   /* 🌟 스케줄표 테두리용 홀로그램 수정 */
   .outer-holo-line {
     background-image: linear-gradient(to top right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
-    @apply p-[1px] flex flex-col flex-1 min-h-0 w-full;
+    @apply p-[1px] flex flex-col min-h-0 w-full;
   }
 
   .inner-holo-line {
     background-image: linear-gradient(to bottom left, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
-    @apply p-[1px] flex flex-col flex-1 min-h-0 w-full;
+    @apply p-[1px] flex flex-col min-h-0 w-full;
   }
 
   .wireframe-box {
@@ -63,11 +63,11 @@
   }
 
   .shadow-frame {
-    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col flex-1 min-h-0 w-full;
+    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col min-h-0 w-full;
   }
 
   .main-board {
-    @apply bg-white p-4 md:p-8 text-center flex-1 overflow-y-auto block w-full;
+    @apply bg-white p-4 md:p-8 text-center overflow-y-auto block w-full;
   }
 
   .title-accent {
