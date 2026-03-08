@@ -34,19 +34,19 @@
 
 @layer components {
   .text-hologram {
-    background-image: linear-gradient(to right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    background-image: linear-gradient(to right, var(--color-holo-1), var(--color-holo-2), var(--color-holo-3), var(--color-holo-4), var(--color-holo-5), var(--color-holo-6), var(--color-holo-7), var(--color-holo-8));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .outer-holo-line {
-    background-image: linear-gradient(to top right, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    background-image: linear-gradient(to top right, var(--color-holo-1), var(--color-holo-2), var(--color-holo-3), var(--color-holo-4), var(--color-holo-5), var(--color-holo-6), var(--color-holo-7), var(--color-holo-8));
     @apply p-[1px] flex flex-col w-full;
   }
 
   .inner-holo-line {
-    background-image: linear-gradient(to bottom left, theme(colors.holo-1), theme(colors.holo-2), theme(colors.holo-3), theme(colors.holo-4), theme(colors.holo-5), theme(colors.holo-6), theme(colors.holo-7), theme(colors.holo-8));
+    background-image: linear-gradient(to bottom left, var(--color-holo-1), var(--color-holo-2), var(--color-holo-3), var(--color-holo-4), var(--color-holo-5), var(--color-holo-6), var(--color-holo-7), var(--color-holo-8));
     @apply p-[1px] flex flex-col w-full;
   }
 
@@ -67,7 +67,8 @@
   }
 
   .shadow-frame {
-    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)] flex flex-col w-full;
+    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 flex flex-col w-full;
+    box-shadow: 8px 8px 0px var(--color-shadow-blue);
   }
 
   .main-board {
