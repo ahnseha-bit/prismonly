@@ -16,7 +16,6 @@ const StarBackground: React.FC = () => {
     let bubbles: Bubble[] = [];
 
     const COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
-    const BUBBLE_COLORS = ['#ffd6f1', '#BAE6FD', '#FEF08A'];
 
     function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
       if (!ctx) return;
@@ -38,52 +37,77 @@ const StarBackground: React.FC = () => {
       x!: number;
       y!: number;
       size!: number;
-      color!: string;
       opacity!: number;
       blink!: number;
       vx!: number;
       vy!: number;
+      state!: 'appearing' | 'holding' | 'disappearing';
+      holdTimer!: number;
+      maxHold!: number;
 
       constructor() { this.reset(true); }
 
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
+        this.size = Math.random() * 100 + 150;
+        this.blink = 0.001 + Math.random() * 0.0015;
+        this.vx = (Math.random() - 0.5) * 0.2;
+        this.vy = (Math.random() - 0.5) * 0.2;
+        this.holdTimer = 0;
+        this.maxHold = 180 + Math.random() * 180;
 
-        const sizeType = Math.floor(Math.random() * 2);
-        if (sizeType === 0) {
-          this.size = Math.random() * 20 + 35;
+        if (initial) {
+          const startChance = Math.random();
+          if (startChance < 0.3) {
+            this.state = 'appearing';
+            this.opacity = Math.random() * 0.15;
+          } else if (startChance < 0.6) {
+            this.state = 'holding';
+            this.opacity = 0.15;
+            this.holdTimer = Math.random() * this.maxHold;
+          } else {
+            this.state = 'disappearing';
+            this.opacity = Math.random() * 0.15;
+            this.blink *= -1;
+          }
         } else {
-          this.size = Math.random() * 25 + 60;
+          this.state = 'appearing';
+          this.opacity = 0;
         }
-
-        this.color = BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)];
-        this.opacity = initial ? Math.random() * 0.3 : 0;
-        this.blink = 0.006 + Math.random() * 0.006;
-
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
       }
 
       draw() {
         this.x += this.vx;
         this.y += this.vy;
 
-        this.opacity += this.blink;
-        if (this.opacity > 0.4) {
-          this.opacity = 0.4;
-          this.blink *= -1;
-        } else if (this.opacity < 0 && this.blink < 0) {
-          this.reset();
+        if (this.state === 'appearing') {
+          this.opacity += this.blink;
+          if (this.opacity >= 0.15) {
+            this.opacity = 0.15;
+            this.state = 'holding';
+          }
+        } else if (this.state === 'holding') {
+          this.holdTimer++;
+          if (this.holdTimer >= this.maxHold) {
+            this.state = 'disappearing';
+            this.blink = Math.abs(this.blink) * -1;
+          }
+        } else if (this.state === 'disappearing') {
+          this.opacity += this.blink;
+          if (this.opacity <= 0) {
+            this.opacity = 0;
+            this.reset();
+          }
         }
 
         if (!ctx) return;
 
         const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
-        grad.addColorStop(0, `${this.color}00`);
-        grad.addColorStop(0.5, `${this.color}20`);
-        grad.addColorStop(0.8, `${this.color}80`);
-        grad.addColorStop(1, `${this.color}00`);
+        grad.addColorStop(0, '#FFFFFF00');
+        grad.addColorStop(0.3, '#FFFFFF00');
+        grad.addColorStop(0.7, '#FFB3E940');
+        grad.addColorStop(1, '#F884A1A0');
 
         ctx.save();
         ctx.globalAlpha = Math.max(0, this.opacity);
@@ -189,8 +213,8 @@ const StarBackground: React.FC = () => {
 
       ctx.scale(dpr, dpr);
 
-      stars = Array.from({ length: 50 }, () => new Star());
-      bubbles = Array.from({ length: 12 }, () => new Bubble());
+      stars = Array.from({ length: 55 }, () => new Star());
+      bubbles = Array.from({ length: 3 }, () => new Bubble());
     };
 
     const spawn = () => {
