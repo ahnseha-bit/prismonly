@@ -1,0 +1,149 @@
+import React, { useEffect, useRef } from 'react';
+
+const StarBackground: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width: number, height: number;
+    let stars: Star[] = [];
+    let shootingStars: ShootingStar[] = [];
+
+    const COLORS = ['#FF85A1', '#4CC9FE', '#48E19F', '#B377FF'];
+
+    function draw4PointedStar(x: number, y: number, size: number, rotation: number, color: string) {
+      if (!ctx) return;
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(0, -size);
+      ctx.quadraticCurveTo(0, 0, size, 0);
+      ctx.quadraticCurveTo(0, 0, 0, size);
+      ctx.quadraticCurveTo(0, 0, -size, 0);
+      ctx.quadraticCurveTo(0, 0, 0, -size);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    class Star {
+      x!: number;
+      y!: number;
+      size!: number;
+      color!: string;
+      opacity!: number;
+      blink!: number;
+      rotation!: number;
+      rotSpeed!: number;
+
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 4 + 1;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        this.opacity = Math.random() * 0.5 + 0.2;
+        this.blink = 0.003 + Math.random() * 0.008;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.02;
+      }
+      draw() {
+        this.opacity += this.blink;
+        if (this.opacity > 0.8 || this.opacity < 0.1) this.blink *= -1;
+        this.rotation += this.rotSpeed;
+
+        if (!ctx) return;
+        ctx.globalAlpha = Math.max(0, this.opacity);
+        draw4PointedStar(this.x, this.y, this.size, this.rotation, this.color);
+      }
+    }
+
+    class ShootingStar {
+      x!: number;
+      y!: number;
+      len!: number;
+      speed!: number;
+      opacity!: number;
+      color!: string;
+
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * width + 200;
+        this.y = Math.random() * height * 0.2 - 200;
+        this.len = Math.random() * 80 + 120;
+        this.speed = Math.random() * 1.5 + 4;
+        this.opacity = 1;
+        this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+      }
+      draw() {
+        if (!ctx) return false;
+        const grad = ctx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
+        grad.addColorStop(0, this.color);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = grad;
+        
+        ctx.beginPath();
+        ctx.moveTo(this.x + 2, this.y + 2);
+        ctx.lineTo(this.x - 2, this.y - 2);
+        ctx.lineTo(this.x + this.len, this.y - this.len);
+        ctx.closePath();
+        ctx.fill();
+        
+        draw4PointedStar(this.x, this.y, 6, this.x * 0.02, this.color);
+        ctx.restore();
+
+        this.x -= this.speed;
+        this.y += this.speed;
+        this.opacity -= 0.004;
+        
+        return this.opacity > 0;
+      }
+    }
+
+    const init = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      stars = Array.from({ length: 50 }, () => new Star());
+    };
+
+    const spawn = () => {
+      if (shootingStars.length < 2) shootingStars.push(new ShootingStar());
+      setTimeout(spawn, Math.random() * 4000 + 2000);
+    };
+
+    const animate = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      stars.forEach(s => s.draw());
+      shootingStars = shootingStars.filter(ss => ss.draw());
+      requestAnimationFrame(animate);
+    };
+
+    window.addEventListener('resize', init);
+    init();
+    spawn();
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', init);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 w-full h-full pointer-events-none z-0"
+    />
+  );
+};
+
+export default StarBackground;

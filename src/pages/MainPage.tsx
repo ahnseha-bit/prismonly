@@ -1,33 +1,55 @@
 import { motion } from "motion/react";
 import DDayCounter from "../components/DDayCounter";
-import { Bell, Info, Calendar } from "lucide-react";
 
 export default function MainPage() {
   return (
-    <div className="w-full flex flex-col items-center py-40 px-10">
+    <div className="fluid-container py-[15vh] relative z-10">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="w-full max-w-[1440px] flex flex-col items-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center space-y-[10vh]"
       >
-        {/* Frame 1: Logo Box */}
-        <div className="w-48 aspect-square wireframe-box mb-32">
-          Logo Box
+        {/* D-Day Area */}
+        <div className="text-center">
+          <p className="text-[10px] tracking-[0.5em] uppercase mb-4 text-slate-400">Countdown to Prism</p>
+          <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal italic">
+            <DDayCounter targetDate="2026-07-04T00:00:00" />
+          </div>
         </div>
 
-        {/* Intro Box */}
-        <div className="w-full max-w-2xl h-12 wireframe-box mb-32">
-          Intro Text Box
+        {/* Schedule Section */}
+        <div className="w-full max-w-2xl shadow-frame">
+          <div className="outer-holo-line">
+            <div className="p-[2px] bg-white">
+              <div className="inner-holo-line">
+                <div className="main-board">
+                  <h1 className="title-accent text-xl mb-8">Schedule</h1>
+                  
+                  <div className="space-y-6 text-slate-600 leading-[2.1] font-sans">
+                    <p className="font-bold text-lg">스케쥴 안내</p>
+                    <p>
+                      행사 준비 및 진행 일정은 아래 스케줄표를 통해 확인하실 수 있습니다.
+                    </p>
+                    <p className="text-sm text-slate-400 italic">
+                      입장권 판매, 부스 배치도 공개 등 주요 일정이 순차적으로 업데이트됩니다.
+                    </p>
+                  </div>
+
+                  <div className="mt-12 pt-8 border-t border-slate-100">
+                    <div className="w-full aspect-video wireframe-box bg-slate-50/50">
+                      <span className="text-[10px] tracking-[0.5em] text-slate-300">SCHEDULE TABLE AREA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Large D-Day */}
-        <div className="mb-40">
-          <DDayCounter targetDate="2026-07-04T00:00:00" />
-        </div>
-
-        {/* Updates Box */}
-        <div className="w-full max-w-4xl h-64 wireframe-box">
-          Recent Updates Box
+        {/* Footer Text */}
+        <div className="text-[10px] tracking-[0.3em] text-slate-300 uppercase">
+          Now Loading...
         </div>
       </motion.div>
     </div>
