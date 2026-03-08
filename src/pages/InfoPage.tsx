@@ -41,8 +41,8 @@ export default function InfoPage() {
                         key={item.id}
                         onClick={() => navigate(`/info/${item.id}`)}
                         className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${activeTab === item.id
-                            ? "bg-accent-gold text-white"
-                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                          ? "bg-accent-gold text-white"
+                          : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
                         {item.label}
@@ -70,37 +70,80 @@ export default function InfoPage() {
                       className="font-sans text-slate-600 leading-[1.8] md:leading-[2.1] text-sm md:text-base"
                     >
                       {activeTab === "01" && (
-                        <div className="space-y-6 md:space-y-8">
-                          <h3 className="text-lg md:text-xl font-bold text-slate-800">ㄱ. 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」</h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <div className="space-y-8 md:space-y-10">
+
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-800 flex items-center gap-2">
+                              <span className="text-accent-gold">✧</span> 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」
+                            </h3>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 bg-slate-50 p-6 md:p-8 rounded-lg">
                             <section className="space-y-2">
-                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400">개최 일시</p>
-                              <p>2026년 7월 4일 (토요일)</p>
+                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 일시</p>
+                              <p className="font-medium">2026년 7월 4일 (토요일)</p>
                             </section>
                             <section className="space-y-2">
-                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400">개최 장소</p>
-                              <p>서울 <br /><span className="text-xs text-slate-400">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
+                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">개최 장소</p>
+                              <p className="font-medium">서울 <br /><span className="text-xs text-slate-400 font-normal">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
                             </section>
                             <section className="space-y-2">
-                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400">참관 대상</p>
-                              <p>2026년 기준 14세 (중학생) 이상 여성 참관객</p>
-                              <p className="text-[10px] md:text-xs text-slate-400 italic mt-1">남성 참관객의 경우, 신원 보증이 가능한 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
+                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">참관 대상</p>
+                              <p className="font-medium">2026년 기준 14세 (중학생) 이상 여성 참관객</p>
+                              <p className="text-[11px] md:text-xs text-slate-500 italic mt-1 leading-relaxed">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
                             </section>
                             <section className="space-y-2">
-                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-slate-400">입장권 판매일</p>
-                              <p>추후 공개</p>
+                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 판매일</p>
+                              <p className="font-medium">추후 공개</p>
+                            </section>
+                            <section className="space-y-2 md:col-span-2 border-t border-slate-200/60 pt-5 mt-2">
+                              <p className="text-[10px] md:text-xs uppercase tracking-widest text-accent-gold font-bold">입장권 구성</p>
+                              <p className="font-medium">행사 안내 및 이벤트 참가용 공식 팜플렛 + 전프레 <span className="text-xs text-slate-400 font-normal">(행사 전원 증정 기념품)</span></p>
                             </section>
                           </div>
 
-                          <div className="pt-2 space-y-4">
-                            <p className="text-[11px] md:text-sm text-slate-400 italic">
-                              본 행사는 「킹 오브 프리즘」 공식과 무관한 팬 주최 동인 온리 이벤트입니다.<br />
-                              동인 문화 및 CP 개념에 익숙하지 않은 분들의 참관은 권장하지 않습니다.
+                          <div className="space-y-8 pl-1 md:pl-2">
+                            <section className="space-y-3">
+                              <h4 className="font-bold text-slate-700 text-base md:text-lg flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 온리전이란?
+                              </h4>
+                              <div className="pl-4 border-l-2 border-accent-gold/30 space-y-4">
+                                <p className="text-sm md:text-base">
+                                  온리전은 한 가지 작품의 팬들이 모여 해당 작품의 만화, 소설, 일러스트, 굿즈 등을 나누며 즐기는 팬 행사입니다. 참가자는 팬의 마음으로 창작물을 제작, 판매하는 <strong className="text-slate-700 font-semibold">'부스 참가자'</strong>, 그리고 그 창작물을 구매하고 응원하는 <strong className="text-slate-700 font-semibold">'일반 참가자'</strong>로 나뉩니다.
+                                </p>
+                                <p className="text-[11px] md:text-sm text-slate-500 bg-slate-50 p-3 md:p-4 rounded italic inline-block">
+                                  ※ 본 온리전은 「킹 오브 프리즘」 비공식 팬 이벤트입니다.<br />
+                                  '동인'이나 'CP' 등의 개념을 잘 모르신다면 참여를 권장하지 않습니다.
+                                </p>
+                              </div>
+                            </section>
+
+                            <section className="space-y-3 pt-2">
+                              <h4 className="font-bold text-slate-700 text-base md:text-lg flex items-start gap-2 leading-snug">
+                                <span className="w-1.5 h-1.5 rounded-full bg-accent-gold mt-2 shrink-0"></span> 킹 오브 프리즘이 아닌 다른 시리즈 캐릭터 또한 다뤄지나요?
+                              </h4>
+                              <div className="pl-4 border-l-2 border-accent-gold/30 space-y-2">
+                                <p className="text-sm md:text-base">
+                                  가능합니다. 단, <strong className="text-slate-700 font-semibold">프리티 리듬 레인보우 라이브</strong> 캐릭터에 한합니다.
+                                </p>
+                                <p className="text-sm md:text-base text-slate-500">
+                                  그 외의 시리즈 캐릭터 단독으로는 부스 참가가 불가능하며, 킹 오브 프리즘과 레인보우 라이브 캐릭터가 메인인 작품에 조연으로 등장하는 형태만 허용됩니다.
+                                  <span className="text-accent-gold font-bold ml-2 text-xs">※ 성인본 불가</span>
+                                </p>
+                              </div>
+                            </section>
+                          </div>
+
+                          <div className="bg-gradient-to-r from-slate-50 to-transparent p-5 md:p-6 rounded-lg space-y-3 text-sm md:text-base border border-slate-100">
+                            <p className="text-slate-600">
+                              행사 관련 최신 정보는 <a href="#" className="text-accent-gold font-bold hover:underline">X(구 Twitter) 공식 계정</a>을 통해 가장 빠르게 확인하실 수 있습니다.
                             </p>
-                            <p className="text-[11px] md:text-sm">
-                              문의: <a href="mailto:prismonlyevent@gmail.com" className="text-accent-gold underline">prismonlyevent@gmail.com</a>
+                            <p className="text-slate-600">
+                              모든 문의는 아래 메일로 부탁드립니다.<br />
+                              <a href="mailto:prismonlyevent@gmail.com" className="text-accent-gold font-bold hover:underline text-base md:text-lg mt-1 inline-block tracking-wider">prismonlyevent@gmail.com</a>
                             </p>
                           </div>
+
                         </div>
                       )}
 
