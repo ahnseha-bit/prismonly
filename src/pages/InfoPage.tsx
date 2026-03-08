@@ -55,8 +55,8 @@ export default function InfoPage() {
                         key={item.id}
                         onClick={() => navigate(`/info/${item.id}`)}
                         className={`flex-shrink-0 px-2 py-0.5 md:px-3 md:py-1 rounded-[2px] text-[10px] md:text-[11px] tracking-tight transition-colors font-sans font-bold ${activeTab === item.id
-                            ? "bg-accent-gold text-white"
-                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                          ? "bg-accent-gold text-white"
+                          : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
                         {item.label}
