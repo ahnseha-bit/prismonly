@@ -29,11 +29,11 @@ export default function DDayCounter({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex flex-col items-center space-y-4">
-      <div className="text-7xl md:text-9xl font-serif font-extralight tracking-tighter text-black/90">
+    <div className="flex flex-col items-center space-y-2 md:space-y-4">
+      <div className="text-5xl md:text-9xl font-metal font-extralight tracking-tighter text-black/90">
         D-{timeLeft.days}
       </div>
-      <div className="flex space-x-8 text-[10px] tracking-[0.5em] text-black/20 font-light uppercase">
+      <div className="flex space-x-4 md:space-x-8 text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] text-black/20 font-light uppercase">
         <span>{timeLeft.hours}H</span>
         <span>{timeLeft.minutes}M</span>
         <span>{timeLeft.seconds}S</span>

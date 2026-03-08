@@ -5,35 +5,33 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed inset-0 bg-white flex flex-col items-center justify-center overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="flex flex-col items-center"
+    <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden z-50">
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        onClick={() => navigate("/main")}
+        className="group relative flex flex-col items-center space-y-8"
       >
-        <button
-          onClick={() => navigate("/main")}
-          className="group relative flex flex-col items-center space-y-12"
-        >
-          <img
-            src="/img/logo_900.png"
-            alt="Prismonly Logo"
-            className="w-full max-w-[400px] transition-transform duration-500 group-hover:scale-110 object-contain"
-          />
 
-          <div className="overflow-hidden">
-            <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-[10px] tracking-[0.8em] uppercase font-light text-black/30 group-hover:text-black/60 transition-colors duration-500"
-            >
-              Click to Enter
-            </motion.p>
+
+        {/* Central Logo Symbol */}
+        <div className="w-24 h-24 md:w-32 md:h-32 outer-holo-line p-[2px] bg-white shadow-frame transition-transform duration-700 group-hover:scale-110">
+          <div className="w-full h-full inner-holo-line bg-white flex items-center justify-center">
+            <span className="text-4xl md:text-5xl font-bold text-accent-purple tracking-tighter">P</span>
           </div>
-        </button>
-      </motion.div>
+        </div>
+
+        {/* Text Logo */}
+        <div className="text-center space-y-2">
+          <h1 className="font-metal italic font-bold text-xl md:text-2xl tracking-[0.4em] text-slate-800 uppercase">
+            Starry 2026
+          </h1>
+          <p className="text-[10px] tracking-[0.6em] uppercase text-slate-300 font-sans group-hover:text-accent-purple transition-colors duration-500">
+            Click to Enter
+          </p>
+        </div>
+      </motion.button>
     </div>
   );
 }

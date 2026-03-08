@@ -1,28 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Noto Serif KR", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-metal: "Metal", serif;
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+  --color-hologram-pink: #FF85A1;
+  --color-hologram-blue: #4CC9FE;
+  --color-hologram-green: #48E19F;
+  --color-hologram-purple: #B377FF;
+  --color-shadow-blue: #bae6fd;
+  --color-accent-purple: #7c3aed;
 }
 
 @layer base {
   body {
-    @apply bg-white text-black/80 font-serif font-light antialiased;
-    font-size: 0.95rem;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-light tracking-tight text-black/90;
+    @apply font-sans font-normal text-slate-600 bg-white overflow-x-hidden antialiased;
   }
 }
 
-.wireframe-box {
-  @apply bg-gray-200 rounded-[4px] flex items-center justify-center text-gray-400 text-xs uppercase tracking-widest;
-}
+@layer components {
+  .wireframe-box {
+    @apply border border-black/5 rounded-[4px] bg-white/40 backdrop-blur-[2px] transition-all duration-500 flex items-center justify-center text-black/20 text-[10px] uppercase tracking-[0.2em];
+  }
 
-.hologram-text {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa, #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  .fluid-container {
+    @apply w-full max-w-[1440px] mx-auto px-6 md:px-[10%];
+  }
+
+  .shadow-frame {
+    @apply relative bg-shadow-blue translate-x-[-8px] translate-y-[-8px] ml-2 mt-2 shadow-[8px_8px_0px_theme(colors.shadow-blue)];
+  }
+
+  .outer-holo-line {
+    @apply p-[1px] bg-linear-to-tr from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink;
+  }
+
+  .inner-holo-line {
+    @apply p-[1px] bg-linear-to-bl from-hologram-pink via-hologram-blue via-hologram-green via-hologram-purple to-hologram-pink;
+  }
+
+  .main-board {
+    @apply bg-white p-4 md:p-16 text-center;
+  }
+
+  .title-accent {
+    @apply text-accent-purple italic font-bold tracking-[0.3em] uppercase;
+  }
+
+  .metal-regular {
+    font-family: "Metal", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
