@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 const INFO_MENU = [
   { id: "01", label: "행사개요" },
   { id: "02", label: "참관객 안내" },
-  { id: "03", label: "부스 참가자 안내" },
+  { id: "03", label: "공지사항" },
 ];
 
 const HoloBox = ({ children }: { children: React.ReactNode }) => (
@@ -56,8 +56,8 @@ export default function InfoPage() {
                         key={item.id}
                         onClick={() => navigate(`/info/${item.id}`)}
                         className={`flex-shrink-0 px-2 py-0.5 md:px-3 md:py-1 rounded-[2px] text-[10px] md:text-[11px] tracking-tight transition-colors font-sans font-bold ${activeTab === item.id
-                            ? "bg-accent-gold text-white"
-                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                          ? "bg-accent-gold text-white"
+                          : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
                         {item.label}
@@ -85,22 +85,22 @@ export default function InfoPage() {
                 <>
                   <HoloBox>
                     <div className="content-section">
-                      <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 flex items-center gap-2 tracking-[-0.03em]">
+                      <h3 className="body-lg">
                         <span className="text-accent-gold">✧</span> 킹 오브 프리즘 온리전 「몇 번이라도 프리즘!」
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-x-8 py-2">
                         <section className="space-y-1">
                           <p className="content-label">개최 일시</p>
-                          <p className="body-lg">2026년 7월 4일 (토요일)</p>
+                          <p className="body-md">2026년 7월 4일 (토요일)</p>
                         </section>
                         <section className="space-y-1">
                           <p className="content-label">개최 장소</p>
-                          <p className="body-lg">서울 <span className="body-sm ml-1">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
+                          <p className="body-md">서울 <span className="body-sm ml-1">※ 행사장 위치는 입장권을 구매한 참관객에게만 공개됩니다.</span></p>
                         </section>
                         <section className="space-y-1">
                           <p className="content-label">참관 대상</p>
                           <p className="body-md font-bold text-slate-700">2026년 기준 14세 (중학생) 이상 여성 참관객</p>
-                          <p className="body-sm italic">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
+                          <p className="body-sm">남성 참관객의 경우, 팬임을 증명할 수 있는 여성 참관객과 동행 시에만 참관이 가능합니다.</p>
                         </section>
                         <section className="space-y-1">
                           <p className="content-label">입장권 판매일</p>
@@ -124,7 +124,7 @@ export default function InfoPage() {
                           <p className="body-md">
                             온리전은 한 가지 작품의 팬들이 모여 해당 작품의 만화, 소설, 일러스트, 굿즈 등을 나누며 즐기는 팬 행사입니다. 참가자는 팬의 마음으로 창작물을 제작, 판매하는 <strong className="text-slate-700 font-semibold">'부스 참가자'</strong>, 그리고 그 창작물을 구매하고 응원하는 <strong className="text-slate-700 font-semibold">'일반 참가자'</strong>로 나뉩니다.
                           </p>
-                          <p className="body-sm italic">
+                          <p className="text-accent-gold body-sm">
                             ※ 본 온리전은 「킹 오브 프리즘」 비공식 팬 이벤트입니다. '동인'이나 'CP' 등의 개념을 잘 모르신다면 참여를 권장하지 않습니다.
                           </p>
                         </div>
@@ -148,12 +148,12 @@ export default function InfoPage() {
 
                   <HoloBox>
                     <div className="py-2 space-y-3">
-                      <p className="body-md">
+                      <p className="body-sm">
                         행사 관련 최신 정보는 <a href="#" className="text-accent-gold font-bold hover:underline">X(구 Twitter) 공식 계정</a>을 통해 가장 빠르게 확인하실 수 있습니다.
                       </p>
-                      <p className="body-md">
+                      <p className="body-sm">
                         모든 문의는 아래 메일로 부탁드립니다.<br />
-                        <a href="mailto:prismonlyevent@gmail.com" className="body-lg text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
+                        <a href="mailto:prismonlyevent@gmail.com" className="body-md text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
                       </p>
                     </div>
                   </HoloBox>
@@ -164,7 +164,7 @@ export default function InfoPage() {
                 <>
                   <HoloBox>
                     <div className="content-section">
-                      <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 flex items-center gap-2 tracking-[-0.03em]">
+                      <h3 className="body-lg">
                         <span className="text-accent-gold">✧</span> 참관객 안내
                       </h3>
                       <div className="space-y-4">
@@ -202,7 +202,7 @@ export default function InfoPage() {
                             <span>행사 시작 전 <strong className="text-slate-800">조기 대기 및 줄서기</strong>를 금지합니다.</span>
                           </li>
                         </ul>
-                        <p className="body-sm italic pt-2 pl-6">
+                        <p className="body-sm pt-2 pl-6">
                           ※ 안내사항은 추후 업데이트 될 수 있습니다.
                         </p>
                       </div>
@@ -211,7 +211,7 @@ export default function InfoPage() {
 
                   <HoloBox>
                     <div className="space-y-3">
-                      <h4 className="body-md font-bold text-slate-800 flex items-center gap-2">
+                      <h4 className="body-lg font-bold text-slate-800 flex items-center gap-2">
                         <span className="text-accent-gold text-lg">💡</span> 현금 결제 수단 준비 권장
                       </h4>
                       <p className="body-md pl-6">
@@ -222,7 +222,7 @@ export default function InfoPage() {
 
                   <HoloBox>
                     <div className="space-y-4">
-                      <h4 className="body-md font-bold text-slate-800 flex items-center gap-2">
+                      <h4 className="body-lg font-bold text-slate-800 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 코스프레 규정
                       </h4>
                       <p className="body-md pl-4">
@@ -239,9 +239,10 @@ export default function InfoPage() {
               {activeTab === "03" && (
                 <HoloBox>
                   <div className="content-section">
-                    <h3 className="text-lg md:text-xl font-happy font-bold text-slate-800 tracking-[-0.03em]">Booth Participant Info</h3>
+                    <h3 className="body-lg">공지사항</h3>
                     <section className="space-y-4">
-                      <p className="content-label">부스 기본 구성</p>
+                      <p className="content-label">공지사항</p>
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="p-1">
                           <p className="body-md font-bold">한 부스</p>
