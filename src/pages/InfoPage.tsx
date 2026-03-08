@@ -1,6 +1,6 @@
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const INFO_MENU = [
   { id: "01", label: "행사개요" },
@@ -55,8 +55,8 @@ export default function InfoPage() {
                         key={item.id}
                         onClick={() => navigate(`/info/${item.id}`)}
                         className={`flex-shrink-0 px-3 md:px-5 py-1.5 md:py-2 rounded-[4px] text-[10px] md:text-[11px] tracking-wider md:tracking-widest transition-colors font-sans ${activeTab === item.id
-                            ? "bg-accent-gold text-white"
-                            : "bg-slate-50 text-slate-400 hover:bg-slate-100"
+                          ? "bg-accent-gold text-white"
+                          : "bg-slate-50 text-slate-400 hover:bg-slate-100"
                           }`}
                       >
                         {item.label}
