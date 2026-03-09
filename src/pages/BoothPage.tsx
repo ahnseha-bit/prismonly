@@ -160,189 +160,191 @@ export default function BoothPage() {
                         <span className="text-accent-gold mr-2">✧</span> 판매 규정
                       </h3>
 
-                      <div className="bg-white border border-accent-gold/60 p-5 md:p-8 rounded-lg space-y-8 mt-4 shadow-sm">
+                      <div className="bg-white border border-accent-gold/60 p-5 md:p-8 rounded-lg space-y-8 shadow-sm">
                         <section className="space-y-3">
                           <p className="content-label">성인본 판매 규정</p>
                           <ul className="body-md list-disc list-inside space-y-2">
                             <li>표지에 반드시 <strong className="text-rose-500">'19세 미만 구독 불가'</strong>를 표기해야 합니다.</li>
-                            <li>성인본은 밀봉된 상태로 판매되어야 하며, 장내 개봉이 불가합니다.</li>
+                            <li>성인본은 밀봉된 상태로 판매되어야 일하며, 장내 개봉이 불가합니다.</li>
                             <li>판매 시 신분증과 팔찌를 통해 반드시 구매자의 연령을 확인해 주세요.</li>
                           </ul>
+                          <p className="body-sm pt-2">
+                            ※ 직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면 포함 시 성인물로 분류됩니다.
+                          </p>
+                        </section>
+
+                        <section className="space-y-4">
+                          <p className="content-label">성인지 기준 등급표</p>
+                          <p className="body-sm md:body-md mb-2">
+                            직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면이 나온다면 등급표 기준에 따라 성인물로 분류됩니다.
+                          </p>
+
+                          {/* 1. 각 항목별 등급 안내 표 (기타 삭제 & 강조 추가 & 골드 테두리) */}
+                          <div className="w-full border border-accent-gold/50 rounded-lg shadow-sm overflow-hidden">
+                            <table className="w-full text-center border-collapse break-keep">
+                              <thead>
+                                <tr className="bg-white body-sm font-bold text-accent-gold border-b border-accent-gold/50">
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">등급</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">노출</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">성행위</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">폭력</th>
+                                  <th className="px-1 py-1.5 md:p-2">언어</th>
+                                </tr>
+                              </thead>
+                              <tbody className="body-sm text-slate-600 leading-tight">
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">4등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">성기노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">성범죄 또는<br />노골적 성행위</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">잔인한 살해</td>
+                                  <td className="px-1 py-2 md:p-2 bg-rose-50 text-rose-600 font-bold">노골적이고<br />외설적 비속어</td>
+                                </tr>
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">전신노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">노골적이지<br />않은 성행위</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">살해</td>
+                                  <td className="px-1 py-2 md:p-2">심한 비속어</td>
+                                </tr>
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">부분노출</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">착의상태<br />성적접촉</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">상해</td>
+                                  <td className="px-1 py-2 md:p-2">거친 비속어</td>
+                                </tr>
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">1등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">노출복장</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">격렬한 키스</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">격투</td>
+                                  <td className="px-1 py-2 md:p-2">일상 비속어</td>
+                                </tr>
+                                <tr>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">0등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">노출없음</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">성행위없음</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">폭력없음</td>
+                                  <td className="px-1 py-2 md:p-2">비속어없음</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+                          <p className="content-label mt-8 pt-4">연령별 권장 사항</p>
+
+                          {/* 2. 연령별 권장 사항 표 */}
+                          <div className="w-full border border-accent-gold/50 rounded-lg shadow-sm overflow-hidden">
+                            <table className="w-full text-center border-collapse break-keep">
+                              <thead>
+                                <tr className="bg-white body-sm font-bold text-accent-gold border-b border-accent-gold/50">
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">구분</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">노출</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">성행위</th>
+                                  <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">폭력</th>
+                                  <th className="px-1 py-1.5 md:p-2">언어</th>
+                                </tr>
+                              </thead>
+                              <tbody className="body-sm text-slate-600 leading-tight">
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">전체가</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">1등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">0등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">1등급</td>
+                                  <td className="px-1 py-2 md:p-2">0등급</td>
+                                </tr>
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">
+                                    12금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(13세↑)</span>
+                                  </td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2">1등급</td>
+                                </tr>
+                                <tr className="border-b border-accent-gold/30">
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">
+                                    15금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(16세↑)</span>
+                                  </td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">3등급</td>
+                                  <td className="px-1 py-2 md:p-2">2등급</td>
+                                </tr>
+                                <tr>
+                                  <td className="px-1 py-2 md:p-2 font-bold bg-rose-50 border-r border-accent-gold/30 text-rose-500">
+                                    19금<br /><span className="text-[9px] md:text-[11px] font-bold mt-0.5 inline-block">(20세↑)</span>
+                                  </td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">3등급</td>
+                                  <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">4등급</td>
+                                  <td className="px-1 py-2 md:p-2 font-bold text-rose-500">4등급</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         </section>
 
                         <section className="space-y-4">
                           <p className="content-label text-rose-500">판매 및 배포 불가 항목</p>
                           <ol className="body-md list-decimal list-inside space-y-2 text-slate-700">
                             <li>식음료</li>
-                            <li>공식 로고와 일러스트를 사용하거나 공식과 혼동될 수 있는 창작물</li>
-                            <li>생성형 AI 일러스트, 타인의 저작권을 침해하거나 남용한 창작물</li>
+                            <li>공식 로고/일러스트 사용 및 혼동될 수 있는 창작물</li>
+                            <li>생성형 AI 일러스트, 타인 저작권 침해 창작물</li>
                             <li>킹 오브 프리즘, 프리티 리듬 레인보우 라이브 캐릭터 중심이 아닌 창작물</li>
-                            <li>미성년자 캐릭터가 등장하는 성인본 (성인 IF를 제외한 우회적인 묘사 불가)</li>
+                            <li>미성년자 캐릭터 등장 성인본 (성인 IF 제외 우회 묘사 불가)</li>
                             <li>교복을 입는 묘사가 나오는 타카다노바바 죠지 성인본</li>
                           </ol>
                           <p className="body-sm text-rose-500 font-bold pt-2">
-                            ※ 관련 사항 적발 시 판매 중지 및 강제 퇴장 조치되며, 부스 비용은 환불되지 않습니다.
+                            ※ 적발 시 판매 중지 및 강제 퇴장 조치되며, 참가비는 환불되지 않습니다.
                           </p>
                         </section>
                       </div>
 
-                      <section className="space-y-4 pt-4">
-                        <p className="content-label">성인지 기준 등급표</p>
-                        <p className="body-sm md:body-md mb-2">
-                          직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면이 나온다면 등급표 기준에 따라 성인물로 분류됩니다.
-                        </p>
-
-                        {/* 1. 각 항목별 등급 안내 표 (회색 -> 골드 테두리 변경) */}
-                        <div className="w-full border border-accent-gold/50 rounded-lg shadow-sm overflow-hidden">
-                          <table className="w-full text-center border-collapse break-keep">
-                            <thead>
-                              <tr className="bg-white body-sm font-bold text-accent-gold border-b border-accent-gold/50">
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">등급</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">노출</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">성행위</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">폭력</th>
-                                <th className="px-1 py-1.5 md:p-2">언어</th>
-                              </tr>
-                            </thead>
-                            <tbody className="body-sm text-slate-600 leading-tight">
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">4등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">성기노출</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">성범죄 또는<br />노골적 성행위</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">잔인한 살해</td>
-                                <td className="px-1 py-2 md:p-2 bg-rose-50 text-rose-600 font-bold">노골적이고<br />외설적 비속어</td>
-                              </tr>
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">3등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">전신노출</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 bg-rose-50 text-rose-600 font-bold">노골적이지<br />않은 성행위</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">살해</td>
-                                <td className="px-1 py-2 md:p-2">심한 비속어</td>
-                              </tr>
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">부분노출</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">착의상태<br />성적접촉</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">상해</td>
-                                <td className="px-1 py-2 md:p-2">거친 비속어</td>
-                              </tr>
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">1등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">노출복장</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">격렬한 키스</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">격투</td>
-                                <td className="px-1 py-2 md:p-2">일상 비속어</td>
-                              </tr>
-                              <tr>
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">0등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">노출없음</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">성행위없음</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">폭력없음</td>
-                                <td className="px-1 py-2 md:p-2">비속어없음</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-
-                        <p className="content-label mt-8 pt-4">연령별 권장 사항</p>
-
-                        {/* 2. 연령별 권장 사항 표 */}
-                        <div className="w-full border border-accent-gold/50 rounded-lg shadow-sm overflow-hidden">
-                          <table className="w-full text-center border-collapse break-keep">
-                            <thead>
-                              <tr className="bg-white body-sm font-bold text-accent-gold border-b border-accent-gold/50">
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">구분</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">노출</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">성행위</th>
-                                <th className="px-1 py-1.5 md:p-2 border-r border-accent-gold/30">폭력</th>
-                                <th className="px-1 py-1.5 md:p-2">언어</th>
-                              </tr>
-                            </thead>
-                            <tbody className="body-sm text-slate-600 leading-tight">
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">전체가</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">1등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">0등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">1등급</td>
-                                <td className="px-1 py-2 md:p-2">0등급</td>
-                              </tr>
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">
-                                  12금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(13세↑)</span>
-                                </td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2">1등급</td>
-                              </tr>
-                              <tr className="border-b border-accent-gold/30">
-                                <td className="px-1 py-2 md:p-2 font-bold bg-white text-accent-gold border-r border-accent-gold/30">
-                                  15금<br /><span className="text-[9px] md:text-[11px] font-normal text-slate-400 mt-0.5 inline-block">(16세↑)</span>
-                                </td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">2등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30">3등급</td>
-                                <td className="px-1 py-2 md:p-2">2등급</td>
-                              </tr>
-                              <tr>
-                                <td className="px-1 py-2 md:p-2 font-bold bg-rose-50 border-r border-accent-gold/30 text-rose-500">
-                                  19금<br /><span className="text-[9px] md:text-[11px] font-bold mt-0.5 inline-block">(20세↑)</span>
-                                </td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">3등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">3등급</td>
-                                <td className="px-1 py-2 md:p-2 border-r border-accent-gold/30 font-bold text-rose-500">4등급</td>
-                                <td className="px-1 py-2 md:p-2 font-bold text-rose-500">4등급</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </section>
-
-                      <section className="space-y-3 pl-2 md:pl-4 pt-4 border-t border-slate-100">
+                      <section className="space-y-3 pl-2 md:pl-4">
                         <p className="content-label">드림 커플링 창작물 지참 관련</p>
                         <p className="body-md">
-                          킹프리 작품 내 프리즘 점프에 등장하는 형태의 묘사가 적은 드림주나, '근처에 사는 아저씨', '학생', '편의점 알바생' 같은 구체적인 설정이 없는 엑스트라 수준의 인물은 지참이 가능합니다.<br />
-                          단, <strong className="text-slate-700">상세한 설정이 부여된 오리지널 캐릭터를 중심으로 한 드림 회지의 발간은 불가능</strong>합니다. 이는 같은 프랜차이즈 내 다른 시리즈 캐릭터들을 메인으로 한 회지를 제한한 것과의 형평성을 고려한 결정입니다.
+                          프리즘 점프에 등장하는 형태의 묘사가 적은 드림주나, '근처에 사는 아저씨', '학생', '알바생' 등 구체적인 설정이 없는 엑스트라 수준의 인물은 지참이 가능합니다.<br />
+                          단, <strong className="text-slate-700">상세한 설정이 부여된 오리지널 캐릭터 중심의 드림 회지 발간은 불가</strong>합니다.
+                          <p className="body-sm text-rose-500 font-bold pt-2">
+                            ※ 타 시리즈 캐릭터 메인 제한과의 형평성 고려
+                          </p>
                         </p>
                       </section>
                     </div>
                   </HoloBox>
                 </>
               )}
-            </div>
-          </HoloBox>
-        </>
+
+              {activeTab === "02" && (
+                <HoloBox>
+                  <div className="content-section">
+                    <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
+                      Booth Details <span className="text-sm font-sans font-normal text-slate-400 tracking-normal ml-2">(추후 공개)</span>
+                    </h3>
+                    <div className="space-y-4 pt-2">
+                      <p className="body-md">부스 상세 페이지에는 다음 정보가 공개됩니다.</p>
+                      <ul className="body-md list-disc list-inside space-y-2 pl-2">
+                        <li>서클컷 (4cm × 3cm)</li>
+                        <li>부스명</li>
+                        <li>캐릭터와 cp 해시태그 (검색 가능)</li>
+                        <li>참가자 닉네임</li>
+                        <li>부스 소개</li>
+                      </ul>
+                    </div>
+                  </div>
+                </HoloBox>
               )}
 
-        {activeTab === "02" && (
-          <HoloBox>
-            <div className="content-section">
-              <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
-                Booth Details <span className="text-sm font-sans font-normal text-slate-400 tracking-normal ml-2">(추후 공개)</span>
-              </h3>
-              <div className="space-y-4 pt-2">
-                <p className="body-md">부스 상세 페이지에는 다음 정보가 공개됩니다.</p>
-                <ul className="body-md list-disc list-inside space-y-2 pl-2">
-                  <li>서클컷 (4cm × 3cm)</li>
-                  <li>부스명</li>
-                  <li>캐릭터와 cp 해시태그 (검색 가능)</li>
-                  <li>참가자 닉네임</li>
-                  <li>부스 소개</li>
-                </ul>
-              </div>
-            </div>
-          </HoloBox>
-        )}
-
-        {activeTab === "03" && (
-          <HoloBox>
-            <LoadingPage />
-          </HoloBox>
-        )}
+              {activeTab === "03" && (
+                <HoloBox>
+                  <LoadingPage />
+                </HoloBox>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </motion.div>
-    </AnimatePresence>
-        </div >
-      </motion.div >
-    </div >
+    </div>
   );
 }
