@@ -213,7 +213,7 @@ export default function InfoPage() {
                   <HoloBox>
                     <div className="space-y-3">
                       <h4 className="body-lg font-bold text-slate-800 flex items-center gap-2">
-                        <span className="text-accent-gold text-lg">💡</span> 현금 결제 수단 준비 권장
+                        <span className="text-accent-gold text-lg">👛</span> 현금 결제 수단 준비 권장
                       </h4>
                       <p className="body-md pl-6">
                         행사장 내 통행 정체현상 완화를 위해 참관객과 부스 참관객 모두 <strong className="text-accent-gold font-bold">현금 결제 수단(천원권, 오천원권)</strong>을 준비해 주시기를 권장드립니다.

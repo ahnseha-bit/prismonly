@@ -2,14 +2,16 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import DDayCounter from "../components/DDayCounter";
 
-const ANNOUNCEMENTS = [
-  { date: "2026.03.09", title: "Website Update", content: "Notice accordion feature has been updated." },
-  { date: "2026.03.01", title: "Booth Application", content: "Booth application is now open. Please check the Info page for details." },
-  { date: "2026.02.15", title: "Official Teaser", content: "The official teaser visual for the event has been released." }
+// 업데이트 더미 데이터 (최신순으로 위에서부터 작성)
+const UPDATE_LIST = [
+  { id: 1, date: "2026.03.09", content: "부스 참가 정보 및 등급표가 업데이트 되었습니다." },
+  { id: 2, date: "2026.03.08", content: "행사 일정 및 참관객 안내 페이지가 오픈되었습니다." },
+  { id: 3, date: "2026.03.07", content: "티저 사이트가 공개되었습니다." },
+  { id: 4, date: "2026.03.01", content: "온리전 개최가 확정되었습니다." },
 ];
 
 export default function MainPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="fluid-container pt-[10vh] md:pt-[12vh] pb-[6vh] md:pb-[10vh] min-h-screen flex flex-col relative z-10">
@@ -29,43 +31,35 @@ export default function MainPage() {
         </div>
 
         <div className="w-full max-w-lg shadow-frame flex flex-col">
-          <div className="outer-holo-line flex flex-col">
+          <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
-              <div className="inner-holo-line flex flex-col">
-                <div className="main-board p-5 md:p-8">
-                  <h1 className="title-accent text-lg md:text-xl mb-4 md:mb-6 text-center">Notice</h1>
-                  <div className="max-h-[320px] md:max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-                    <div className="space-y-1 w-full">
-                      {ANNOUNCEMENTS.map((item, index) => (
-                        <div key={index} className="border-b border-slate-100 last:border-none py-1">
-                          <button
-                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                            className="w-full flex items-center justify-between py-2.5 text-left group"
-                          >
-                            <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                              <span className="text-[10px] font-bold text-accent-gold tracking-tighter opacity-80">{item.date}</span>
-                              <span className="text-sm md:text-base font-bold text-slate-700 tracking-tight group-hover:text-accent-gold transition-colors">{item.title}</span>
-                            </div>
-                            <span className={`text-accent-gold text-xs transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}>
-                              ✧
-                            </span>
-                          </button>
-                          {openIndex === index && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden"
-                            >
-                              <p className="pt-1 pb-4 text-xs md:text-sm text-slate-500 leading-relaxed pl-1 text-left font-sans">
-                                {item.content}
-                              </p>
-                            </motion.div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
+              <div className="inner-gold-line">
+                <div className="bg-white p-5 md:p-8 w-full flex flex-col">
+                  <div className="flex justify-between items-end mb-4 border-b border-slate-100 pb-3">
+                    <h2 className="text-xl md:text-2xl font-happy font-bold text-accent-gold m-0 tracking-[-0.03em]">
+                      Update
+                    </h2>
                   </div>
+
+                  {/* 리스트 영역 (고정된 줄 높이로 점핑 현상 방지) */}
+                  <div className="flex flex-col space-y-3">
+                    {UPDATE_LIST.slice(0, isExpanded ? UPDATE_LIST.length : 3).map((item) => (
+                      <div key={item.id} className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 body-md">
+                        <span className="text-accent-gold font-bold shrink-0 text-[13px] md:text-[14px]">{item.date}</span>
+                        <span className="text-slate-600 truncate">{item.content}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* 더보기 버튼 */}
+                  {UPDATE_LIST.length > 3 && (
+                    <button
+                      onClick={() => setIsExpanded(!isExpanded)}
+                      className="mt-6 pt-3 text-[11px] md:text-[13px] font-bold text-slate-400 hover:text-accent-gold transition-colors border-t border-slate-50 flex items-center justify-center gap-1 w-full"
+                    >
+                      {isExpanded ? "접기 ▲" : "더보기 ▼"}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
