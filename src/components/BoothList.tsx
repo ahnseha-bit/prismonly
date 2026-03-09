@@ -64,25 +64,21 @@ const BOOTH_DATA = [
 
 export default function BoothList() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-col space-y-2.5">
             {BOOTH_DATA.map((booth, index) => (
                 <div
                     key={index}
-                    className="bg-white border border-accent-gold/20 p-4 rounded-sm shadow-sm flex flex-col justify-between hover:border-accent-gold/50 transition-colors"
+                    className="bg-white border-b border-accent-gold/20 p-3 flex flex-row items-center justify-between hover:bg-slate-50 transition-colors group"
                 >
-                    <div className="space-y-2">
-                        <div className="flex justify-between items-start gap-2">
-                            <h4 className="text-[13px] md:text-[14px] font-bold text-slate-800 leading-tight break-keep">
-                                {booth.name}
-                            </h4>
-                            <span className="shrink-0 text-[10px] font-bold text-accent-gold bg-accent-gold/5 px-1.5 py-0.5 rounded-full border border-accent-gold/10">
-                                {booth.members.length}인
-                            </span>
-                        </div>
-                        <p className="text-[11px] md:text-[12px] text-slate-500 font-medium tracking-tight">
-                            {booth.members.join(", ")}
-                        </p>
-                    </div>
+                    {/* 부스명: 줄바꿈 방지(whitespace-nowrap) 및 말줄임표(truncate) */}
+                    <h4 className="text-[12px] md:text-[14px] font-bold text-slate-800 tracking-tight whitespace-nowrap truncate flex-1 pr-4">
+                        {booth.name}
+                    </h4>
+
+                    {/* 참가자 명단: 오른쪽 정렬 */}
+                    <p className="text-[11px] md:text-[12px] text-slate-400 font-medium tracking-tight whitespace-nowrap shrink-0 group-hover:text-accent-gold">
+                        {booth.members.join(", ")}
+                    </p>
                 </div>
             ))}
         </div>
