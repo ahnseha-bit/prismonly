@@ -68,15 +68,15 @@ export default function BoothList() {
             {BOOTH_DATA.map((booth, index) => (
                 <div
                     key={index}
-                    className="border-b border-accent-gold/10 py-1.5 md:py-2 flex flex-col md:flex-row md:items-center md:justify-between hover:bg-slate-50 transition-colors group"
+                    className="border-b border-accent-gold/10 py-3 flex flex-row items-start justify-between hover:bg-slate-50 transition-colors group gap-4"
                 >
-                    {/* 부스명: 모바일 11px, PC 14px / 모바일은 아래 닉네임과 격리되도록 pr-0 처리 */}
-                    <h4 className="text-[11px] md:text-[14px] font-bold text-slate-800 tracking-tight whitespace-nowrap truncate md:flex-1 md:pr-4">
+                    {/* 부스명: 모바일에서도 폰트 사이즈 복구, 줄바꿈 허용 */}
+                    <h4 className="text-[13px] md:text-[14px] font-bold text-slate-800 tracking-tight leading-snug flex-1">
                         {booth.name}
                     </h4>
 
-                    {/* 닉네임: 모바일은 아래에, PC는 우측 정렬 */}
-                    <p className="text-[10px] md:text-[12px] text-slate-400 font-medium tracking-tight whitespace-nowrap shrink-0 group-hover:text-accent-gold">
+                    {/* 닉네임: 우측 정렬 유지, 길어지면 줄바꿈 허용 */}
+                    <p className="text-[11px] md:text-[12px] text-slate-400 font-medium tracking-tight text-right shrink-0 max-w-[40%] break-keep group-hover:text-accent-gold">
                         {booth.members.join(", ")}
                     </p>
                 </div>
