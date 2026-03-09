@@ -3,10 +3,8 @@ import { motion } from "motion/react";
 import DDayCounter from "../components/DDayCounter";
 
 const UPDATE_LIST = [
-  { date: "260301", content: "온리전 개최가 확정되었습니다." },
-  { date: "260307", content: "티저 사이트가 공개되었습니다." },
-  { date: "260308", content: "행사 일정 및 참관객 안내 페이지가 오픈되었습니다." },
-  { date: "260309", content: "부스 참가 정보 및 등급표가 업데이트 되었습니다." },
+  { date: "260309", content: "「몇 번이라도 프리즘!」 웹사이트가 공개되었습니다." },
+  { date: "260309", content: "부스 리스트가 업데이트 되었습니다." },
 
 ];
 
