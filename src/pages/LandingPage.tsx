@@ -17,6 +17,7 @@ const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number 
       }}
       transition={{
         duration: 0.8,
+        initial: { ease: "easeOut" },
         ease: [0.16, 1, 0.3, 1],
         delay: Math.random() * 0.3
       }}
@@ -47,6 +48,18 @@ export default function LandingPage() {
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden z-50">
+      {/* 폰트 임포트 */}
+      <style>
+        {`
+          @font-face {
+            font-family: 'IsYun';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+            font-weight: normal;
+            font-display: swap;
+          }
+        `}
+      </style>
+
       <div className="relative flex flex-col items-center -translate-y-[10%] w-full">
         <motion.button
           initial={{ opacity: 0, rotateY: 0 }}
@@ -94,8 +107,11 @@ export default function LandingPage() {
                     ✧
                   </motion.div>
                 ))}
-                <p className="text-[#FF69B4] text-[15px] md:text-[18px] font-black tracking-tighter whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
-                  ♥킹프리 온리전에 오신 것을 환영합니다♥
+                <p
+                  style={{ fontFamily: 'IsYun' }}
+                  className="text-[#FF69B4] text-[14px] md:text-[18px] font-bold tracking-normal whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                >
+                  ♥ 킹프리 온리전에 오신 것을 환영합니다 ♥
                 </p>
               </motion.div>
             )}
