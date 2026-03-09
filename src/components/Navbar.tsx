@@ -79,8 +79,7 @@ export default function Navbar() {
                   <Link
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-2xl font-happy italic font-bold tracking-[0.1em] transition-colors ${location.pathname === item.path ? "text-accent-gold" : "text-slate-300 hover:text-slate-500"
-                      }`}
+                    className="text-2xl font-happy italic font-bold tracking-[0.1em] text-accent-gold drop-shadow-[0_0_10px_rgba(212,175,55,0.6)]"
                   >
                     {item.name}
                   </Link>
