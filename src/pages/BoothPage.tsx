@@ -327,10 +327,10 @@ export default function BoothPage() {
               {activeTab === "02" && (
                 <HoloBox>
                   <div className="content-section">
-                    <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em] mb-6">
+                    <h3 className="body-lg">
                       <span className="text-accent-gold mr-2">✧</span> 부스 리스트
                     </h3>
-                    {/* 부스 리스트 컴포넌트 호출 */}
+
                     <BoothList />
                   </div>
                 </HoloBox>
