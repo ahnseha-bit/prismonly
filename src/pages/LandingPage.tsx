@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
+// 별똥별 컬러셋 상수를 컴포넌트 외부에 선언
+const STAR_COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
+
 const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number }) => {
   const randomStartX = Math.random() * window.innerWidth - window.innerWidth / 2;
   const randomStartY = Math.random() * window.innerHeight - window.innerHeight / 2;
+  // 입자마다 랜덤하게 별똥별 색상 배정
+  const particleColor = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
 
   return (
     <motion.div
@@ -17,11 +22,11 @@ const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number 
       }}
       transition={{
         duration: 0.8,
-        initial: { ease: "easeOut" },
         ease: [0.16, 1, 0.3, 1],
         delay: Math.random() * 0.3
       }}
-      className="absolute text-white text-[12px] pointer-events-none z-30"
+      className="absolute text-[12px] pointer-events-none z-30"
+      style={{ color: particleColor }}
     >
       ✧
     </motion.div>
@@ -35,8 +40,8 @@ export default function LandingPage() {
 
   useEffect(() => {
     if (stage === "dispersing") {
-      const newParticles = Array.from({ length: 80 }).map(() => ({
-        x: (Math.random() - 0.5) * 350,
+      const newParticles = Array.from({ length: 100 }).map(() => ({
+        x: (Math.random() - 0.5) * 400,
         y: (Math.random() - 0.5) * 40,
       }));
       setParticles(newParticles);
@@ -48,7 +53,6 @@ export default function LandingPage() {
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden z-50">
-      {/* 폰트 임포트 */}
       <style>
         {`
           @font-face {
@@ -96,20 +100,25 @@ export default function LandingPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative"
               >
-                {[...Array(8)].map((_, i) => (
+                {/* 텍스트 주변 잔류 입자들도 별똥별 컬러 적용 */}
+                {[...Array(10)].map((_, i) => (
                   <motion.div
                     key={i}
                     animate={{ opacity: [0, 1, 0], scale: [0, 1.2, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: Math.random() }}
-                    className="absolute text-white text-[12px] pointer-events-none"
-                    style={{ top: `${Math.random() * 100 - 50}%`, left: `${Math.random() * 100}%` }}
+                    className="absolute text-[12px] pointer-events-none"
+                    style={{
+                      top: `${Math.random() * 100 - 50}%`,
+                      left: `${Math.random() * 100}%`,
+                      color: STAR_COLORS[i % STAR_COLORS.length]
+                    }}
                   >
                     ✧
                   </motion.div>
                 ))}
                 <p
                   style={{ fontFamily: 'IsYun' }}
-                  className="text-[#FF69B4] text-[14px] md:text-[18px] font-bold tracking-normal whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                  className="text-[#FF69B4] text-[18px] md:text-[22px] font-bold tracking-normal whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
                 >
                   ♥ 킹프리 온리전에 오신 것을 환영합니다 ♥
                 </p>
