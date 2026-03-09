@@ -26,7 +26,7 @@ export default function MainPage() {
           <span className="bg-transparent text-accent-gold px-2.5 py-0.5 text-[10px] md:text-xs rounded-sm tracking-tight font-serif font-light inline-block mb-4 md:mb-5 leading-tight border border-accent-gold">
             Countdown to Prism
           </span>
-          <div className="text-13xl md:text-17xl leading-none font-extralight tracking-tighter text-slate-800 font-metal">
+          <div className="text-[120pt] md:text-[150pt] leading-none font-extralight tracking-tighter text-slate-800 font-metal">
             <DDayCounter targetDate="2026-07-04T00:00:00" />
           </div>
         </div>
