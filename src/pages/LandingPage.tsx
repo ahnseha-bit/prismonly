@@ -7,7 +7,7 @@ export default function LandingPage() {
   const [showText, setShowText] = useState(false);
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden z-50 bg-white">
+    <div className="fixed inset-0 flex flex-col items-center justify-center overflow-hidden z-50">
       <div className="relative flex flex-col items-center -translate-y-[10%]">
         <motion.button
           initial={{ opacity: 0, rotateY: 0 }}
@@ -27,16 +27,16 @@ export default function LandingPage() {
           />
         </motion.button>
 
-        <div className="h-12 mt-6 flex justify-center items-start overflow-hidden w-full">
+        <div className="h-10 mt-8 flex justify-center items-start overflow-hidden w-full">
           <AnimatePresence>
             {showText && (
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="bg-accent-gold px-6 py-2 shadow-lg"
+                className="bg-slate-500/90 px-5 py-1.5 shadow-lg border border-white/10"
               >
-                <p className="text-white text-xs md:text-sm font-bold tracking-tight whitespace-nowrap">
+                <p className="text-white text-[10px] md:text-[11px] font-medium tracking-[0.25em] whitespace-nowrap ml-[0.25em]">
                   킹프리 온리전에 오신 것을 환영합니다~!
                 </p>
               </motion.div>
