@@ -87,7 +87,7 @@ export default function BoothPage() {
                 <>
                   <HoloBox>
                     <div className="content-section">
-                      <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
+                      <h3 className="body-lg">
                         <span className="text-accent-gold mr-2">✧</span> 부스 참가 정보
                       </h3>
 
@@ -156,7 +156,7 @@ export default function BoothPage() {
 
                   <HoloBox>
                     <div className="content-section">
-                      <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
+                      <h3 className="body-lg">
                         <span className="text-accent-gold mr-2">✧</span> 판매 규정
                       </h3>
 
@@ -311,6 +311,15 @@ export default function BoothPage() {
                           </p>
                         </p>
                       </section>
+                    </div>
+                  </HoloBox>
+
+                  <HoloBox>
+                    <div className="py-2 space-y-3">
+                      <p className="body-sm">
+                        행사 참가와 관련된 모든 문의는 아래 메일로 부탁드립니다.<br />
+                        <a href="mailto:prismonlyevent@gmail.com" className="body-md text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
+                      </p>
                     </div>
                   </HoloBox>
                 </>
