@@ -227,9 +227,9 @@ export default function InfoPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span> 코스프레 규정
                       </h4>
                       <p className="body-md pl-4">
-                        일반 참관객 및 부스 참관객의 코스프레 의상 착용이 가능합니다. 다만, <strong className="text-rose-400 font-bold">노출이 있는 선정적인 의상</strong>이나, <strong className="text-rose-400 font-bold">통행에 방해가 될 수 있는 부피가 큰 의상</strong>, <strong className="text-rose-400 font-bold">공식에 없는 코스튬</strong>은 불가능합니다.
+                        일반 참관객 및 부스 참관객의 코스프레 의상 착용이 가능합니다. 다만, <strong className="text-accent-gold font-bold">노출이 있는 선정적인 의상</strong>이나, <strong className="text-accent-gold font-bold">통행에 방해가 될 수 있는 부피가 큰 의상</strong>, <strong className="text-accent-gold font-bold">공식에 없는 코스튬</strong>은 불가능합니다.
                       </p>
-                      <p className="body-sm text-rose-400 font-bold pl-4">
+                      <p className="body-sm text-accent-gold font-bold pl-4">
                         ※ 주의: 화장실에서 의상을 착용하거나 장시간 메이크업을 하는 행위를 엄격히 금지합니다.
                       </p>
                     </div>
