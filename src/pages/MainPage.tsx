@@ -58,17 +58,13 @@ export default function MainPage() {
                       onClick={() => setIsExpanded(!isExpanded)}
                       className="mt-6 pt-3 text-[11px] md:text-[13px] font-bold text-slate-400 hover:text-accent-gold transition-colors border-t border-slate-50 flex items-center justify-center gap-1 w-full"
                     >
-                      {isExpanded ? "접기 ▲" : "더보기 ▼"}
+                      {isExpanded ? "▲" : "▼"}
                     </button>
                   )}
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="text-[10px] tracking-[0.3em] text-slate-300 uppercase shrink-0 pt-4 md:pt-0">
-          Now Loading...
         </div>
       </motion.div>
     </div>
