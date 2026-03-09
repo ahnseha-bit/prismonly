@@ -224,8 +224,8 @@ const StarBackground: React.FC = () => {
 
       ctx.scale(dpr, dpr);
 
-      stars = Array.from({ length: 55 }, () => new Star());
-      bubbles = Array.from({ length: 3 }, () => new Bubble());
+      stars = Array.from({ length: 66 }, () => new Star());
+      bubbles = Array.from({ length: 4 }, () => new Bubble());
     };
 
     const spawn = () => {
