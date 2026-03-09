@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
-// 별똥별 컬러셋 상수를 컴포넌트 외부에 선언
 const STAR_COLORS = ['#F884A1', '#FCBC5C', '#8CFE4B', '#62F7D2', '#5B7BFE', '#FFB3E9', '#B377FF'];
 
 const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number }) => {
   const randomStartX = Math.random() * window.innerWidth - window.innerWidth / 2;
   const randomStartY = Math.random() * window.innerHeight - window.innerHeight / 2;
-  // 입자마다 랜덤하게 별똥별 색상 배정
   const particleColor = STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)];
 
   return (
@@ -39,6 +37,14 @@ export default function LandingPage() {
   const [particles, setParticles] = useState<{ x: number, y: number }[]>([]);
 
   useEffect(() => {
+    // 로고 회전 시작 후 2.5초 뒤에 반짝이 입자 생성 시작 (회전 종료 1초 전)
+    if (stage === "spinning") {
+      const startDispersing = setTimeout(() => {
+        setStage("dispersing");
+      }, 2500);
+      return () => clearTimeout(startDispersing);
+    }
+
     if (stage === "dispersing") {
       const newParticles = Array.from({ length: 100 }).map(() => ({
         x: (Math.random() - 0.5) * 400,
@@ -46,7 +52,8 @@ export default function LandingPage() {
       }));
       setParticles(newParticles);
 
-      const timer = setTimeout(() => setStage("showText"), 800);
+      // 반짝이가 모여드는 시간도 0.8초에서 0.6초로 단축
+      const timer = setTimeout(() => setStage("showText"), 600);
       return () => clearTimeout(timer);
     }
   }, [stage]);
@@ -72,7 +79,6 @@ export default function LandingPage() {
             opacity: { duration: 1 },
             rotateY: { duration: 3.5, ease: [0.3, 1, 0.4, 1] }
           }}
-          onAnimationComplete={() => setStage("dispersing")}
           onClick={() => navigate("/main")}
           className="group relative z-20"
         >
@@ -100,7 +106,6 @@ export default function LandingPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative"
               >
-                {/* 텍스트 주변 잔류 입자들도 별똥별 컬러 적용 */}
                 {[...Array(10)].map((_, i) => (
                   <motion.div
                     key={i}
