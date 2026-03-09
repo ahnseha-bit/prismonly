@@ -2,12 +2,11 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import DDayCounter from "../components/DDayCounter";
 
-// 업데이트 더미 데이터 (최신순으로 위에서부터 작성)
 const UPDATE_LIST = [
-  { id: 1, date: "2026.03.09", content: "부스 참가 정보 및 등급표가 업데이트 되었습니다." },
-  { id: 2, date: "2026.03.08", content: "행사 일정 및 참관객 안내 페이지가 오픈되었습니다." },
-  { id: 3, date: "2026.03.07", content: "티저 사이트가 공개되었습니다." },
-  { id: 4, date: "2026.03.01", content: "온리전 개최가 확정되었습니다." },
+  { id: 1, date: "260309", content: "부스 참가 정보 및 등급표가 업데이트 되었습니다." },
+  { id: 2, date: "260308", content: "행사 일정 및 참관객 안내 페이지가 오픈되었습니다." },
+  { id: 3, date: "260307", content: "티저 사이트가 공개되었습니다." },
+  { id: 4, date: "260301", content: "온리전 개최가 확정되었습니다." },
 ];
 
 export default function MainPage() {
@@ -25,7 +24,7 @@ export default function MainPage() {
           <span className="bg-transparent text-accent-gold px-2.5 py-0.5 text-[10px] md:text-xs rounded-sm tracking-tight font-serif font-light inline-block mb-4 md:mb-5 leading-tight border border-accent-gold">
             Countdown to Prism
           </span>
-          <div className="leading-none font-extralight tracking-tighter text-slate-800 font-metal">
+          <div className="text-6xl md:text-8xl leading-none font-extralight tracking-tighter text-slate-800 font-metal">
             <DDayCounter targetDate="2026-07-04T00:00:00" />
           </div>
         </div>
@@ -41,17 +40,19 @@ export default function MainPage() {
                     </h2>
                   </div>
 
-                  {/* 리스트 영역 (고정된 줄 높이로 점핑 현상 방지) */}
                   <div className="flex flex-col space-y-3">
                     {UPDATE_LIST.slice(0, isExpanded ? UPDATE_LIST.length : 3).map((item) => (
-                      <div key={item.id} className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 body-md">
-                        <span className="text-accent-gold font-bold shrink-0 text-[13px] md:text-[14px]">{item.date}</span>
-                        <span className="text-slate-600 truncate">{item.content}</span>
+                      <div key={item.id} className="flex flex-row items-center gap-3 w-full">
+                        <span className="text-accent-gold font-bold shrink-0 text-[12px] md:text-[13px] tracking-widest font-sans">
+                          {item.date}
+                        </span>
+                        <span className="text-slate-600 truncate text-[13px] md:text-[14px]">
+                          {item.content}
+                        </span>
                       </div>
                     ))}
                   </div>
 
-                  {/* 더보기 버튼 */}
                   {UPDATE_LIST.length > 3 && (
                     <button
                       onClick={() => setIsExpanded(!isExpanded)}
