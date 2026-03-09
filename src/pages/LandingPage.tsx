@@ -62,11 +62,11 @@ export default function LandingPage() {
           <img
             src="/img/logo_900.png"
             alt="Enter to PRISM"
-            className="w-60 md:w-99 transition-transform duration-700 group-hover:scale-105 drop-shadow-2xl"
+            className="w-60 md:w-99 transition-transform duration-700 group-hover:scale-105 drop-shadow-md"
           />
         </motion.button>
 
-        <div className="h-12 mt-8 flex justify-center items-center w-full relative">
+        <div className="h-12 mt-2 flex justify-center items-center w-full relative">
           {stage === "dispersing" && particles.map((p, i) => (
             <MagicParticle key={i} targetX={p.x} targetY={p.y} />
           ))}
