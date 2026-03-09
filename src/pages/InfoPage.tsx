@@ -137,7 +137,7 @@ export default function InfoPage() {
                         </h4>
                         <div className="pl-4 border-l-2 border-accent-gold/30 space-y-2">
                           <p className="body-md">
-                            가능합니다. 단, <strong className="text-slate-700 font-semibold">프리티 리듬 레인보우 라이브</strong> 캐릭터에 한합니다.
+                            <strong className="text-slate-700 font-semibold">프리티 리듬 레인보우 라이브</strong> 캐릭터에 한합니다.
                           </p>
                           <p className="body-sm">
                             그 외의 시리즈 캐릭터 단독으로는 부스 참가가 불가능하며, 킹 오브 프리즘과 레인보우 라이브 캐릭터가 메인인 작품에 조연으로 등장하는 형태만 허용됩니다. <span className="text-accent-gold font-bold ml-2">※ 성인본 불가</span>
