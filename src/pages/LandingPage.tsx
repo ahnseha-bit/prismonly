@@ -16,9 +16,9 @@ const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number 
         scale: [0, 1.5, 0.5]
       }}
       transition={{
-        duration: 1.2,
+        duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
-        delay: Math.random() * 0.5
+        delay: Math.random() * 0.3
       }}
       className="absolute text-white text-[12px] pointer-events-none z-30"
     >
@@ -29,18 +29,18 @@ const MagicParticle = ({ targetX, targetY }: { targetX: number, targetY: number 
 
 export default function LandingPage() {
   const navigate = useNavigate();
-  const [stage, setStage] = useState<"spinning" | "dispersing" | "showBox">("spinning");
+  const [stage, setStage] = useState<"spinning" | "dispersing" | "showText">("spinning");
   const [particles, setParticles] = useState<{ x: number, y: number }[]>([]);
 
   useEffect(() => {
     if (stage === "dispersing") {
-      const newParticles = Array.from({ length: 100 }).map(() => ({
-        x: (Math.random() - 0.5) * 320,
-        y: (Math.random() - 0.5) * 60,
+      const newParticles = Array.from({ length: 80 }).map(() => ({
+        x: (Math.random() - 0.5) * 350,
+        y: (Math.random() - 0.5) * 40,
       }));
       setParticles(newParticles);
 
-      const timer = setTimeout(() => setStage("showBox"), 1500);
+      const timer = setTimeout(() => setStage("showText"), 800);
       return () => clearTimeout(timer);
     }
   }, [stage]);
@@ -72,31 +72,30 @@ export default function LandingPage() {
           ))}
 
           <AnimatePresence>
-            {stage === "showBox" && (
+            {stage === "showText" && (
               <motion.div
-                initial={{ opacity: 0, filter: "blur(20px)", scale: 0.8 }}
+                initial={{ opacity: 0, filter: "blur(15px)", scale: 0.9 }}
                 animate={{
                   opacity: 1,
                   filter: "blur(0px)",
                   scale: 1,
-                  boxShadow: ["0px 0px 40px #fff", "0px 0px 0px #fff"]
                 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="bg-[#bae6fd] px-6 py-2.5 shadow-lg relative rounded-sm"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative"
               >
-                {[...Array(6)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                   <motion.div
                     key={i}
-                    animate={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+                    animate={{ opacity: [0, 1, 0], scale: [0, 1.2, 0] }}
                     transition={{ duration: 1, repeat: Infinity, delay: Math.random() }}
-                    className="absolute text-white text-[10px]"
-                    style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }}
+                    className="absolute text-white text-[12px] pointer-events-none"
+                    style={{ top: `${Math.random() * 100 - 50}%`, left: `${Math.random() * 100}%` }}
                   >
                     ✧
                   </motion.div>
                 ))}
-                <p className="text-[#FF69B4] text-[13px] md:text-[15px] font-black tracking-normal whitespace-nowrap">
-                  킹프리 온리전에 오신 것을 환영합니다~!
+                <p className="text-[#FF69B4] text-[15px] md:text-[18px] font-black tracking-tighter whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
+                  ♥킹프리 온리전에 오신 것을 환영합니다♥
                 </p>
               </motion.div>
             )}
