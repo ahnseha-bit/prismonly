@@ -111,7 +111,7 @@ export default function BoothPage() {
                           <p className="content-label">기본 구성</p>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             <div className="bg-white p-5 rounded-lg border border-accent-gold/30 shadow-sm space-y-3">
-                              <p className="body-lg text-accent-gold">반 부스 <span className="body-sm text-slate-400 font-normal ml-1">40,000원</span></p>
+                              <p className="body-lg text-slate-700">반 부스 <span className="body-sm text-slate-400 font-normal ml-1">40,000원</span></p>
                               <ul className="body-sm space-y-1.5 text-slate-600">
                                 <li>• 무료 입장 1인 / 유료 입장 1인</li>
                                 <li>• 테이블 1개 (두 개의 반 부스가 쉐어)</li>
@@ -119,7 +119,7 @@ export default function BoothPage() {
                               </ul>
                             </div>
                             <div className="bg-white p-5 rounded-lg border border-accent-gold/30 shadow-sm space-y-3">
-                              <p className="body-lg text-accent-gold">한 부스 <span className="body-sm text-slate-400 font-normal ml-1">70,000원</span></p>
+                              <p className="body-lg text-slate-700">한 부스 <span className="body-sm text-slate-400 font-normal ml-1">70,000원</span></p>
                               <ul className="body-sm space-y-1.5 text-slate-600">
                                 <li>• 무료 입장 2인 / 유료 입장 2인</li>
                                 <li>• 테이블 1개</li>
@@ -175,9 +175,7 @@ export default function BoothPage() {
 
                         <section className="space-y-4">
                           <p className="content-label">성인지 기준 등급표</p>
-                          <p className="body-sm md:body-md mb-2">
-                            직접적인 성행위 묘사 외에도 전신 노출이나 잔인한 살해 장면이 나온다면 등급표 기준에 따라 성인물로 분류됩니다.
-                          </p>
+
 
                           {/* 1. 각 항목별 등급 안내 표 (기타 삭제 & 강조 추가 & 골드 테두리) */}
                           <div className="w-full border border-accent-gold/50 rounded-lg shadow-sm overflow-hidden">
@@ -286,7 +284,7 @@ export default function BoothPage() {
                         </section>
 
                         <section className="space-y-4">
-                          <p className="content-label text-rose-500">판매 및 배포 불가 항목</p>
+                          <p className="content-label text-accent-gold">판매 및 배포 불가 항목</p>
                           <ol className="body-md list-decimal list-inside space-y-2 text-slate-700">
                             <li>식음료</li>
                             <li>공식 로고/일러스트 사용 및 혼동될 수 있는 창작물</li>
@@ -295,7 +293,7 @@ export default function BoothPage() {
                             <li>미성년자 캐릭터 등장 성인본 (성인 IF 제외 우회 묘사 불가)</li>
                             <li>교복을 입는 묘사가 나오는 타카다노바바 죠지 성인본</li>
                           </ol>
-                          <p className="body-sm text-rose-500 font-bold pt-2">
+                          <p className="body-sm text-rose-500 pt-2">
                             ※ 적발 시 판매 중지 및 강제 퇴장 조치되며, 참가비는 환불되지 않습니다.
                           </p>
                         </section>
@@ -306,7 +304,7 @@ export default function BoothPage() {
                         <p className="body-md">
                           프리즘 점프에 등장하는 형태의 묘사가 적은 드림주나, '근처에 사는 아저씨', '학생', '알바생' 등 구체적인 설정이 없는 엑스트라 수준의 인물은 지참이 가능합니다.<br />
                           단, <strong className="text-slate-700">상세한 설정이 부여된 오리지널 캐릭터 중심의 드림 회지 발간은 불가</strong>합니다.
-                          <p className="body-sm text-rose-500 font-bold pt-2">
+                          <p className="body-sm text-slate-400 pt-2">
                             ※ 타 시리즈 캐릭터 메인 제한과의 형평성 고려
                           </p>
                         </p>
@@ -318,7 +316,7 @@ export default function BoothPage() {
                     <div className="py-2 space-y-3">
                       <p className="body-sm">
                         행사 참가와 관련된 모든 문의는 아래 메일로 부탁드립니다.<br />
-                        <a href="mailto:prismonlyevent@gmail.com" className="body-md text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
+                        <a href="mailto:prismonlyevent@gmail.com" className="body-md font-bold text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
                       </p>
                     </div>
                   </HoloBox>

@@ -154,7 +154,7 @@ export default function InfoPage() {
                       </p>
                       <p className="body-sm">
                         모든 문의는 아래 메일로 부탁드립니다.<br />
-                        <a href="mailto:prismonlyevent@gmail.com" className="body-md text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
+                        <a href="mailto:prismonlyevent@gmail.com" className="body-md font-bold text-accent-gold hover:underline mt-1 inline-block">prismonlyevent@gmail.com</a>
                       </p>
                     </div>
                   </HoloBox>
