@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import LoadingPage from "../components/LoadingPage";
+import BoothList from "../components/BoothList";
 
 const BOOTH_MENU = [
   { id: "01", label: "참가자 안내" },
@@ -326,19 +327,11 @@ export default function BoothPage() {
               {activeTab === "02" && (
                 <HoloBox>
                   <div className="content-section">
-                    <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em]">
-                      Booth Details <span className="text-sm font-sans font-normal text-slate-400 tracking-normal ml-2">(추후 공개)</span>
+                    <h3 className="text-xl md:text-2xl font-happy font-bold text-slate-800 tracking-[-0.03em] mb-6">
+                      <span className="text-accent-gold mr-2">✧</span> 부스 리스트
                     </h3>
-                    <div className="space-y-4 pt-2">
-                      <p className="body-md">부스 상세 페이지에는 다음 정보가 공개됩니다.</p>
-                      <ul className="body-md list-disc list-inside space-y-2 pl-2">
-                        <li>서클컷 (4cm × 3cm)</li>
-                        <li>부스명</li>
-                        <li>캐릭터와 cp 해시태그 (검색 가능)</li>
-                        <li>참가자 닉네임</li>
-                        <li>부스 소개</li>
-                      </ul>
-                    </div>
+                    {/* 부스 리스트 컴포넌트 호출 */}
+                    <BoothList />
                   </div>
                 </HoloBox>
               )}
