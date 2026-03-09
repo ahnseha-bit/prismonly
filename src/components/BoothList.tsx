@@ -34,7 +34,7 @@ const BOOTH_DATA = [
     { "name": "오버레를 른으로 두기", "members": ["도미(@GolDbreaM2)", "뫄과, 원"] },
     { "name": "오빠 왜 연하세요", "members": ["배스"] },
     { "name": "우가우가 스파이럴", "members": ["폰얼", "nyaronyaro"] },
-    { "name": "울퉁불퉁하다 울퉁불퉁해", "members": ["현운"] },
+    { "name": "울퉁불퉁하다 울퉁불퉁한", "members": ["현운"] },
     { "name": "이지두부스", "members": ["유므"] },
     { "name": "정시출발! 시간엄수! 하려고 새벽에 출발했어요", "members": ["마와비", "루빈"] },
     { "name": "중 2병 치료소", "members": ["에델로즈 청소부", "아리아"] },
@@ -64,19 +64,16 @@ const BOOTH_DATA = [
 
 export default function BoothList() {
     return (
-        <div className="flex flex-col space-y-2.5">
+        <div className="flex flex-col border-t border-accent-gold/20">
             {BOOTH_DATA.map((booth, index) => (
                 <div
                     key={index}
-                    className="bg-white border-b border-accent-gold/20 p-3 flex flex-row items-center justify-between hover:bg-slate-50 transition-colors group"
+                    className="border-b border-accent-gold/10 py-1.5 md:py-2 flex flex-col hover:bg-slate-50 transition-colors"
                 >
-                    {/* 부스명: 줄바꿈 방지(whitespace-nowrap) 및 말줄임표(truncate) */}
-                    <h4 className="text-[12px] md:text-[14px] font-bold text-slate-800 tracking-tight whitespace-nowrap truncate flex-1 pr-4">
+                    <h4 className="text-[13px] md:text-[14px] font-bold text-slate-800 tracking-tight whitespace-nowrap truncate">
                         {booth.name}
                     </h4>
-
-                    {/* 참가자 명단: 오른쪽 정렬 */}
-                    <p className="text-[11px] md:text-[12px] text-slate-400 font-medium tracking-tight whitespace-nowrap shrink-0 group-hover:text-accent-gold">
+                    <p className="text-[10px] md:text-[11px] text-slate-400 font-medium tracking-tight truncate">
                         {booth.members.join(", ")}
                     </p>
                 </div>
