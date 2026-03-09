@@ -18,22 +18,17 @@ const HoloBox = ({ children }: { children: React.ReactNode }) => (
 export default function LinkPage() {
   const linkSections = [
     {
-      title: "Official",
+      title: "공식",
       links: [
         { label: "X (Twitter)", url: "https://x.com/PrismOnly_", value: "@PrismOnly_" },
         { label: "TMM", url: "#", value: "Now Loading…", isDisabled: true },
       ],
     },
     {
-      title: "협력 출력소",
+      title: "협력",
       links: [
-        { label: "아이엔비", url: "https://x.com/inbcopy", value: "@inbcopy" },
-      ],
-    },
-    {
-      title: "협력 인쇄소",
-      links: [
-        { label: "아이코믹스", url: "https://t.co/RBObgysRqo", value: "icomics.co.kr" },
+        { label: "출력소 | 아이엔비", url: "https://x.com/inbcopy", value: "@inbcopy" },
+        { label: "인쇄소 | 아이코믹스", url: "https://t.co/RBObgysRqo", value: "icomics.co.kr" },
       ],
     },
   ];
@@ -46,7 +41,6 @@ export default function LinkPage() {
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center w-full space-y-6 md:space-y-8 mt-4 md:mt-8"
       >
-        {/* Title Section */}
         <div className="w-full max-w-3xl shadow-frame">
           <div className="outer-gold-line">
             <div className="p-[2px] bg-white flex flex-col w-full">
@@ -61,7 +55,6 @@ export default function LinkPage() {
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="w-full max-w-3xl">
           <HoloBox>
             <div className="content-section space-y-10">
