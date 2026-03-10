@@ -4,8 +4,8 @@ import DDayCounter from "../components/DDayCounter";
 
 const UPDATE_LIST = [
   { date: "260309", content: "「몇 번이라도 프리즘!」 웹사이트 공개" },
-  { date: "260309", content: "부스 리스트 업데이트" },
-  { date: "260310", content: "부스 리스트 수정 업데이트" },
+  { date: "260309", content: "부스 리스트 공개" },
+  { date: "260310", content: "부스 리스트 일부 수정 (참가자 정보)" },
 
 ];
 
