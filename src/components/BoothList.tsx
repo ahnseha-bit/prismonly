@@ -31,41 +31,40 @@ const BOOTH_DATA = [
     { "name": "아저씨 프리즘쇼 잘하지..?", "members": ["월화", "카모", "클리"] },
     { "name": "알렉없는알렉오시부스", "members": ["캉칼프"] },
     { "name": "에델로즈경영위기대책위원회", "members": ["결"] },
-    {
-        "name": "오버레를 른으로 두기", "members": ["도미", "뫄과, "원"] },
+    { "name": "오버레를 른으로 두기", "members": ["도미", "뫄과", "원"] },
     { "name": "오빠 왜 연하세요", "members": ["배스"] },
-            { "name": "우가우가 스파이럴", "members": ["폰얼", "nyaronyaro"] },
-            { "name": "울퉁불퉁하다 울퉁불퉁한", "members": ["현운"] },
-            { "name": "이지두부스", "members": ["유므"] },
-            { "name": "정시출발! 시간엄수! 하려고 새벽에 출발했어요", "members": ["마와비", "루빈"] },
-            { "name": "중 2병 치료소", "members": ["에델로즈 청소부", "아리아"] },
-            { "name": "중요한 것은 “기세”", "members": ["김도련", "루이"] },
-            { "name": "진히지하는부스", "members": ["뭐든", "쑥... 쑥 버무리?"] },
-            { "name": "천년전프리즘스타를아십니까", "members": ["チヰ"] },
-            { "name": "카케타이거즈", "members": ["골반"] },
-            { "name": "캬옹이 목욕탕", "members": ["멩", "새빛"] },
-            { "name": "킹은 왼쪽에 있는 편이 아름답다.", "members": ["랸", "랸"] },
-            { "name": "킹을 오른쪽으로 밀어서 잠금해제", "members": ["연시", "리나"] },
-            { "name": "타.이.가.", "members": ["일홍", "분덕"] },
-            { "name": "타이카즈에게 꽃다발을💐", "members": ["김쨘"] },
-            { "name": "타이카즈하자영원히", "members": ["초쵹"] },
-            { "name": "틀딱삼강소", "members": ["Darf"] },
-            { "name": "패왕상룡객잔", "members": ["묘파"] },
-            { "name": "프리즘 마켓", "members": ["실현"] },
-            { "name": "프리즘 사자들이 인간을 사랑해도 합법인가요? ", "members": ["사율"] },
-            { "name": "프리즘쇼절대무리!!엣?무리가 아니었다?!", "members": ["슬기", "CMD"] },
-            { "name": "프리즘스타 노동조합", "members": ["Juu"] },
-            { "name": "프리즘학교 무지개학과 프리즘쇼전공 사무실 ", "members": ["김설예"] },
-            { "name": "플라밍고스카이", "members": ["퓰"] },
-            { "name": "하우스 오브 글로리어스 슈왈츠 (with 삼강 도련님 과거에서 기다릴게)", "members": ["도마🍅", "쫀즈"] },
-            { "name": "환상의 프리즘쇼! 뭔가 보여드리겠습니다!!", "members": ["2ftt", "설이"] },
-            { "name": "휘핑크림많이주세요", "members": ["호집", "🍙"] },
-            { "name": "DMZ (Dear My ZONE)", "members": ["냥"] }
-        ];
+    { "name": "우가우가 스파이럴", "members": ["폰얼", "nyaronyaro"] },
+    { "name": "울퉁불퉁하다 울퉁불퉁한", "members": ["현운"] },
+    { "name": "이지두부스", "members": ["유므"] },
+    { "name": "정시출발! 시간엄수! 하려고 새벽에 출발했어요", "members": ["마와비", "루빈"] },
+    { "name": "중 2병 치료소", "members": ["에델로즈 청소부", "아리아"] },
+    { "name": "중요한 것은 “기세”", "members": ["김도련", "루이"] },
+    { "name": "진히지하는부스", "members": ["뭐든", "쑥... 쑥 버무리?"] },
+    { "name": "천년전프리즘스타를아십니까", "members": ["チヰ"] },
+    { "name": "카케타이거즈", "members": ["골반"] },
+    { "name": "캬옹이 목욕탕", "members": ["멩", "새빛"] },
+    { "name": "킹은 왼쪽에 있는 편이 아름답다.", "members": ["랸", "랸"] },
+    { "name": "킹을 오른쪽으로 밀어서 잠금해제", "members": ["연시", "리나"] },
+    { "name": "타.이.가.", "members": ["일홍", "분덕"] },
+    { "name": "타이카즈에게 꽃다발을💐", "members": ["김쨘"] },
+    { "name": "타이카즈하자영원히", "members": ["초쵹"] },
+    { "name": "틀딱삼강소", "members": ["Darf"] },
+    { "name": "패왕상룡객잔", "members": ["묘파"] },
+    { "name": "프리즘 마켓", "members": ["실현"] },
+    { "name": "프리즘 사자들이 인간을 사랑해도 합법인가요? ", "members": ["사율"] },
+    { "name": "프리즘쇼절대무리!!엣?무리가 아니었다?!", "members": ["슬기", "CMD"] },
+    { "name": "프리즘스타 노동조합", "members": ["Juu"] },
+    { "name": "프리즘학교 무지개학과 프리즘쇼전공 사무실 ", "members": ["김설예"] },
+    { "name": "플라밍고스카이", "members": ["퓰"] },
+    { "name": "하우스 오브 글로리어스 슈왈츠 (with 삼강 도련님 과거에서 기다릴게)", "members": ["도마🍅", "쫀즈"] },
+    { "name": "환상의 프리즘쇼! 뭔가 보여드리겠습니다!!", "members": ["2ftt", "설이"] },
+    { "name": "휘핑크림많이주세요", "members": ["호집", "🍙"] },
+    { "name": "DMZ (Dear My ZONE)", "members": ["냥"] }
+];
 
-        export default function BoothList() {
-        return(
-        <div className = "flex flex-col border-t border-accent-gold/20" >
+export default function BoothList() {
+    return (
+        <div className="flex flex-col border-t border-accent-gold/20" >
             {
                 BOOTH_DATA.map((booth, index) => (
                     <div
