@@ -124,7 +124,7 @@ export default function BoothPage() {
                               <ul className="body-sm space-y-1.5 text-slate-600">
                                 <li>• 무료 입장 2인 / 유료 입장 2인</li>
                                 <li>• 테이블 1개</li>
-                                <li>• 의자 1개 (사전 신청 시 1개 추가 가능 / 3,000원)</li>
+                                <li>• 의자 2개 (사전 신청 시 1개 추가 가능 / 3,000원)</li>
                               </ul>
                             </div>
                           </div>
