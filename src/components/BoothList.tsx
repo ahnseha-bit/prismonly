@@ -57,7 +57,7 @@ const BOOTH_DATA = [
     { "name": "프리즘학교 무지개학과 프리즘쇼전공 사무실 ", "members": ["김설예"] },
     { "name": "플라밍고스카이", "members": ["퓰"] },
     { "name": "하우스 오브 글로리어스 슈왈츠 (with 삼강 도련님 과거에서 기다릴게)", "members": ["도마🍅", "쫀즈"] },
-    { "name": "환상의 프리즘쇼! 뭔가 보여드리겠습니다!!", "members": ["2ftt", "설이"] },
+    { "name": "환상의 프리즘쇼! 뭔가 보여드리겠습니다!!", "members": ["2ftt"] },
     { "name": "휘핑크림많이주세요", "members": ["호집", "🍙"] },
     { "name": "DMZ (Dear My ZONE)", "members": ["냥"] }
 ];
