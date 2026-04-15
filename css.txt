@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에테리얼 벡터 스타 배경</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 세리프 계열 폰트 임포트 */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@300;400;700&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+            /* 폰트를 세리프 계열로 변경 */
+            font-family: 'Lora', 'Noto Serif KR', serif;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* 공지사항 컨테이너 */
+        .notice-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 90%;
+            max-width: 480px;
+        }
+
+        /* 솔리드 하늘색 그림자 베이스 (각진 형태) */
+        .shadow-frame {
+            position: relative;
+            background: #bae6fd;
+            /* 그림자 효과를 위한 오프셋 */
+            transform: translate(-8px, -8px);
+            box-shadow: 8px 8px 0px #bae6fd;
+        }
+
+        /* 얇은 홀로그램 이중 라인 (고정된 그라데이션) */
+        .outer-holo-line {
+            padding: 1px;
+            background: linear-gradient(45deg, #FF85A1, #4CC9FE, #48E19F, #B377FF, #FF85A1);
+        }
+
+        .white-spacer {
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .inner-holo-line {
+            padding: 1px;
+            background: linear-gradient(225deg, #FF85A1, #4CC9FE, #48E19F, #B377FF, #FF85A1);
+        }
+
+        /* 본체 화이트 보드 */
+        .main-board {
+            background: #ffffff;
+            padding: 4rem 2.5rem;
+            text-align: center;
+            border-radius: 0; /* 각진 모서리 */
+        }
+
+        .title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            /* 제목 폰트 색상을 보라색으로 변경 */
+            color: #7c3aed; 
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .content {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 2.1;
+            font-weight: 400;
+        }
+
+        .line-accent {
+            width: 40px;
+            height: 2px;
+            background: #bae6fd;
+            margin: 2rem auto;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            letter-spacing: 0.2em;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="notice-container">
+        <div class="shadow-frame">
+            <div class="outer-holo-line">
+                <div class="white-spacer">
+                    <div class="inner-holo-line">
+                        <div class="main-board">
+                            <h1 class="title">Notice</h1>
+                            <div class="content">
+                                <p>우아한 세리프 폰트와 함께<br>4방향 별빛이 흐르는 화이트 공간입니다.</p>
+                                <div class="line-accent"></div>
+                                <p class="text-slate-400 font-light italic">
+                                    "가장 순수한 바탕 위에서<br>찬란하게 빛나는 홀로그램의 궤적"
+                                </p>
+                            </div>
+                            <div class="footer-text mt-12">DIGITAL ARCHIVE © 2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let stars = [];
+        let shootingStars = [];
+
+        // 선명한 홀로그램 컬러 팔레트
+        const COLORS = ['#FF85A1', '#4CC9FE', '#48E19F', '#B377FF'];
+
+        // --- 벡터 4방향 별 그리기 함수 ---
+        function draw4PointedStar(x, y, size, rotation, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(0, -size); 
+            ctx.quadraticCurveTo(0, 0, size, 0); 
+            ctx.quadraticCurveTo(0, 0, 0, size); 
+            ctx.quadraticCurveTo(0, 0, -size, 0); 
+            ctx.quadraticCurveTo(0, 0, 0, -size); 
+            ctx.fill();
+            ctx.restore();
+        }
+
+        class Star {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 6 + 2;
+                this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.opacity = Math.random() * 0.5 + 0.3;
+                this.blink = 0.005 + Math.random() * 0.012;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.03;
+            }
+            draw() {
+                this.opacity += this.blink;
+                if (this.opacity > 0.9 || this.opacity < 0.2) this.blink *= -1;
+                this.rotation += this.rotSpeed;
+
+                ctx.globalAlpha = Math.max(0, this.opacity);
+                draw4PointedStar(this.x, this.y, this.size, this.rotation, this.color);
+            }
+        }
+
+        class ShootingStar {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * width + 200;
+                this.y = Math.random() * height * 0.2 - 200;
+                this.len = Math.random() * 100 + 200;
+                this.speed = Math.random() * 2 + 6;
+                this.opacity = 1;
+                this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.headThickness = 4; 
+            }
+            draw() {
+                const grad = ctx.createLinearGradient(this.x, this.y, this.x + this.len, this.y - this.len);
+                grad.addColorStop(0, this.color);
+                grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = grad;
+
+                const offset = this.headThickness / 2;
+                
+                ctx.beginPath();
+                ctx.moveTo(this.x + offset, this.y + offset);
+                ctx.lineTo(this.x - offset, this.y - offset);
+                ctx.lineTo(this.x + this.len, this.y - this.len);
+                ctx.closePath();
+                ctx.fill();
+                
+                draw4PointedStar(this.x, this.y, 8, this.x * 0.03, this.color);
+                ctx.restore();
+
+                this.x -= this.speed;
+                this.y += this.speed;
+                this.opacity -= 0.005;
+                
+                return this.opacity > 0;
+            }
+        }
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            stars = Array.from({ length: 70 }, () => new Star());
+        }
+
+        function spawn() {
+            if (shootingStars.length < 3) shootingStars.push(new ShootingStar());
+            setTimeout(spawn, Math.random() * 3000 + 1500);
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            stars.forEach(s => s.draw());
+            shootingStars = shootingStars.filter(ss => ss.draw());
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init(); spawn(); animate();
+    </script>
+</body>
+</html>
