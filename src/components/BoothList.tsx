@@ -83,7 +83,7 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                         </div>
                         <button
                             onClick={() => (booth.id)}
-                            className="ml-2 flex-shrink-0 transition-transform hover:scale-110 active:scale-95"
+                            className="ml-2 flex-shrink-0 transition-transform hover:scale-110 active:scale-95 relative z-10"
                             title={isBookmarked ? "북마크 해제" : "북마크 추가"}
                         >
                             <Star className={`w-6 h-6 transition-colors ${isBookmarked ? 'text-yellow-400 fill-yellow-400' : 'text-slate-300'}`} />
