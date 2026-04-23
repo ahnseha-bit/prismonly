@@ -354,7 +354,7 @@ export const BOOTH_DATA: Booth[] = [
     id: '035',
     location: 'N00',
     name: "하우스 오브 글로리어스 슈왈츠 (with 삼강 도련님 과거에서 기다릴게)",
-    keywords: "죠진♡ 슈왈츠로즈,삼강,사자,샤인, 린네,쥬네",
+    keywords: "죠진♡ 슈왈츠로즈 삼강 트리움비라투스",
     description: "슈왈츠로즈가 진행하는 집사 이벤트에 나타난 삼강도련님",
     members: [{ "nickname": "도마🍅", "twitter": "@ffse_" }, { "nickname": "쫀즈" }],
     isAdult: false,
