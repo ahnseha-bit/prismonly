@@ -101,14 +101,7 @@ export default function BoothList() {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOption, setSortOption] = useState<SortOption>("id");
     const [currentPage, setCurrentPage] = useState(1);
-    const [bookmarkedIds, setBookmarkedIds] = useState<Set<string | number>>(() => {
-    try {
-        const saved = localStorage.getItem('prism_bookmarks');
-        return saved ? new Set(JSON.parse(saved)) : new Set();
-    } catch {
-        return new Set();
-    }
-});
+    const [bookmarkedIds, setBookmarkedIds] = useState<Set<string | number>>(new Set());
     const [showOnlyBookmarked, setShowOnlyBookmarked] = useState(false);
     const itemsPerPage = 12;
 
@@ -123,8 +116,15 @@ export default function BoothList() {
             window.scrollTo({ top, behavior: "smooth" });
         }
     }, [currentPage]);
-
-   const toggleBookmark = (id: string | number) => {
+    
+    useEffect(() => {
+    try {
+        const saved = localStorage.getItem('prism_bookmarks');
+        if (saved) setBookmarkedIds(new Set(JSON.parse(saved)));
+    } catch {}
+}, []);
+    
+const toggleBookmark = (id: string | number) => {
     setBookmarkedIds(prev => {
         const next = new Set(prev);
         if (next.has(id)) next.delete(id);
