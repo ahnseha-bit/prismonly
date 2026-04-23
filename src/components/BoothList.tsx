@@ -82,7 +82,7 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                             })}
                         </div>
                         <button
-                            onClick={() => toggleBookmark(booth.id)}
+                            onClick={() => (booth.id)}
                             className="ml-2 flex-shrink-0 transition-transform hover:scale-110 active:scale-95"
                             title={isBookmarked ? "북마크 해제" : "북마크 추가"}
                         >
@@ -124,14 +124,17 @@ export default function BoothList() {
         }
     }, [currentPage]);
 
-    const toggleBookmark = (id: string | number) => {
-        setBookmarkedIds(prev => {
-            const next = new Set(prev);
-            if (next.has(id)) next.delete(id);
-            else next.add(id);
-            return next;
-        });
-    };
+   const toggleBookmark = (id: string | number) => {
+    setBookmarkedIds(prev => {
+        const next = new Set(prev);
+        if (next.has(id)) next.delete(id);
+        else next.add(id);
+        try {
+            localStorage.setItem('prism_bookmarks', JSON.stringify(Array.from(next)));
+        } catch {}
+        return next;
+    });
+};
 
     const filteredAndSortedBooths = useMemo(() => {
         let result = BOOTH_DATA.filter((booth) => {
