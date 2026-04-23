@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Search, ChevronLeft, ChevronRight, X, ArrowUpDown, Star, ChevronDown, Twitter } from "lucide-react";
 import { BOOTH_DATA, Booth } from "../data/boothData";
 
@@ -96,12 +96,26 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
 };
 
 export default function BoothList() {
+    const listRef = useRef<HTMLDivElement>(null);
+    const isFirstRender = useRef(true);
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOption, setSortOption] = useState<SortOption>("id");
     const [currentPage, setCurrentPage] = useState(1);
     const [bookmarkedIds, setBookmarkedIds] = useState<Set<string | number>>(new Set());
     const [showOnlyBookmarked, setShowOnlyBookmarked] = useState(false);
     const itemsPerPage = 12;
+
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+        
+        if (listRef.current) {
+            const top = listRef.current.getBoundingClientRect().top + window.scrollY - 100; // 상단 여백 100px 확보
+            window.scrollTo({ top, behavior: "smooth" });
+        }
+    }, [currentPage]);
 
     const toggleBookmark = (id: string | number) => {
         setBookmarkedIds(prev => {
@@ -150,13 +164,13 @@ export default function BoothList() {
     };
 
     return (
-        <div className="flex flex-col gap-6 font-sans">
+        <div className="flex flex-col gap-6 font-sans" ref={listRef}>
             <div className="flex flex-col md:flex-row gap-3 justify-between items-center bg-white p-4 rounded-xl border border-accent-gold/20 shadow-sm shadow-[rgba(202,154,80,0.1)]">
                 <div className="relative w-full md:w-[350px] flex-shrink-0">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                     <input
                         type="text"
-                        placeholder="이름, 위치, 키워드, 내용 등 검색..."
+                        placeholder="부스명, 닉네임, 키워드 등 검색"
                         value={searchTerm}
                         onChange={handleSearchChange}
                         className="w-full pl-9 pr-8 py-2.5 border border-slate-200 rounded-lg focus:outline-none text-sm"
