@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
 
 @font-face {
@@ -14,8 +15,6 @@
   font-weight: normal;
   font-display: swap;
 }
-
-@import "tailwindcss";
 
 @theme {
   --font-happy: "Happy Time", serif;
