@@ -57,7 +57,7 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                             {booth.members.map((member, idx) => {
                                 const className = "bg-accent-gold text-white px-2.5 py-1 rounded-[2px] text-[11px] md:text-xs font-bold font-sans inline-flex items-center gap-1";
                                 return member.twitter ? (
-                                    
+                                    <a
                                         key={idx}
                                         href={`https://twitter.com/${member.twitter}`}
                                         target="_blank"
