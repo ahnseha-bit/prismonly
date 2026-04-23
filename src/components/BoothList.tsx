@@ -101,7 +101,14 @@ export default function BoothList() {
     const [searchTerm, setSearchTerm] = useState("");
     const [sortOption, setSortOption] = useState<SortOption>("id");
     const [currentPage, setCurrentPage] = useState(1);
-    const [bookmarkedIds, setBookmarkedIds] = useState<Set<string | number>>(new Set());
+    const [bookmarkedIds, setBookmarkedIds] = useState<Set<string | number>>(() => {
+    try {
+        const saved = localStorage.getItem('prism_bookmarks');
+        return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+        return new Set();
+    }
+});
     const [showOnlyBookmarked, setShowOnlyBookmarked] = useState(false);
     const itemsPerPage = 12;
 
