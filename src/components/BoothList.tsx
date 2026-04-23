@@ -16,7 +16,6 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
 
     return (
         <div className="w-full bg-white border border-accent-gold/60 p-4 md:p-5 rounded-lg shadow-sm mb-4 flex flex-col">
-            {/* 1층 / 상단 레이어: (부스위치) 부스명 */}
             <div className="mb-4">
                 <h3 className="text-lg font-bold text-slate-800 flex flex-wrap items-center gap-x-1.5 w-full whitespace-normal break-keep">
                     {showLocation && (
@@ -26,9 +25,7 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                 </h3>
             </div>
 
-            {/* 하단 레이어: PC 가로 배치, 모바일 세로 배치 */}
             <div className="flex flex-col md:flex-row gap-4 md:gap-6 flex-1">
-                {/* 2층 / 좌측: 부스 이미지 */}
                 <div className="w-full md:w-[300px] shrink-0 bg-slate-100 rounded-lg overflow-hidden border border-slate-100/50 relative aspect-[4/3]">
                     <img
                         src={`/img/booth/${booth.id}.png`}
@@ -41,9 +38,7 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                     />
                 </div>
 
-                {/* 우측 정보 영역 (모바일 3,4,5층) */}
                 <div className="flex flex-col flex-1 min-w-0">
-                    {/* 3층 / 상단: 키워드 */}
                     {(booth.keywords || booth.isAdult) && (
                         <div className="mb-2.5 text-[13px] md:text-[14px] font-medium text-accent-gold">
                             {booth.isAdult && (
@@ -53,18 +48,16 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                         </div>
                     )}
 
-                    {/* 4층 / 중단: 부스 설명 */}
                     <div className="text-[13px] md:text-[14px] text-slate-600 leading-relaxed whitespace-pre-wrap">
                         {booth.description}
                     </div>
 
-                    {/* 5층 / 하단 끝: 참가자 목록 & 북마크 */}
                     <div className="mt-auto pt-6 w-full flex justify-between items-center">
                         <div className="flex flex-wrap items-center gap-2">
                             {booth.members.map((member, idx) => {
                                 const className = "bg-accent-gold text-white px-2.5 py-1 rounded-[2px] text-[11px] md:text-xs font-bold font-sans inline-flex items-center gap-1";
                                 return member.twitter ? (
-                                    <a
+                                    
                                         key={idx}
                                         href={`https://twitter.com/${member.twitter}`}
                                         target="_blank"
@@ -82,8 +75,8 @@ const BoothCard: React.FC<BoothCardProps> = ({ booth, isBookmarked, toggleBookma
                             })}
                         </div>
                         <button
-                            onClick={() => (booth.id)}
-                            className="ml-2 flex-shrink-0 transition-transform hover:scale-110 active:scale-95 relative z-10"
+                            onClick={() => toggleBookmark(booth.id)}
+                            className="ml-2 flex-shrink-0 transition-transform hover:scale-110 active:scale-95"
                             title={isBookmarked ? "북마크 해제" : "북마크 추가"}
                         >
                             <Star className={`w-6 h-6 transition-colors ${isBookmarked ? 'text-yellow-400 fill-yellow-400' : 'text-slate-300'}`} />
@@ -110,31 +103,30 @@ export default function BoothList() {
             isFirstRender.current = false;
             return;
         }
-        
         if (listRef.current) {
-            const top = listRef.current.getBoundingClientRect().top + window.scrollY - 100; // 상단 여백 100px 확보
+            const top = listRef.current.getBoundingClientRect().top + window.scrollY - 100;
             window.scrollTo({ top, behavior: "smooth" });
         }
     }, [currentPage]);
-    
+
     useEffect(() => {
-    try {
-        const saved = localStorage.getItem('prism_bookmarks');
-        if (saved) setBookmarkedIds(new Set(JSON.parse(saved)));
-    } catch {}
-}, []);
-    
-const toggleBookmark = (id: string | number) => {
-    setBookmarkedIds(prev => {
-        const next = new Set(prev);
-        if (next.has(id)) next.delete(id);
-        else next.add(id);
         try {
-            localStorage.setItem('prism_bookmarks', JSON.stringify(Array.from(next)));
+            const saved = localStorage.getItem('prism_bookmarks');
+            if (saved) setBookmarkedIds(new Set(JSON.parse(saved)));
         } catch {}
-        return next;
-    });
-};
+    }, []);
+
+    const toggleBookmark = (id: string | number) => {
+        setBookmarkedIds(prev => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            try {
+                localStorage.setItem('prism_bookmarks', JSON.stringify(Array.from(next)));
+            } catch {}
+            return next;
+        });
+    };
 
     const filteredAndSortedBooths = useMemo(() => {
         let result = BOOTH_DATA.filter((booth) => {
